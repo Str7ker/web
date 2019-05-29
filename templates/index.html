@@ -21,12 +21,13 @@
                 <div class="collapse navbar-collapse hidden-xs">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="#jump0">Главная</a></li>
-                        <li><a href="#jump1">Услуги</a></li>
+                        <li><a href="#jump1">Грузоперевозки</a></li>
                         <li><a href="#jump2">На карте</a></li>
-                        <li><a href="#jump3">Грузы</a></li>
+                        <li><a href="#jump3">Как мы работаем</a></li>
                         <li><a href="#jump4">Партнёры</a></li>
+                        <li><a href="#jump5">Мы предоставим</a></li>
                         <li><a href="#jump6">Оставить заявку</a></li>
-                        <li style="background-color: #919191;"><a style="color: #ffffff !important;" href="#jump5">Личный
+                        <li style="background-color: #919191;"><a style="color: #ffffff !important;" href="#jump7">Личный
                             кабинет</a></li>
                     </ul>
                 </div>
@@ -37,16 +38,18 @@
                                               data-target=".navbar-responsive-collapse">
                             Главная</a></li>
                         <li><a href="#jump1" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                            Услуги</a></li>
+                            Грузоперевозки</a></li>
                         <li><a href="#jump2" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                             На карте</a></li>
                         <li><a href="#jump3" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                            Грузы</a></li>
+                            Как мы работаем</a></li>
                         <li><a href="#jump4" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                             Партнёры</a></li>
+                        <li><a href="#jump5" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            Мы предоставим</a></li>
                         <li><a href="#jump6" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                             Оставить заявку</a></li>
-                        <li style="background-color: #919191;"><a style="color: #ffffff !important;" href="#jump5"
+                        <li style="background-color: #919191;"><a style="color: #ffffff !important;" href="#jump7"
                                                                   data-toggle="collapse"
                                                                   data-target=".navbar-responsive-collapse">
                             Личный кабинет</a></li>
@@ -61,28 +64,97 @@
     <div class="section type-1 big splash">
         <div class="splash-cover">
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <div class="splash-block">
                 <div class="centered">
-                    <div class="container">
-                        <div class="section-headlines">
-                            <h1>
-                                Транспортная компания <br> ООО «Ресурс-Логистика»</h1>
-                            <p style="padding: 20px 0;">
-                                Грузоперевозки любого типа по РФ и СНГ</p>
+                    <div class="row">
+                        <div class="col-md-6 logo">
+                            <img height="208px" src="{% static 'img/resurs.png' %}" alt=""/></a>
                         </div>
-                        <div style="text-align: center;">
-                            <a href="#jump2">
-                                <button type="button" class="btn btn-outline-light btn-lg button_main">Мы на карте
-                                </button>
-                            </a>
-                            <a href="#jump6">
-                                <button type="button" class="btn btn-outline-light btn-lg button_main">Оставить заявку
-                                </button>
-                            </a>
+                        <div class="col-md-6 company contact2">
+                            <p><i class="fas fa-phone"></i>Номер телефона: <span>79123456789</span></p>
+                            <p><i class="fas fa-envelope"></i>Электронная почта: <span> res@yandex.ru</span></p>
+                            <p><i class="fas fa-map-marker-alt"></i>Наш адрес: <span> ул. 40 Лет Победы, 65</span></p>
+                            <p><i class="fab fa-vk"></i>Группа ВКонтакте: <span><a href="https://vk.com">Ресурс-Логистика </a> </span>
+                            </p>
+                            <p><i class="fab fa-instagram"></i>Инстаграм: <span> <a href="https://instagram.com">Ресурс-Логистика </a></span>
+                            </p>
                         </div>
                     </div>
-                </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6">
+ <div class="counter">
+ <div class="counter-content">
+ <div class="counter-icon">
+ <i class="fa fa-globe"></i>
+ </div>
+ <h3>Web Designing</h3>
+ <span class="counter-value">1245</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="col-md-3 col-sm-6">
+ <div class="counter green">
+ <div class="counter-content">
+ <div class="counter-icon">
+ <i class="fa fa-users"></i>
+ </div>
+ <h3>Web Development</h3>
+ <span class="counter-value">1327</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="col-md-3 col-sm-6">
+ <div class="counter blue">
+ <div class="counter-content">
+ <div class="counter-icon">
+ <i class="fa fa-briefcase"></i>
+ </div>
+ <h3>Brand Building</h3>
+ <span class="counter-value">1589</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="col-md-3 col-sm-6">
+ <div class="counter orange">
+ <div class="counter-content">
+ <div class="counter-icon">
+ <i class="fa fa-mobile"></i>
+ </div>
+ <h3>Responsive Design</h3>
+ <span class="counter-value">1710</span>
+ </div>
+ </div>
+ </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Ромб 4
+                            </div>
+                            <div class="col-md-6">
+                                Ромб 5
+                            </div>
+                        </div>
+{#                        <div class="section-headlines">#}
+{#                            <h1>#}
+{#                                Транспортная компания <br> ООО «Ресурс-Логистика»</h1>#}
+{#                            <p style="padding: 20px 0;">#}
+{#                                Грузоперевозки любого типа по РФ, СНГ и Европе</p>#}
+{#                        </div>#}
+{#                        <div style="text-align: center; ">#}
+{#                            <a href="#jump2">#}
+{#                                <button type="button" class="btn btn-outline-light btn-lg button_main">Мы на карте#}
+{#                                </button>#}
+{#                            </a>#}
+{#                            <a href="#jump6">#}
+{#                                <button type="button" class="btn btn-outline-light btn-lg button_main">Оставить заявку#}
+{#                                </button>#}
+{#                            </a>#}
+{#                        </div>#}
+                    </div>
             </div>
         </div>
     </div>
@@ -98,23 +170,23 @@
                                     we make difficult things easy, but never take anything lightly.
                                 </div> -->
             </div>
-            <div class="row gruz">
+            <div class="row gruz wow pulse">
                 <div class="col-md-4 col-12 card" style="width: 18rem;">
-                    <img class="card-img-top" src="{% static 'img/services/car2.jpg' %}" alt="Card image cap">
+                    <img class="card-img-top" src="{% static 'img/services/car1.jpg' %}" alt="Card image cap">
                     <div class="card-body">
                         <h1 class="card-title">По России</h1>
                         <p class="card-text">Доставка груза по России в любой город или населённый пункт. Только профессиональные перевозчики с большим опытом работы. Быстрый расчет вашей заявки и гарантированная надежность.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-12 card" style="width: 18rem;">
-                    <img class="card-img-top" src="{% static 'img/services/2.jpg' %}" alt="Card image cap">
+                    <img class="card-img-top" src="{% static 'img/services/car2.jpg' %}" alt="Card image cap">
                     <div class="card-body">
                         <h1 class="card-title">По СНГ</h1>
                         <p class="card-text">Доставка любых грузов в СНГ и страны ближнего зарубежья в кратчайшие сроки. Огромный опыт работы в данном направлении позволяет нам решать задачи любой сложности с гарантией доведения до результата.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-12 card" style="width: 18rem;">
-                    <img class="card-img-top" src="{% static 'img/services/2.jpg' %}" alt="Card image cap">
+                    <img class="card-img-top" src="{% static 'img/services/car3.jpg' %}" alt="Card image cap">
                     <div class="card-body">
                         <h1 class="card-title">По Европе</h1>
                         <p class="card-text">Грузоперевозки в Европейские страны стала доступнее. Максимально быстро произведем расчет стоимости, подготовим пакет документов и застрахуем ваш груз. Сотни постоянных Клиентов уже убедились в надежности.</p>
@@ -134,34 +206,58 @@
     <div id="jump3" class="jumper">
     </div>
     <div class="section type-2">
-        <div class="container">
+        <div class="container-fluid">
             <div class="section-headlines">
                 <h4>
-                    Какие грузы мы возим</h4>
-                <!--                 <h2>
-                                    Our Pricing Packages</h2>
-                                <div>
-                                    There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have suffered alteration in some form, by injected humour, or randomised words which
-                                    don't look even slightly believable.
-                                </div> -->
+                    Как мы работаем</h4>
             </div>
-            <div class="uslugi row">
-                <div class="col-md-3">
-                    <img src="{% static 'img/services/4.jpg' %}" class="img-circle" height="" alt=""/> <br>
-                    <h3>Строительные материалы</h3>
+            <div class="uslugi row wow pulse">
+                <div class="col-md-4 col-12">
+                    <div class="pricingTable ">
+                        <div class="pricingTable-header">
+                            <span><img src="{% static 'img/num/1.png' %}" alt=""/></span>
+                        </div>
+                        <div class="price-value">
+ <span class="amount">
+ Заявка
+ </span>
+                        </div>
+                        <p class="pricing-content">
+                           Введите ключевые данные для произведения расчета стоимости доставки на сайте. Заявка тут же попадёт к менеджеру, который подготовит максимально подробную информацию и сделает расчет стоимости. При возникновении дополнительных вопросов мы свяжемся с вами. Мы не пишем стоимость перевозки на сайте, потому что на неё влияет множество факторов. Наш сотрудник произведет необходимые расчеты чтобы не вводить вас в заблуждение.  Заполнение формы на сайте ни к чему вас не обязывает, а все данные надежно хранятся.
+                        </p>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <img src="{% static 'img/services/5.jpg' %}" class="img-circle" height="" alt=""/> <br>
-                    <h3>Продукты питания</h3>
+
+                <div class="snippet col-md-4 col-12">
+                    <div class="pricingTable">
+                        <div class="pricingTable-header">
+                            <span><img src="{% static 'img/num/2.png' %}" alt=""/></span>
+                        </div>
+                        <div class="price-value">
+ <span class="amount">
+Договор
+ </span>
+                        </div>
+                        <p class="pricing-content">
+                            Заключение договора происходит в течение нескольких часов после вашего согласия. Мы с радостью ответим на все возникшие вопросы и проконсультируем по поводу любых нюансов. Помимо этого, наши юристы проверят все детали, чтобы не осталось ни одного подводного камня. Договор заключается как с юридическими так и с физическими лицами по желанию Заказчика. Мы ценим каждого, кто обратился в нашу компанию, и готовы согласовать правки в договоре оказания услуг грузоперевозки.
+                        </p>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <img src="{% static 'img/services/6.jpg' %}" class="img-circle" height="" alt=""/> <br>
-                    <h3>Спецтехника</h3>
-                </div>
-                <div class="col-md-3">
-                    <img src="{% static 'img/services/7.jpg' %}" class="img-circle" height="" alt=""/> <br>
-                    <h3>Прочие товары</h3>
+
+                <div class="col-md-4 col-12">
+                    <div class="pricingTable">
+                        <div class="pricingTable-header">
+                            <span><img src="{% static 'img/num/3.png' %}" alt=""/></span>
+                        </div>
+                        <div class="price-value">
+ <span class="amount">
+Доставка
+ </span>
+                        </div>
+                        <p class="pricing-content">
+                            В оговоренные сроки мы производим доставку груза, информируя вас о всех передвижениях и решая возникшие проблемы при погрузке/разгрузке. В случае необходимости предоставим все закрывающие документы для отчетности. Вы всегда можете обратиться к личному менеджеру по любому вопросу. После успешной доставки грузка мы будем рады получить обратную связь чтобы улучшить наш сервис или получить положительный опыт работы с нами. Это поможет другим Заказчикам определиться с выбором и избежать трудностей с выбором перевозчика.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -180,45 +276,107 @@
                                     of a page when looking at its layout.
                                 </div> -->
             </div>
-            <div class="uslugi row">
-                <div class="col-md-3">
-                    <img src="{% static 'img/partners/1.jpg' %}" alt=""/>
+            <div class="part wow pulse">
+            <div class="row partners">
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/partners/1.png' %}" alt=""/>
                 </div>
-                <div class="col-md-3">
-                    <img src="{% static 'img/partners/2.jpg' %}" alt=""/>
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/partners/2.png' %}" alt=""/>
                 </div>
-                <div class="col-md-3">
-                    <img src="{% static 'img/partners/3.jpg' %}" alt=""/>
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/partners/3.png' %}" alt=""/>
                 </div>
-                <div class="col-md-3">
-                    <img src="{% static 'img/partners/4.jpg' %}" alt=""/>
+            </div>
+            <div class="row partners">
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/partners/4.png' %}" alt=""/>
                 </div>
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/partners/5.png' %}" alt=""/>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/partners/6.png' %}" alt=""/>
+                </div>
+            </div>
+            <div class="row partners">
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/partners/7.png' %}" alt=""/>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/partners/8.png' %}" alt=""/>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/partners/9.png' %}" alt=""/>
+                </div>
+            </div>
             </div>
         </div>
     </div>
     </div>
-    <!-- <div id="jump5" class="jumper">
+    <div id="jump5" class="jumper">
     </div>
     <div class="section type-2">
-        <div class="container">
+        <div class="container wow pulse">
             <div class="section-headlines">
                 <h4>
-                    Testimonials</h4>
-                <h2>
-                    Read our clients talking about us!</h2>
-                <div>
-                    We worked on digital strategies for 200 brands worldwide.
+                    Мы предоставим</h4>
+            </div>
+<div class="pred">
+            <div class="row predost">
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/pred/1.png' %}" alt=""/>
+                    <p>1200 единиц техники по всей
+географии страны</p>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/pred/2.png' %}" alt=""/>
+                    <p>Контроль хода выполнения перевозки
+на всех этапах с оповещением заказчика
+о местоположении</p>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/pred/3.png' %}" alt=""/>
+                    <p>Опытный персональный менеджер
+на связи круглосуточно
+365 дней в году</p>
                 </div>
             </div>
-            <div id="carousel-testimonial" class="carousel slide bs-docs-carousel-example">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-testimonial" data-slide-to="0" class=""></li>
-                    <li data-target="#carousel-testimonial" data-slide-to="1" class=""></li>
-                    <li data-target="#carousel-testimonial" data-slide-to="2" class=""></li>
-                </ol>
+            <div class="row predost">
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/pred/4.png' %}" alt=""/>
+                    <p>Проверку и подготовку надлежащего
+пакета документов</p>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/pred/5.png' %}" alt=""/>
+                    <p>Страхование груза за наш счёт</p>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/pred/6.png' %}" alt=""/>
+                    <p>Опыт решения нестандартных
+ситуаций</p>
+                </div>
+            </div>
+            <div class="row predost">
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/pred/7.png' %}" alt=""/>
+                    <p>Все бухгалтерские выписки
+по вашему требованию</p>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/pred/8.png' %}" alt=""/>
+                    <p>Отсрочку платежа</p>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="{% static 'img/pred/9.png' %}" alt=""/>
+                    <p>Любую форму оплаты</p>
+                </div>
+            </div>
             </div>
         </div>
-    </div> -->
+        </div>
+    </div>
     <div id="jump6" class="jumper">
     </div>
     <div class="section type-1 section-contact">
@@ -226,8 +384,12 @@
             <div class="section-headlines" style="margin-bottom: 0px;">
                 <h4>
                     Оставить заявку</h4>
-                <!--                <h2>-->
-                <!--                Оставьте заявку чтобы связаться с нами!</h2>-->
+                 <h5>
+                За 8 лет работы мы построили эффективную систему логистики полного цикла, которая гарантированно позволяет Вам избежать любых трудностей в перевозке грузов.
+                     <br>
+
+“Ваши проблемы- это наши проблемы”, устраивайтесь поудобнее, мы всё берём на себя.
+                 </h5>
             </div>
             <form>
                 <div class="row">
