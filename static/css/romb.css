@@ -33,7 +33,6 @@
 .counter:after{
  height: 80px;
  width: 80px;
- border-radius: 0;
  border: 5px solid var(--white);
  background-color: transparent;
  top: 81%;

@@ -4,13 +4,35 @@
 
 /*Кнопки на главной*/
 .logo {
-  text-align: center;
-
+    text-align: center;
+    padding: 40px 0;
+        background: rgba(255,255,255, 0.4);
 }
 .company {
   background: rgba(0, 0, 0, .3);
       width: 100%;
     height: 100%;
+}
+/*.row.rombs {*/
+/*  padding: 0px 20%;*/
+/*}*/
+.rombs h3 {
+  font-family: 'Didact Gothic', sans-serif;
+}
+.rombs span {
+  font-family: 'Didact Gothic', sans-serif;
+}
+.romb1,.romb3 {
+      background: rgba(241, 146, 52, 0.8);
+}
+.romb2 {
+  background: rgba(241, 146, 52, 0.9);
+}
+.romb4 {
+   background: rgba(241, 146, 52, 0.9);
+}
+.romb5 {
+   background: rgba(241, 146, 52, 0.9);
 }
 .btn.btn-outline-light.btn-lg.button_main {
   padding: 10px 16px;
@@ -651,7 +673,7 @@ label {
   top: 0;
   position: absolute;
   z-index: 2;
-  opacity: 0.85;
+  opacity: 0.05;
   filter: alpha(opacity=85);
 }
 .splash-block {
