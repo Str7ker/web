@@ -5,6 +5,18 @@
  --bg_color3: #1298B3;
  --bg_color4: #FD7C05;
 }
+@media (min-width: 300px) and (max-width: 700px) {
+ .counter{
+ color: var(--white);
+ font-family: 'Titillium Web', sans-serif;
+ text-align: center;
+ width: 210px;
+ padding: 25px 20px 25px;
+ margin: 0 auto;
+ position: relative;
+ z-index: 1;
+}
+}
 .counter{
  color: var(--white);
  font-family: 'Titillium Web', sans-serif;
@@ -56,6 +68,7 @@
  letter-spacing: 1px;
  text-transform: capitalize;
  margin: 0 0 55px 0;
+     color: white;
 }
 .counter .counter-value{
  font-size: 23px;
