@@ -1,0 +1,21 @@
+{% load static %}
+<aside class="section type-2" style="padding: 20px">
+{#    Секция с ромбами для моб устройств#}
+    <section class="container mobile">
+        {#        Ромбики для моб устройств#}
+        {% include "modules/aside/section/shipping/name_num.html" %}
+        {% include "modules/aside/section/shipping/romb_mobile.html" %}
+    </section>
+</aside>
+<div id="jump1" class="jumper">
+</div>
+<aside class="section type-2">
+{#    Секция с наименованием грузоперевозок#}
+    <section class="container">
+        {#        Название заголовка #}
+        {% include "modules/aside/section/shipping/name_gruz.html" %}
+        <div class="row gruz wow pulse">
+            {% include "modules/aside/section/shipping/cars.html" %}
+        </div>
+    </section>
+</aside>

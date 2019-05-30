@@ -1,0 +1,20 @@
+{#Главная секция#}
+<aside class="section type-1 section-contact">
+    <section class="container">
+{#        Заголовок и подзаголовок#}
+{% include "modules/aside/section/request/name_req.html" %}
+{#        Главная форма#}
+        <form>
+            <div class="row">
+{#                Отправить заявку#}
+                <div class="col-md-6 send">
+{% include "modules/aside/section/request/sendreq.html" %}
+                </div>
+{#                Контакты#}
+                <div class="col-md-6 contact">
+{% include "modules/aside/section/request/contact.html" %}
+                </div>
+            </div>
+        </form>
+    </section>
+</aside>
