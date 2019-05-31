@@ -1,36 +1,15 @@
+{% for romb in rombs %}
+
 {#Ромб 1#}
 <div class="col-md-4 romb1 col-12">
     <div class="counter orange">
         <div class="counter-content">
             <div class="counter-icon">
-                <i class="fa fa-globe"></i>
+                <i class="{{ romb.ico }}"></i>
             </div>
-            <h3>Направлений</h3>
-            <span class="counter-value">1033</span>
+            <h3>{{ romb.text }}</h3>
+            <span class="counter-value">{{ romb.numbers }}</span>
         </div>
     </div>
 </div>
-{#Ромб 2#}
-<div class="col-md-4 romb2 col-12">
-    <div class="counter orange">
-        <div class="counter-content">
-            <div class="counter-icon">
-                <i class="fa fa-users"></i>
-            </div>
-            <h3>Постоянных Клиентов</h3>
-            <span class="counter-value">328</span>
-        </div>
-    </div>
-</div>
-{#Ромб 3#}
-<div class="col-md-4 romb3 col-12">
-    <div class="counter orange">
-        <div class="counter-content">
-            <div class="counter-icon">
-                <i class="fa fa-briefcase"></i>
-            </div>
-            <h3>Лет Опыта</h3>
-            <span class="counter-value">12</span>
-        </div>
-    </div>
-</div>
+{% endfor %}

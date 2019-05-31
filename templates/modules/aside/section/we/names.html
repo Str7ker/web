@@ -1,70 +1,12 @@
 {% load static %}
 {#Секция с услугами#}
 <section class="row predost">
+    {% for pred in preds %}
     <article class="col-md-4 col-12">
-        <img src="{% static 'img/pred/1.png' %}" alt=""/>
+        <img src="{% static pred.img %}" alt=""/>
         <p>
-            1200 единиц техники по всей
-            географии страны
+            {{  pred.text }}
         </p>
     </article>
-    <article class="col-md-4 col-12">
-        <img src="{% static 'img/pred/2.png' %}" alt=""/>
-        <p>
-            Контроль хода выполнения перевозки
-            на всех этапах с оповещением заказчика
-            о местоположении
-        </p>
-    </article>
-    <article class="col-md-4 col-12">
-        <img src="{% static 'img/pred/3.png' %}" alt=""/>
-        <p>
-            Опытный персональный менеджер
-            на связи круглосуточно
-            365 дней в году
-        </p>
-    </article>
-</section>
-<section class="row predost">
-    <article class="col-md-4 col-12">
-        <img src="{% static 'img/pred/4.png' %}" alt=""/>
-        <p>
-            Проверку и подготовку надлежащего
-            пакета документов
-        </p>
-    </article>
-    <article class="col-md-4 col-12">
-        <img src="{% static 'img/pred/5.png' %}" alt=""/>
-        <p>
-            Страхование груза за наш счёт
-        </p>
-    </article>
-    <article class="col-md-4 col-12">
-        <img src="{% static 'img/pred/6.png' %}" alt=""/>
-        <p>
-            Опыт решения нестандартных
-            ситуаций
-        </p>
-    </article>
-</section>
-<section class="row predost">
-    <article class="col-md-4 col-12">
-        <img src="{% static 'img/pred/7.png' %}" alt=""/>
-        <p>
-            Все бухгалтерские выписки
-            по вашему требованию
-        </p>
-    </article>
-    <article class="col-md-4 col-12">
-        <img src="{% static 'img/pred/8.png' %}" alt=""/>
-        <p>
-            Отсрочку платежа
-        </p>
-    </article>
-    <article class="col-md-4 col-12">
-        <img src="{% static 'img/pred/9.png' %}" alt=""/>
-        <p>
-            Любую форму оплаты
-        </p>
-    </article>
+    {% endfor %}
 </section>

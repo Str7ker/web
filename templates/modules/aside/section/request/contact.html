@@ -3,34 +3,40 @@
     Наши контакты
 </h1>
 <div class="contact2">
+    {% for address in contact %}
     <p>
         <i class="fas fa-phone"></i> Номер телефона:
         <span>
-            79123456789
+            {{ address.phone }}
         </span>
     </p>
     <p>
         <i class="fas fa-envelope"></i>Электронная почта:
         <span>
-            res@yandex.ru
+            {{ address.email }}
         </span>
     </p>
     <p>
         <i class="fas fa-map-marker-alt"></i>Наш адрес:
         <span>
-            ул. 40 Лет Победы, 65
+            {{ address.address_fact }}
         </span>
     </p>
     <p>
         <i class="fab fa-vk"></i>Группа ВКонтакте:
         <span>
-            <a href="https://vk.com">Ресурс-Логистика </a>
+            <a href="https://vk.com">
+                {{ address.vk }}
+            </a>
         </span>
     </p>
     <p>
         <i class="fab fa-instagram"></i>Инстаграм:
         <span>
-            <a href="https://instagram.com">Ресурс-Логистика </a>
+            <a href="https://instagram.com">
+                {{ address.insta }}
+            </a>
         </span>
     </p>
+    {% endfor %}
 </div>
