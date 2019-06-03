@@ -100,14 +100,15 @@ div .send2 {
 }
 
 div .company.contact2 {
-    padding: 5% 11%;
     font-size: 16px;
     border-left: 10px solid rgba(0, 0, 0, 0.2);
 }
+
 div .contact2 {
     padding: 5% 11%;
     font-size: 16px;
 }
+
 div .contact2 i {
     padding-right: 10px;
 }
@@ -152,7 +153,9 @@ div.container div.pred div.row.predost {
     font-size: 20px;
     padding: 30px;
 }
-
+.form-signin form {
+        background: #f0f2f4
+}
 /* Стили формы */
 #application {
     width: 475px;
@@ -890,32 +893,85 @@ label {
     display: table-cell;
 }
 
+footer {
+    /*background-color: #f0f2f4;*/
+    background: url("/static/img/road.png");
+}
+
+footer .col-md-3 {
+    margin: 3px 0;
+}
+
+footer h6 {
+    font-size: 16px;
+}
+
+footer a {
+    color: #f19234;
+}
+
+footer a:hover {
+    color: #FFFFFF;
+}
+
+.footer-copyright {
+    background: #2a333b;
+}
+
 @media (max-width: 980px) {
     .logo img {
         height: 235px;
     }
+
     .title_contact {
-    display: none;
+        display: none;
     }
-        .row.rombs {
+
+    .row.rombs {
         background-color: #f0f2f4;
-            border: none;
+        border: none;
     }
+
+    div .company.contact2, .logo {
+        border-left: none;
+        border-right: none;
+    }
+
+    .logo {
+        border-bottom: 10px solid rgba(0, 0, 0, 0.2);
+    }
+
     .row.rombs.desktop {
         display: none;
     }
 
+    footer {
+        background: #f0f2f4;
+    }
 }
 
 @media (min-width: 980px) {
     .logo img {
         height: 270px;
     }
+
     .title_contact {
-    color: #a5b3bf !important;
+        color: #a5b3bf !important;
     }
+
     .container.mobile {
         display: none;
     }
 
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+    .logo {
+        border-right: 10px solid rgba(0, 0, 0, 0.2);
+        border-bottom: none;
+    }
+    .romb1 {
+            margin-left: auto;
+    margin-right: auto;
+    }
 }

@@ -5,25 +5,23 @@
 <div class="contact2">
     {% for address in contact %}
     <p>
-        <i class="fas fa-phone"></i> Номер телефона:
-        <span>
-            {{ address.phone }}
-        </span>
+        <i class="fas fa-phone"></i>
+        <span class="title_contact">Номер телефона:</span>
+        <span>{{ address.phone }}</span>
     </p>
     <p>
-        <i class="fas fa-envelope"></i>Электронная почта:
-        <span>
-            {{ address.email }}
-        </span>
+        <i class="fas fa-envelope"></i>
+        <span class="title_contact">Электронная почта:</span>
+        <span>{{ address.email }}</span>
     </p>
     <p>
-        <i class="fas fa-map-marker-alt"></i>Наш адрес:
-        <span>
-            {{ address.address_fact }}
-        </span>
+        <i class="fas fa-map-marker-alt"></i>
+        <span class="title_contact">Наш адрес:</span>
+        <span>{{ address.address_fact }}</span>
     </p>
     <p>
-        <i class="fab fa-vk"></i>Группа ВКонтакте:
+        <i class="fab fa-vk"></i>
+        <span class="title_contact">Группа ВКонтакте:</span>
         <span>
             <a href="https://vk.com">
                 {{ address.vk }}
@@ -31,7 +29,8 @@
         </span>
     </p>
     <p>
-        <i class="fab fa-instagram"></i>Инстаграм:
+        <i class="fab fa-instagram"></i>
+        <span class="title_contact">Инстаграм:</span>
         <span>
             <a href="https://instagram.com">
                 {{ address.insta }}
