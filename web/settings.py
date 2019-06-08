@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'admin_region',
         'USER': 'admin_region',
         'PASSWORD': '123456789',
-        'HOST': '192.168.0.22',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
