@@ -58,3 +58,17 @@ class We_pred(models.Model):
     class Meta:
         verbose_name = 'Мы представляем'
         verbose_name_plural = 'Мы представляем'
+
+class Description(models.Model):
+    desc = models.CharField(max_length=500, blank=True)
+
+    class Meta:
+        verbose_name = 'Описание сайта'
+        verbose_name_plural = 'Описания сайта'
+
+class Keywords(models.Model):
+    keyw = models.CharField(max_length=500, blank=True)
+
+    class Meta:
+        verbose_name = 'Ключевые слова сайта'
+        verbose_name_plural = 'Ключевые слова сайта'

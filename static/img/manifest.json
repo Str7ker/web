@@ -1,0 +1,10 @@
+{
+"version": "1.0",
+"api_version": 1,
+"layout":
+	{
+	"logo": "https://hasansagaf.files.wordpress.com/2012/01/images.jpg?w=150",
+	"color": "#e9ffd0",
+	"show_title": true
+	}
+}

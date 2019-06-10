@@ -130,3 +130,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST_USER = 'stryker.aaaa@yandex.ru'
+EMAIL_HOST_PASSWORD = 'welcomestr7ker'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
