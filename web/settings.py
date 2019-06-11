@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'admin_region',
         'USER': 'admin_region',
         'PASSWORD': '123456789',
-        'HOST': 'localhost',
+        'HOST': '192.168.0.22',
         'PORT': '5432',
     }
 }
@@ -136,3 +136,4 @@ EMAIL_HOST_USER = 'stryker.aaaa@yandex.ru'
 EMAIL_HOST_PASSWORD = 'welcomestr7ker'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+APPEND_SLASH=False

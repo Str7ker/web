@@ -918,6 +918,10 @@ footer a:hover {
     background: #2a333b;
 }
 
+.modal-dialog {
+    max-width: 80% !important;
+    margin: 25em auto !important;
+}
 @media (max-width: 980px) {
     .logo img {
         height: 235px;

@@ -1,7 +1,7 @@
 {#Оставить заявку#}
 <h1 style="text-align: center">Оставить заявку</h1>
 <div class="send2">
-    <form  action="/" method="POST">
+    <form  action="/create/" method="POST">
         {% csrf_token %}
         <input name="name" id="applicationName" maxlength="20" placeholder="Введите ваше имя"
                required/>

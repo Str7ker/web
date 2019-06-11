@@ -1,0 +1,23 @@
+{% load static %}
+{#Карточки с машинами и описание перевозок #}
+{#{% for car in cars %}#}
+{#<div class="col-md-4 col-12 card" style="width: 18rem;">#}
+{#    <img class="card-img-top" src="{% static car.img %}" alt="Card image cap">#}
+{#    <div class="card-body">#}
+{#        <h1 class="card-title">{{ car.name }}</h1>#}
+{#        <p class="card-text">{{ car.text }}</p>#}
+{#    </div>#}
+{#</div>#}
+{#{% endfor %}#}
+{% for team in teams %}
+<div class="col-md-4 col-12" style="margin-top: 20px;">
+        <div class="card">
+    <img class="card-img-top" src="{{ team.img }}" alt="Card image cap">
+    <div class="card-body">
+        <h1 class="card-title">{{ team.name }}</h1>
+        <p class="card-text h2">{{ team.position }}</p>
+        <p class="card-text h2">{{ team.phone }}</p>
+    </div>
+        </div>
+</div>
+{% endfor %}

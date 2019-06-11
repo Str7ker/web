@@ -17,12 +17,12 @@
   }
 }
 
-@mixin border-right-radius($radius) {
-  @if $enable-rounded {
-    border-top-right-radius: $radius;
-    border-bottom-right-radius: $radius;
-  }
-}
+//@mixin border-right-radius($radius) {
+//  @if $enable-rounded {
+//    border-top-right-radius: $radius;
+//    border-bottom-right-radius: $radius;
+//  }
+//}
 
 @mixin border-bottom-radius($radius) {
   @if $enable-rounded {
