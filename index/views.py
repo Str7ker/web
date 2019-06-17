@@ -16,7 +16,8 @@ def index(request):
     preds = We_pred.objects.all()
     description = Description.objects.last()
     allpartners = AllPartner.objects.all()
-    return render(request, "index.html", {"contact": contact, "rombs": rombs, "cars": cars, "works": works, "parts": parts, "teams": teams, "preds": preds,
+    textteams = TextTeam.objects.all()
+    return render(request, "index.html", {"contact": contact, "rombs": rombs, "cars": cars, "works": works, "parts": parts, "teams": teams, "textteams": textteams, "preds": preds,
             "description": description, "allpartners": allpartners})
 
 def mailss(request):

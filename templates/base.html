@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-{% block head %} {%  endblock head %}
+{% block head %}
+    {% include "component/head.html" %}
+{% endblock head %}
+
 </head>
 <body >
+    <header class="header" id="jump">
+{% include "modules/aside/menu.html" %}
+    </header>
+{%  block content %}
 
-{%  block content %} {%  endblock content %}
+{%  endblock content %}
 
-{% block script %} {%  endblock script %}
+{% block script %}
+    {% include "component/script.html" %}
+{% endblock script %}
 </body>
 </html>

@@ -10,12 +10,12 @@
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn-lg btn-warning btn-block" data-toggle="modal" data-target="#exampleModal" style="color: white; background-color: orange;">
-    Показать подробнее:
-</button>
-
+{#<button type="button" class="btn-lg btn-warning btn-block" data-toggle="modal" data-target="#partners" style="color: white; background-color: orange;">#}
+{#    Показать подробнее:#}
+{#</button>#}
+<a href="{% url 'partners' %}">Показать подробнее:</a>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="partners" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -29,7 +29,7 @@
 {% for allpart in allpartners %}
                 <div class="row">
                     <div class="col-md-4 col-12" style="margin: auto">
-                        <img src="{{ allpart.img }}" alt="">
+                        <img src="{{ allpart.img.url }}" alt="">
                     </div>
                     <div class="col-md-8 col-12">
                         <h3>{{ allpart.name_part }}</h3>

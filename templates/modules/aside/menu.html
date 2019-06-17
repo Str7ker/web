@@ -1,52 +1,84 @@
 {% load static %}
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target=".navbar-responsive-collapse">
-                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
-                            class="icon-bar"></span><span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">
-                        <img src="{% static 'img/resurs.png' %}" height="60px" alt=""/></a>
-                </div>
-                <div class="collapse navbar-collapse hidden-xs" id="top-menu">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="#jump0">Главная</a></li>
-                        <li><a href="#jump1">Грузоперевозки</a></li>
-                        <li><a href="#jump2">На карте</a></li>
-                        <li><a href="#jump3">Как мы работаем</a></li>
-                        <li><a href="#jump4">Партнёры</a></li>
-                        <li><a href="#jump5">Мы предоставим</a></li>
-                        <li><a href="#jump6">Оставить заявку</a></li>
-                        <li style="background-color: #919191;"><a style="color: #ffffff !important;" href="#jump7">Личный
-                            кабинет</a></li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-                <div class="collapse navbar-responsive-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#jump0" data-toggle="collapse"
-                                              data-target=".navbar-responsive-collapse">
-                            Главная</a></li>
-                        <li><a href="#jump1" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                            Грузоперевозки</a></li>
-                        <li><a href="#jump2" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                            На карте</a></li>
-                        <li><a href="#jump3" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                            Как мы работаем</a></li>
-                        <li><a href="#jump4" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                            Партнёры</a></li>
-                        <li><a href="#jump5" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                            Мы предоставим</a></li>
-                        <li><a href="#jump6" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                            Оставить заявку</a></li>
-                        <li style="background-color: #919191;"><a style="color: #ffffff !important;" href="#jump7"
-                                                                  data-toggle="collapse"
-                                                                  data-target=".navbar-responsive-collapse">
-                            Личный кабинет</a></li>
-                    </ul>
-                </div>
-                <!-- /.navbar-responsive-collapse -->
-            </div>
-        </nav>
+{#<nav class="navbar navbar-default navbar-fixed-top" role="navigation">#}
+{#            <div class="container">#}
+{#                <div class="navbar-header">#}
+{#                    <button type="button" class="navbar-toggle" data-toggle="collapse"#}
+{#                            data-target=".navbar-responsive-collapse">#}
+{#                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span#}
+{#                            class="icon-bar"></span><span class="icon-bar"></span>#}
+{#                    </button>#}
+{#                    <a class="navbar-brand" href="#">#}
+{#                        <img src="{% static 'img/resurs.png' %}" height="60px" alt=""/></a>#}
+{#                </div>#}
+{#                <div class="collapse navbar-collapse hidden-xs" id="top-menu">#}
+{#                    <ul class="nav navbar-nav navbar-right">#}
+{#                        {% for menus in menu %}#}
+{#                        <li class=""><a href="{{ menus.href }}">{{ menus.title }}</a></li>#}
+{#                        <li><a href="#jump1">Грузоперевозки</a></li>#}
+{#                        <li><a href="#jump2">На карте</a></li>#}
+{#                        <li><a href="#jump3">Как мы работаем</a></li>#}
+{#                        <li><a href="#jump4">Партнёры</a></li>#}
+{#                        <li><a href="#jump5">Мы предоставим</a></li>#}
+{#                        <li><a href="#jump6">Оставить заявку</a></li>#}
+{#                        <li style="background-color: #919191;"><a style="color: #ffffff !important;" href="#jump7">Личный#}
+{#                            кабинет</a></li>#}
+{#                        {% endfor %}#}
+{#                    </ul>#}
+{#                </div>#}
+{#                <!-- /.navbar-collapse -->#}
+{#                <div class="collapse navbar-responsive-collapse">#}
+{#                    <ul class="nav navbar-nav">#}
+{#                        {% for menus in menu %}#}
+{#                        <li class=""><a href="{{ menus.href }}" data-toggle="collapse"#}
+{#                                              data-target=".navbar-responsive-collapse">#}
+{#                            {{ menus.title }}</a></li>#}
+{#                        <li><a href="#jump1" data-toggle="collapse" data-target=".navbar-responsive-collapse">#}
+{#                            Грузоперевозки</a></li>#}
+{#                        <li><a href="#jump2" data-toggle="collapse" data-target=".navbar-responsive-collapse">#}
+{#                            На карте</a></li>#}
+{#                        <li><a href="#jump3" data-toggle="collapse" data-target=".navbar-responsive-collapse">#}
+{#                            Как мы работаем</a></li>#}
+{#                        <li><a href="#jump4" data-toggle="collapse" data-target=".navbar-responsive-collapse">#}
+{#                            Партнёры</a></li>#}
+{#                        <li><a href="#jump5" data-toggle="collapse" data-target=".navbar-responsive-collapse">#}
+{#                            Мы предоставим</a></li>#}
+{#                        <li><a href="#jump6" data-toggle="collapse" data-target=".navbar-responsive-collapse">#}
+{#                            Оставить заявку</a></li>#}
+{#                        <li style="background-color: #919191;"><a style="color: #ffffff !important;" href="#jump7"#}
+{#                                                                  data-toggle="collapse"#}
+{#                                                                  data-target=".navbar-responsive-collapse">#}
+{#                            Личный кабинет</a></li>#}
+{#                        {% endfor %}#}
+{#                    </ul>#}
+{#                </div>#}
+{#                <!-- /.navbar-responsive-collapse -->#}
+{#            </div>#}
+{#        </nav>#}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<div class="container">
+  <a class="navbar-brand" href="#">
+   <img src="{% static 'img/resurs.png' %}" height="60px" alt=""/></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+{#    <ul class="navbar-nav">#}
+{#      <li class="nav-item ">#}
+{#        <a class="nav-link" href=""> </a>#}
+{#      </li>#}
+{#    </ul>#}
+      <ul class="navbar-nav">
+{% load menubuilder %}
+
+{% menu main_menu %}
+
+{% for item in menuitems %}
+<li {% if item.current %}class="nav-item active"{% endif %}>
+<a class="nav-link" {% if item.current == False %} href="{{ item.url }}" {% endif %} title="{{ item.title|escape }}">{{ item.title }}</a>
+</li>
+{% endfor %}
+</ul>
+  </div>
+</div>
+</nav>

@@ -1,14 +1,9 @@
-                  {% extends "base.html" %}
-{% block head %}
-    {% include "component/head.html" %}
-{% endblock head %}
+{% extends "base.html" %}
 
 
 {% block content %}
     {% load static %}
-    <header class="header" id="jump">
-{% include "modules/aside/menu.html" %}
-    </header>
+
     <div class="jumper" id="jump0">
     </div>
  {% include "modules/aside/main.html" %}
@@ -28,7 +23,7 @@
     {% include "modules/aside/we.html" %}
     </div>
     {% include "modules/aside/team.html" %}
-    <div id="jump6" class="jumper">
+    <div id="jump7" class="jumper">
     </div>
     {% include "modules/aside/request.html" %}
 
@@ -37,6 +32,3 @@
 {% endblock content %}
 
 
-{% block script %}
-    {% include "component/script.html" %}
-{% endblock script %}

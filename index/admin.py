@@ -21,6 +21,9 @@ class PartAdmin(admin.ModelAdmin):
 class TeamAdmin(admin.ModelAdmin):
     list_display = ('id', 'img', 'name', 'position', 'phone')
 
+class TextTeamAdmin(admin.ModelAdmin):
+    list_display = ('id', 'text')
+
 class We_predAdmin(admin.ModelAdmin):
     list_display = ('name_pred', 'img', 'text')
 
@@ -40,6 +43,7 @@ admin.site.register(Car, CarAdmin)
 admin.site.register(Work, WorkAdmin)
 admin.site.register(Partner, PartAdmin)
 admin.site.register(Team, TeamAdmin)
+admin.site.register(TextTeam, TextTeamAdmin)
 admin.site.register(We_pred, We_predAdmin)
 admin.site.register(Description, DescriptionsAdmin)
 admin.site.register(Keywords, KeywordAdmin)

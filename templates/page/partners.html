@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% load static %}
+    <div class="pad">
+
+{% for allpart in allpartners %}
+                <div class="row">
+                    <div class="col-md-4 col-12" style="margin: auto">
+                        <img src="{{ allpart.img.url }}" alt="">
+                    </div>
+                    <div class="col-md-8 col-12">
+                        <h3>{{ allpart.name_part }}</h3>
+                        <hr>
+                        <h4>{{ allpart.text }}</h4>
+                        <h4>Номер телефона: <span style="color: orange">{{ allpart.number }}</span></h4>
+                        <h4>Электронная почта: <span style="color: orange">{{ allpart.email }}</span></h4>
+                    </div>
+                </div>
+    <hr>
+   {% endfor %}
+            </div>
+{% endblock content %}

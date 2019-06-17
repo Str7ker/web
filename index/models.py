@@ -12,6 +12,9 @@ class Contact(models.Model):
         verbose_name = 'Контакты'
         verbose_name_plural = 'Контакты'
 
+    def __str__(self):
+        return "Контакт " + self.phone
+
 class Romb(models.Model):
     name_romb = models.CharField(verbose_name="Наименование ромба", max_length=150, blank=True)
     ico = models.CharField(verbose_name="Иконка", max_length=25, blank=True)
@@ -52,7 +55,7 @@ class Partner(models.Model):
 
 class AllPartner(models.Model):
     name_part = models.CharField(verbose_name="Наименование партнёра", max_length=150, blank=True)
-    img = models.ImageField(verbose_name="Логотип", upload_to='static/img/partners/', blank=True)
+    img = models.ImageField(verbose_name="Логотип", upload_to='img/partners/', blank=True)
     text = models.CharField(verbose_name="Описание партнёра", max_length=650, blank=True)
     number = models.CharField(verbose_name="Номер телефона", max_length=50, blank=True)
     email = models.CharField(verbose_name="Электронная почта", max_length=50, blank=True)
@@ -69,6 +72,13 @@ class Team(models.Model):
     class Meta:
         verbose_name = 'Команда'
         verbose_name_plural = 'Команды'
+
+class TextTeam(models.Model):
+    text = models.CharField(verbose_name="Текст о сотрудниках", max_length=1000, blank=True)
+
+    class Meta:
+        verbose_name = 'Текст о сотрудниках'
+        verbose_name_plural = 'Текст о сотрудниках'
 
 class We_pred(models.Model):
     name_pred = models.CharField(verbose_name="Наименование", max_length=150, blank=True)
