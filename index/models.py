@@ -68,7 +68,7 @@ class Team(models.Model):
     name = models.CharField(verbose_name="Имя и фамилия", max_length=150, blank=True)
     position = models.CharField(verbose_name="Должность", max_length=50, blank=True)
     phone = models.CharField(verbose_name="Телефон", max_length=20, blank=True)
-
+    mail = models.CharField(verbose_name="Электронная почта", max_length=50, blank=True)
     class Meta:
         verbose_name = 'Команда'
         verbose_name_plural = 'Команды'
@@ -111,3 +111,12 @@ class Email_order(models.Model):
     class Meta:
         verbose_name = 'Завка'
         verbose_name_plural = 'Заявки'
+
+class Logo(models.Model):
+    small_logo = models.ImageField(verbose_name="Маленькое лого", upload_to='img/', blank=True)
+    logo = models.ImageField(verbose_name="Большое лого", upload_to='img/', blank=True)
+    background = models.ImageField(verbose_name="Задний фон картинка", upload_to='img/', blank=True)
+
+    class Meta:
+        verbose_name = 'Логотип'
+        verbose_name_plural = 'Логотип'

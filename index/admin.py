@@ -19,7 +19,7 @@ class PartAdmin(admin.ModelAdmin):
     list_display = ('name_part', 'img')
 
 class TeamAdmin(admin.ModelAdmin):
-    list_display = ('id', 'img', 'name', 'position', 'phone')
+    list_display = ('id', 'img', 'name', 'position', 'phone', 'mail')
 
 class TextTeamAdmin(admin.ModelAdmin):
     list_display = ('id', 'text')

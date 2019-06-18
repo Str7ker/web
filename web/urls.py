@@ -22,6 +22,8 @@ from index.views import *
 from movizor.views import *
 from partners.views import index_partners
 from team.views import *
+from company.views import *
+from contact.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,6 +32,8 @@ urlpatterns = [
     path('movizor/', index_movizor, name="movizor"),
     path('partners/', index_partners, name="partners"),
     path('team/', index_team, name="team"),
+    path('company/', index_company, name="company"),
+    path('contact/', index_contact, name="contact"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

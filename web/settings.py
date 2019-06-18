@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'index',
     'menu',
+    'movizor',
+    'contact',
+    'company',
 ]
 
 MIDDLEWARE = [
@@ -82,8 +85,8 @@ DATABASES = {
         'NAME': 'admin_region',
         'USER': 'admin_region',
         'PASSWORD': '123456789',
-        'HOST': '192.168.0.22',
-        'PORT': '5432',
+        'HOST': '81.23.182.69',
+        'PORT': '7897',
     }
 }
 
