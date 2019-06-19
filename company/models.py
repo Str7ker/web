@@ -2,7 +2,7 @@ from django.db import models
 
 class Company(models.Model):
     title = models.CharField(verbose_name="Описание страницы", max_length=270, blank=True)
-    small_text = models.TextField(verbose_name="Иконка", max_length=500, blank=True)
+    small_text = models.TextField(verbose_name="Маленький текст", max_length=500, blank=True)
     big_text = models.TextField(verbose_name="Текст", max_length=1500, blank=True)
 
     class Meta:

@@ -36,6 +36,8 @@ class KeywordAdmin(admin.ModelAdmin):
 class AllPartnerAdmin(admin.ModelAdmin):
     list_display = ('name_part', 'img', 'text', 'number', 'email')
 
+class LogoAdmin(admin.ModelAdmin):
+    list_display = ('small_logo', 'logo', 'background')
 
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Romb, RombAdmin)
@@ -48,3 +50,4 @@ admin.site.register(We_pred, We_predAdmin)
 admin.site.register(Description, DescriptionsAdmin)
 admin.site.register(Keywords, KeywordAdmin)
 admin.site.register(AllPartner, AllPartnerAdmin)
+admin.site.register(Logo, LogoAdmin)

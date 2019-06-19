@@ -7,13 +7,21 @@
 
 </head>
 <body >
-    <header style="padding: 3.5%;" class="header" id="jump">
+    <header style="position: static;
+    height: 10%;" class="header" id="jump">
 {% include "modules/aside/menu.html" %}
     </header>
 {%  block content %}
 
 {%  endblock content %}
+    <!-- Copyright -->
 
+    <div class="footer-copyright text-center py-3"><span style="color: white">© 2018 -
+        <script type="text/javascript">document.write(new Date().getFullYear());</script> Сайт разработал:</span>
+        <a href="https://vk.com/id57200107" style="color: orange"> Бутрим Иван</a>
+    </div>
+
+    <!-- Copyright -->
 {% block script %}
     {% include "component/script.html" %}
 {% endblock script %}

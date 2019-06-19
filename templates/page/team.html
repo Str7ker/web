@@ -2,15 +2,24 @@
 
 {% block content %}
     {% load static %}
+    <aside class="back_blue">
     <div class="container">
        {% for text_team in text_teams %}
-    <div style="padding: 10px 10px; margin: 40px 0; background-color: rgba(241, 146, 52, 0.9); color: white;">{{ text_team.text }}</div>
+    <div style="padding: 10px 10px; margin: 15px 0; background-color: rgba(255, 255, 255, 0.9); color: black; border: 2px solid #F19234; text-align: center">{{ text_team.text }}</div>
         {% endfor %}
     </div>
+    </aside>
+    <aside class="back_green">
+    <div class="section-headlines">
+    {#    Название заголовка #}
+    <h4>
+        Наши сотрудники
+    </h4>
+</div>
         <div class="container">
             <div class="row">
 {% for team in teams %}
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-3 col-sm-6">
                     <div class="our-team">
 
                         <div class="team-image">
@@ -38,4 +47,5 @@
 {% endfor %}
             </div><!-- /.row -->
         </div><!-- /.container -->
+    </aside>
 {% endblock content %}

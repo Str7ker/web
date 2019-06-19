@@ -17,8 +17,9 @@ def index(request):
     description = Description.objects.last()
     allpartners = AllPartner.objects.all()
     text_teams = TextTeam.objects.all()
+    logos = Logo.objects.all()
     return render(request, "index.html", {"contact": contact, "rombs": rombs, "cars": cars, "works": works, "parts": parts, "teams": teams, "text_teams": text_teams, "preds": preds,
-            "description": description, "allpartners": allpartners})
+            "description": description, "allpartners": allpartners, "logos": logos})
 
 def mailss(request):
     if request.method == "POST":

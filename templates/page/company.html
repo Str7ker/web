@@ -2,5 +2,50 @@
 
 {% block content %}
     {% load static %}
+    <aside class="section type-1 big_company splash_company">
+        <div class="splash-cover">
+        </div>
+        {#    Главная секция#}
+        <section class="container">
+            <div class="splash-block">
+                {% for company in companyes %}
+                    <center><h1 class="display-4">{{ company.title }}</h1></center>
+                    <h2>{{ company.small_text }}</h2>
+                    <hr>
+                    <h3 style="color: orange;">{{ company.big_text }}</h3>
+                {% endfor %}
+            </div>
+        </section>
+    </aside>
+    <aside class="section type-2">
+        <section class="container">
+            <div class="section-headlines">
+                {#    Название заголовка #}
+                <h4>
+                    Новости
+                </h4>
+            </div>
+            <div class="row gruz wow pulse">
+                <div class="col-md-4 col-12 card" style="width: 18rem;">
+                    <img class="card-img-top" src="{% static car.img %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h1 class="card-title">{{ car.name }}</h1>
+                        <p class="card-text">{{ car.text }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </aside>
+    <aside class="section type-2">
+    {#    Секция мы предоставляем#}
+    <div class="container wow pulse">
+        {#        Заголовок#}
+        {% include "modules/aside/section/we/name_we.html" %}
+        <div class="pred">
+            {#            Представления#}
+            {% include "modules/aside/section/we/names.html" %}
+        </div>
+    </div>
+</aside>
 
 {% endblock content %}

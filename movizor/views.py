@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from index.models import *
 
 def index_movizor(request):
-    return render(request, "page/movizor.html", {"bla": "bla"})
+    logos = Logo.objects.all()
+    return render(request, "page/movizor.html", {"logos": logos})
 
