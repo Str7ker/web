@@ -55,13 +55,20 @@
 {#            </div>#}
 {#        </nav>#}
 
-<nav class="navbar navbar-default navbar-expand-lg fixed-top">
+<nav class="navbar navbar-light navbar-default navbar-expand-lg fixed-top">
 <div class="container">
   <a class="navbar-brand" href="#">
-   {% for logo in logos %}
-<img src="{{ logo.logo.url }}" height="60px" alt=""/></a>
-{% endfor %}
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+   {% if logose.logo %}
+        <img src="{{ logose.logo.url }}" height="60px" alt=""/>
+
+    {% else %}
+        <img src="{% static 'img/resurs.png' %}" height="60px" alt=""/>
+
+    {% endif %}
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse justify-content-end" id="navbarNav">

@@ -9,15 +9,32 @@
 {#    </div>#}
 {#</div>#}
 {#{% endfor %}#}
-{% for team in teams %}
-<div class="col-md-4 col-12" style="margin-top: 20px;">
-        <div class="card">
-    <img class="card-img-top" src="{{ team.img }}" alt="Card image cap">
-    <div class="card-body">
-        <h1 class="card-title">{{ team.name }}</h1>
-        <p class="card-text h2">{{ team.position }}</p>
-        <p class="card-text h2">{{ team.phone }}</p>
-    </div>
-        </div>
-</div>
+{% for team in teams_index %}
+                <div class="col-md-4 col-12">
+                    <div class="our-team">
+
+                        <div class="team-image">
+                            <img src="{{ team.img.url }}">
+                            <p class="description">
+                                <i class="fas fa-phone"></i>
+                                <span class="">{{ team.phone }}</span> <br>
+                                <i class="fas fa-envelope"></i>
+                                <span class="">{{ team.mail }}</span>
+                            </p>
+                            {#                        <ul class="social">#}
+                            {#                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>#}
+                            {#                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>#}
+                            {#                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>#}
+                            {#                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>#}
+                            {#                        </ul>#}
+                        </div>
+                        <div class="team-info">
+                            <h3 class="title">{{ team.name }}</h3>
+                            <span class="post">{{ team.position }}</span>
+                        </div>
+                    </div>
+                </div>
 {% endfor %}
+<div style="margin-left: auto; margin-right: auto">
+<a href="{% url 'team' %}" style="color: orange; font-size: 20px; text-align: center"><button type="submit" class="btn btn-warning" >Показать подробнее: </button></a>
+</div>

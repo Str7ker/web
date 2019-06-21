@@ -12,14 +12,13 @@ def index(request):
     cars = Car.objects.all()
     works = Work.objects.all()
     parts = Partner.objects.all()
-    teams = Team.objects.all()
+    teams_index = Team.objects.all()
     preds = We_pred.objects.all()
     description = Description.objects.last()
     allpartners = AllPartner.objects.all()
-    text_teams = TextTeam.objects.all()
-    logos = Logo.objects.all()
-    return render(request, "index.html", {"contact": contact, "rombs": rombs, "cars": cars, "works": works, "parts": parts, "teams": teams, "text_teams": text_teams, "preds": preds,
-            "description": description, "allpartners": allpartners, "logos": logos})
+
+    return render(request, "index.html", {"contact": contact, "rombs": rombs, "cars": cars, "works": works, "parts": parts, "teams_index": teams_index, "preds": preds,
+            "description": description, "allpartners": allpartners})
 
 def mailss(request):
     if request.method == "POST":

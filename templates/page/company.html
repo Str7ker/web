@@ -9,43 +9,69 @@
         <section class="container">
             <div class="splash-block">
                 {% for company in companyes %}
-                    <center><h1 class="display-4">{{ company.title }}</h1></center>
-                    <h2>{{ company.small_text }}</h2>
-                    <hr>
-                    <h3 style="color: orange;">{{ company.big_text }}</h3>
+                    <div style="text-align: center"><h1 class="display-4">{{ company.title }}</h1></div>
+                    <div style="text-align: justify" class="resurs">
+                        <div class="row">
+                            <div class="col-md-4 col-12">
+                                {% if logose.logo %}
+                                    <img src="{{ logose.logo.url }}" height="60px" alt=""/>
+
+                                {% else %}
+                                    <img src="{% static 'img/resurs.png' %}" height="60px" alt=""/>
+
+                                {% endif %}
+                            </div>
+                            <div class="col-md-8 col-12">
+                                <h2>{{ company.small_text }}</h2>
+                            </div>
+                            <div class="col-md-12" style="border-top: 2px solid rgba(0, 0, 0, 0.2);">
+                                <h3 style="color: orange;">{{ company.big_text }}</h3>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
             </div>
         </section>
     </aside>
-    <aside class="section type-2">
-        <section class="container">
-            <div class="section-headlines">
-                {#    Название заголовка #}
-                <h4>
-                    Новости
-                </h4>
-            </div>
-            <div class="row gruz wow pulse">
-                <div class="col-md-4 col-12 card" style="width: 18rem;">
-                    <img class="card-img-top" src="{% static car.img %}" alt="Card image cap">
-                    <div class="card-body">
-                        <h1 class="card-title">{{ car.name }}</h1>
-                        <p class="card-text">{{ car.text }}</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </aside>
-    <aside class="section type-2">
-    {#    Секция мы предоставляем#}
-    <div class="container wow pulse">
-        {#        Заголовок#}
-        {% include "modules/aside/section/we/name_we.html" %}
-        <div class="pred">
-            {#            Представления#}
-            {% include "modules/aside/section/we/names.html" %}
-        </div>
+    <div class="section-headlines" style="padding-top: 30px">
+        {#    Название заголовка #}
+        <h4>
+            Мы на карте
+        </h4>
     </div>
-</aside>
+    <script type="text/javascript" charset="utf-8" async
+            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A06ff42df4b9d7a561d5d434cc1b55f5519573aeaa2fd4217b81c5b6f595f87f8&amp;width=100%25&amp;height=720&amp;lang=ru_RU&amp;scroll=false">
+
+    </script>
+    {#    <aside class="section type-2">#}
+    {#        <section class="container">#}
+    {#            <div class="section-headlines">#}
+    {#    Название заголовка #}
+    {#                <h4>#}
+    {#                    Новости#}
+    {#                </h4>#}
+    {#            </div>#}
+    {#            <div class="row gruz wow pulse">#}
+    {#                <div class="col-md-4 col-12 card" style="width: 18rem;">#}
+    {#                    <img class="card-img-top" src="{% static car.img %}" alt="Card image cap">#}
+    {#                    <div class="card-body">#}
+    {#                        <h1 class="card-title">{{ car.name }}</h1>#}
+    {#                        <p class="card-text">{{ car.text }}</p>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </section>#}
+    {#    </aside>#}
+    <aside class="section type-2">
+        {#    Секция мы предоставляем#}
+        <div class="container wow pulse">
+            {#        Заголовок#}
+            {% include "modules/aside/section/we/name_we.html" %}
+            <div class="pred">
+                {#            Представления#}
+                {% include "modules/aside/section/we/names.html" %}
+            </div>
+        </div>
+    </aside>
 
 {% endblock content %}

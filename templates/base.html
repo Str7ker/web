@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-{% block head %}
-    {% include "component/head.html" %}
-{% endblock head %}
-
+    {% load static %}
+    {% block head %}
+        {% include "component/head.html" %}
+    {% endblock head %}
+    {% if not logos.background.url %}
+        <style>
+            .section.splash {
+                background: url({% static 'img/header/cars.jpg' %}) fixed no-repeat;
+                background-size: cover;
+                position: relative;
+                z-index: 1;
+            }
+        </style>
+    {% else %}
+        <style>
+            .section.splash {
+                background: url({{ logos.background.url }}) fixed no-repeat;
+                background-size: cover;
+                position: relative;
+                z-index: 1;
+            }
+        </style>
+    {% endif %}
 </head>
-<body >
-    <header style="position: static;
+<body>
+<header style="position: static;
     height: 10%;" class="header" id="jump">
-{% include "modules/aside/menu.html" %}
-    </header>
-{%  block content %}
+    {% include "modules/aside/menu.html" %}
+</header>
+{% block content %}
 
-{%  endblock content %}
-    <!-- Copyright -->
+{% endblock content %}
+<!-- Copyright -->
 
-    <div class="footer-copyright text-center py-3"><span style="color: white">© 2018 -
+<footer class="footer-copyright footer text-center"><span style="color: white">© 2018 -
         <script type="text/javascript">document.write(new Date().getFullYear());</script> Сайт разработал:</span>
-        <a href="https://vk.com/id57200107" style="color: orange"> Бутрим Иван</a>
-    </div>
+    <a href="https://vk.com/id57200107" style="color: #F19234"> Бутрим Иван</a>
+</footer>
 
-    <!-- Copyright -->
+<!-- Copyright -->
 {% block script %}
     {% include "component/script.html" %}
 {% endblock script %}

@@ -1,5 +1,5 @@
 {#Оставить заявку#}
-<h1 style="text-align: center">Оставить заявку</h1>
+<h3 style="text-align: center">Оставить заявку</h3>
 <div class="send2">
     <form  action="/create/" method="POST">
         {% csrf_token %}
@@ -9,6 +9,7 @@
                placeholder="Введите ваш E-mail" required/>
         <input name="telephone" type="Tel" id="applicationTelephone" maxlength="20"
                placeholder="Введите ваш телефон" required/>
-        <input  type="submit"></input>
+{#        <input  type="submit"></input>#}
+        <button type="submit" class="btn btn-warning" >Отследить груз</button>
     </form>
 </div>

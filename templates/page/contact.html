@@ -1,19 +1,54 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% load static %}
-<aside class="back_green">
-    <div class="section-headlines">
-        {#    Название заголовка #}
-        <h4>
-            Контакты
-        </h4>
-    </div>
-    <div class="container">
-        <div class="row">
-
-
+    {% load static %}
+    <aside class="back_green">
+        <div class="section-headlines">
+            {#    Название заголовка #}
+            <h4>
+                Контакты
+            </h4>
         </div>
-    </div>
-</aside>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-12" style="margin: auto;">
+                    <div class="contact_info">
+                        <h3 style="text-align: center">Наши контакты:</h3>
+                        {% for contact in contacts %}
+                            <h4>Телефон: <span>{{ contact.phone }}</span></h4>
+                            <h4>Email: <span>{{ contact.email }}</span></h4>
+                            <h4>Адрес: <span>{{ contact.address_fact }}</span></h4>
+                            <h4>ВК: <span>{{ contact.vk }}</span></h4>
+                            <h4>Инстаграм: <span>{{ contact.insta }}</span></h4>
+                            <h4>ИНН: <span>{{ contact.inn }}</span></h4>
+                            <h4>ОГРН: <span>{{ contact.ogrn }}</span></h4>
+                            <h4>КПП: <span>{{ contact.kpp }}</span></h4>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-8 col-12">
+                    {% for contact in contacts %}
+                    <img src="{{ contact.img.url }}" alt="">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </aside>
+    <aside class="back_blue">
+        <div class="section-headlines">
+            {#    Название заголовка #}
+            <h4>
+                Если вы хотите отследить груз
+            </h4>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="">
+                    <a href="{% url 'movizor' %}"><button type="button" class="btn btn-warning" style="position: absolute; margin: 15% 40%;padding: 30px">Отследить груз</button></a>
+                    <img src="../../static/img/map.png" alt="" style="max-width: 100%;">
+
+                </div>
+            </div>
+        </div>
+    </aside>
 {% endblock content %}

@@ -19,6 +19,7 @@ class Contact(models.Model):
     inn = models.CharField(verbose_name="ИНН", max_length=50, blank=True)
     ogrn = models.CharField(verbose_name="ОГРН", max_length=50, blank=True)
     kpp = models.CharField(verbose_name="КПП", max_length=50, blank=True)
+    img = models.ImageField(verbose_name="Картинка", upload_to='static/img/', blank=True)
     class Meta:
         verbose_name = 'Контакт'
         verbose_name_plural = 'Контакты'

@@ -14,6 +14,10 @@
     height: 100%;
 }
 
+.contact2 p {
+    margin-bottom: 7px;
+}
+
 .row.rombs {
     background: rgba(0, 0, 0, 0.3);
     border-top: 10px solid rgba(0, 0, 0, 0.2);
@@ -646,43 +650,251 @@ label {
 /*= BUTTONS
 ---------------------------------------------------------------------------------------------- */
 .btn {
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    border-width: 2px;
-    font-family: 'Roboto', Arial, sans-serif;
-    border-color: transparent;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 17px 39px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.14);
+    text-transform: uppercase;
+    box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.2);
 }
 
-.btn:hover {
-    border-color: transparent;
+.btn-primary {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5a7ce2+0,8283e8+50,5c5de8+51,565bd8+71,575cdb+100 */
+    background: #5a7ce2;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #5a7ce2 0%, #8283e8 50%, #5c5de8 51%, #565bd8 71%, #575cdb 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #5a7ce2 0%, #8283e8 50%, #5c5de8 51%, #565bd8 71%, #575cdb 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #5a7ce2 0%, #8283e8 50%, #5c5de8 51%, #565bd8 71%, #575cdb 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5a7ce2', endColorstr='#575cdb', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    border: medium none;
 }
 
-.btn-outline {
-    border-color: #fff;
-    border-color: rgba(255, 255, 255, 0.4);
-    background: none;
+.btn-outline-primary:hover {
+    background-color: #5a7ce2;
+    border-color: #5a7ce2;
     color: #fff;
 }
 
-.btn-outline:hover,
-.btn-outline.active {
-    border-color: #fff;
-    border-color: #F29031;
-    color: #fff;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+.btn-secondary {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#797b7f+0,b5b8bf+50,8e9397+51,8e9397+71,828589+100 */
+    background: #797b7f;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #797b7f 0%, #b5b8bf 50%, #8e9397 51%, #8e9397 71%, #828589 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #797b7f 0%, #b5b8bf 50%, #8e9397 51%, #8e9397 71%, #828589 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #797b7f 0%, #b5b8bf 50%, #8e9397 51%, #8e9397 71%, #828589 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#797b7f', endColorstr='#828589', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    border: medium none;
 }
 
-.btn-inverse {
-    background: #1e1e1e;
-    color: #fff;
+.btn-success {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#05ac50+0,21dd72+50,05c44e+51,05ac50+71,05ac50+100 */
+    background: #05ac50;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #05ac50 0%, #21dd72 50%, #05c44e 51%, #05ac50 71%, #05ac50 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #05ac50 0%, #21dd72 50%, #05c44e 51%, #05ac50 71%, #05ac50 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #05ac50 0%, #21dd72 50%, #05c44e 51%, #05ac50 71%, #05ac50 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#05ac50', endColorstr='#05ac50', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    border: medium none;
 }
 
-.btn-inverse:hover {
-    background: #2f2f2f;
-    color: #fff;
+.btn-danger {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e81216+0,f45355+50,f6290c+51,ed0e11+71,fc1b21+100 */
+    background: #e81216;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #e81216 0%, #f45355 50%, #f6290c 51%, #ed0e11 71%, #fc1b21 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #e81216 0%, #f45355 50%, #f6290c 51%, #ed0e11 71%, #fc1b21 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #e81216 0%, #f45355 50%, #f6290c 51%, #ed0e11 71%, #fc1b21 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e81216', endColorstr='#fc1b21', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    border: medium none;
+}
+
+.btn-warning {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5ae09+0,ffd044+50,ffc107+51,fc9014+71,f1890b+100 */
+    background: #e5ae09;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #e5ae09 0%, #ffd044 50%, #ffc107 51%, #fc9014 71%, #f1890b 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #e5ae09 0%, #ffd044 50%, #ffc107 51%, #fc9014 71%, #f1890b 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #e5ae09 0%, #ffd044 50%, #ffc107 51%, #fc9014 71%, #f1890b 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5ae09', endColorstr='#f1890b', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    border: medium none;
+    color: #fff !important;
+}
+
+.btn-info {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#01a8c1+0,2adbf7+50,00b5d1+51,0aafc9+71,0599b1+100 */
+    background: #01a8c1;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #01a8c1 0%, #2adbf7 50%, #00b5d1 51%, #0aafc9 71%, #0599b1 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #01a8c1 0%, #2adbf7 50%, #00b5d1 51%, #0aafc9 71%, #0599b1 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #01a8c1 0%, #2adbf7 50%, #00b5d1 51%, #0aafc9 71%, #0599b1 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#01a8c1', endColorstr='#0599b1', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    border: medium none;
+}
+
+.btn-light {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f2f2f2+0,dddddd+50,ffffff+51,ffffff+71,f6f8fb+100 */
+    background: #f2f2f2;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #f2f2f2 0%, #dddddd 50%, #ffffff 51%, #ffffff 71%, #f6f8fb 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #f2f2f2 0%, #dddddd 50%, #ffffff 51%, #ffffff 71%, #f6f8fb 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #f2f2f2 0%, #dddddd 50%, #ffffff 51%, #ffffff 71%, #f6f8fb 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f2f2', endColorstr='#f6f8fb', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    color: #3f345f !important;
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    border: medium none;
+}
+
+.btn-dark {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#343a40+0,667584+50,4e5256+51,242a30+71,343a40+100 */
+    background: #343a40;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #343a40 0%, #667584 50%, #4e5256 51%, #242a30 71%, #343a40 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #343a40 0%, #667584 50%, #4e5256 51%, #242a30 71%, #343a40 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #343a40 0%, #667584 50%, #4e5256 51%, #242a30 71%, #343a40 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#343a40', endColorstr='#343a40', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    border: medium none;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 31%
+    }
+    50% {
+        background-position: 100% 70%
+    }
+    100% {
+        background-position: 0% 31%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 31%
+    }
+    50% {
+        background-position: 100% 70%
+    }
+    100% {
+        background-position: 0% 31%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 31%
+    }
+    50% {
+        background-position: 100% 70%
+    }
+    100% {
+        background-position: 0% 31%
+    }
+}
+
+.btn-outline-light:hover {
+    color: #3f345f;
+}
+
+.btn-outline-warning:hover {
+    color: #ffffff;
+}
+
+.btn-sm {
+    font-size: 12px;
+    padding: 11px 25px;
+}
+
+.elements-page-btn .btn {
+    margin: 6px 3px;
 }
 
 /*= HEADER
@@ -778,12 +990,12 @@ li.nav-item.active {
     height: 100%;
 }
 
-.section.splash {
-    background: url(../img/header/cars.jpg) fixed no-repeat;
-    background-size: cover;
-    position: relative;
-    z-index: 1;
-}
+/*.section.splash {*/
+/*    background: url(../img/header/cars.jpg) fixed no-repeat;*/
+/*    background-size: cover;*/
+/*    position: relative;*/
+/*    z-index: 1;*/
+/*}*/
 
 .section.big_company {
     height: 100%;
@@ -946,13 +1158,17 @@ footer a:hover {
     color: #FFFFFF;
 }
 
+.page-footer {
+    padding-bottom: 55px;
+}
+
 .footer-copyright-index {
     background: #2a333b;
 }
 
 .footer-copyright {
     background: #2a333b;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     height: 55px;
@@ -977,11 +1193,16 @@ footer a:hover {
     padding: 8%;
 }
 
+.contact_info span {
+    color: #F19234;
+}
+
 .row.allpartners {
     background-color: rgba(0, 0, 0, 0.1);
     border: silver solid 1px;
     padding: 20px;
     margin-top: 10px;
+    min-width: 100%;
 }
 
 .our-team {
@@ -1098,13 +1319,19 @@ footer a:hover {
     }
 }
 
-<
-/
-style >
 
-@media (max-width: 980px) {
+@media (max-width: 350px) {
+    a.nav-link {
+        /* background-color: rgba(33, 33, 33, 0.1); */
+        padding: 10px;
+    }
+
     .logo img {
-        height: 235px;
+        height: 200px;
+    }
+
+    .resurs img {
+        height: 200px;
     }
 
     .title_contact {
@@ -1129,24 +1356,103 @@ style >
         display: none;
     }
 
-    footer {
-        background: #f0f2f4;
-    }
-}
-
-@media (min-width: 980px) {
-    .logo img {
-        height: 270px;
+    body > footer.page-footer.font-small.indigo > div > div {
+        display: none !important;
     }
 
-    .title_contact {
-        color: #a5b3bf !important;
-    }
-
-    .container.mobile {
+    /*footer {*/
+    /*    display: none !important;*/
+    /*}*/
+    h1.display-4 {
+        font-size: 30px;
         display: none;
     }
 
+    .resurs h2 {
+        font-size: 18px;
+    }
+
+    body > aside.section.type-1.big_company.splash_company {
+        padding: 0;
+    }
+
+    body > aside.section.type-1.big.splash {
+        padding: 0;
+    }
+
+    body > aside.section.type-1.big_company.splash_company > section > div > div.resurs > div > div.col-md-12 > h3 {
+        display: none;
+    }
+
+    body > aside.back_green > div.container > div > div.col-md-8.col-12 > img {
+        display: none;
+    }
+}
+
+@media (min-width: 351px) and (max-width: 767px) {
+    a.nav-link {
+        padding: 10px;
+    }
+
+    .logo img {
+        height: 235px;
+    }
+
+    .resurs img {
+        height: 200px;
+    }
+
+    .title_contact {
+        display: none;
+    }
+
+    .row.rombs {
+        background-color: #f0f2f4;
+        border: none;
+    }
+
+    div .company.contact2, .logo {
+        border-left: none;
+        border-right: none;
+    }
+    body > footer.page-footer.font-small.indigo > div > div {
+        display: none !important;
+    }
+    .logo {
+        border-bottom: 10px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .row.rombs.desktop {
+        display: none;
+    }
+
+    /*footer {*/
+    /*    display: none !important;*/
+    /*}*/
+    h1.display-4 {
+        font-size: 30px;
+        display: none;
+    }
+
+    .resurs h2 {
+        font-size: 18px;
+    }
+
+    body > aside.section.type-1.big_company.splash_company {
+        padding: 0;
+    }
+
+    body > aside.section.type-1.big.splash {
+        padding: 0;
+    }
+
+    body > aside.section.type-1.big_company.splash_company > section > div > div.resurs > div > div.col-md-12 > h3 {
+        display: none;
+    }
+
+    body > aside.back_green > div.container > div > div.col-md-8.col-12 > img {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1000px) {
@@ -1158,5 +1464,31 @@ style >
     .romb1 {
         margin-left: auto;
         margin-right: auto;
+    }
+}
+
+@media (min-width: 980px) {
+    .logo img {
+        height: 270px;
+    }
+
+    .resurs img {
+        height: 230px;
+    }
+
+    .title_contact {
+        color: #a5b3bf !important;
+    }
+
+    .container.mobile {
+        display: none;
+    }
+
+    body > aside.back_green > div.container > div > div.col-md-8.col-12 > img {
+        height: 331px;
+    }
+
+    body > aside.back_green > div.container > div > div.col-md-8.col-12 {
+        border-left: 2px solid rgba(0, 0, 0, 0.2);
     }
 }

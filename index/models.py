@@ -73,13 +73,6 @@ class Team(models.Model):
         verbose_name = 'Команда'
         verbose_name_plural = 'Команды'
 
-class TextTeam(models.Model):
-    text = models.CharField(verbose_name="Текст о сотрудниках", max_length=1000, blank=True)
-
-    class Meta:
-        verbose_name = 'Текст о сотрудниках'
-        verbose_name_plural = 'Текст о сотрудниках'
-
 class We_pred(models.Model):
     name_pred = models.CharField(verbose_name="Наименование", max_length=150, blank=True)
     img = models.CharField(verbose_name="Картинка", max_length=150, blank=True)

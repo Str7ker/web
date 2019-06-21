@@ -1,7 +1,11 @@
 {% load static %}
 {#Добавление логотипа компании#}
 <div class="col-md-6 col-sm-12 logo ">
-    {% for logo in logos %}
-    <img src="{{ logo.logo.url }}" alt=""/>
-    {% endfor %}
+    {% if logose.logo %}
+        <img src="{{ logose.logo.url }}" height="200px" alt=""/>
+
+    {% else %}
+        <img src="{% static 'img/resurs.png' %}" height="60px" alt=""/>
+
+    {% endif %}
 </div>

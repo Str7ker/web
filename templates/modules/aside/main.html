@@ -1,22 +1,23 @@
 {% load static %}
 {#Секция и задний фон с машинами#}
-<aside class="section type-1 big splash">
-    <div class="splash-cover">
-    </div>
+    <aside class="section type-1 big splash">
+
+<div class="splash-cover">
+</div>
 {#    Главная секция#}
-    <section class="container">
-        <div class="splash-block">
-            <div class="centered">
-                <div class="row" style="height: 33.33%">
-{#                        Логотип и информация о компании#}
-                        {% include "modules/aside/section/main/logo.html" %}
-                        {% include "modules/aside/section/main/address.html" %}
-                </div>
-{#                Ромбочки с цифрами#}
-                <div class="row rombs desktop" style="height: 33.33%">
-                    {% include "modules/aside/section/main/romb_desktop.html" %}
-                </div>
+<section class="container">
+    <div class="splash-block">
+        <div class="centered">
+            <div class="row" style="height: 33.33%">
+                {#                        Логотип и информация о компании#}
+                {% include "modules/aside/section/main/logo.html" %}
+                {% include "modules/aside/section/main/address.html" %}
+            </div>
+            {#                Ромбочки с цифрами#}
+            <div class="row rombs desktop" style="height: 33.33%">
+                {% include "modules/aside/section/main/romb_desktop.html" %}
             </div>
         </div>
-    </section>
+    </div>
+</section>
 </aside>
