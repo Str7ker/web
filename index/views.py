@@ -4,6 +4,7 @@ from index.models import *
 from django.core.mail import send_mail
 from django.views.generic import View
 from django.core.mail import EmailMessage
+from index.forms import OrderForm
 
 def index(request):
 
@@ -16,8 +17,14 @@ def index(request):
     preds = We_pred.objects.all()
     description = Description.objects.last()
     allpartners = AllPartner.objects.all()
-
-    return render(request, "index.html", {"contact": contact, "rombs": rombs, "cars": cars, "works": works, "parts": parts, "teams_index": teams_index, "preds": preds,
+    if request.method == 'POST':
+        order_form = OrderForm(request.POST)
+        if order_form.is_valid():
+            order_form.save()
+            return HttpResponseRedirect('/')
+    else:
+        order_form = OrderForm()
+    return render(request, "index.html", {"order_form": order_form, "contact": contact, "rombs": rombs, "cars": cars, "works": works, "parts": parts, "teams_index": teams_index, "preds": preds,
             "description": description, "allpartners": allpartners})
 
 def mailss(request):

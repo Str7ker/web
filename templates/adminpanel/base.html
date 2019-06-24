@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Hi5Dash - HTML5 Admin Template By Jewel Theme</title>
+    <meta name="description" content="Hi5Dash - HTML5 Admin Template By Jewel Theme">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Import Template Icons CSS Files -->
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/simple-line-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/linea-basic.css' %}">
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/pe-icon-7-stroke.css' %}">
+
+    <!-- Import Custom Country Select CSS Files -->
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/countrySelect.min.css' %}">
+
+    <!-- Import Perfect ScrollBar CSS Files -->
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/perfect-scrollbar.css' %}">
+
+    <!-- Import Bootstrap CSS File -->
+
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/bootstrap.min.css' %}">
+
+    <!-- Import Owl Carousel CSS File -->
+
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/owl.carousel.min.css' %}">
+
+    <!-- Import Template's CSS Files -->
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/presets.css' %}">
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/index-01.css' %}">
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/responsive.css' %}">
+
+
+</head>
+
+
+<body class="index-01">
+{% include 'adminpanel/header.html' %}
+<div class="content-wrapper container-fluid">
+    {% include 'adminpanel/leftpanel.html' %}
+
+    <div class="dashboard-contents">
+        {% block content %}
+
+        {% endblock %}
+    </div><!-- /.dashboard-contents -->
+</div><!-- /.content-wrapper -->
+<script src="{% static 'adminpanel/assets/js/jquery-3.2.1.slim.min.js' %}"></script>
+<script src="{% static 'adminpanel/assets/js/plugins.js' %}"></script>
+
+<!--Morris Chart-->
+<script src="{% static 'adminpanel/assets/js/charts/morris/raphael-min.js' %}"></script>
+<script src="{% static 'adminpanel/assets/js/charts/morris/morris.js' %}"></script>
+
+<!--Chartist Chart-->
+<script src="{% static 'adminpanel/assets/js/charts/chartist/chartist.min.js' %}"></script>
+<script src="{% static 'adminpanel/assets/js/charts/chartist/chartist-plugin-legend.js' %}"></script>
+
+<!--Sparkline Chart-->
+<script src="{% static 'adminpanel/assets/js/charts/sparkline/jquery.sparkline.min.js' %}"></script>
+
+<!--Flot Chart-->
+<script src="{% static 'adminpanel/assets/js/charts/flot/jquery.flot.js' %}"></script>
+<script src="{% static 'adminpanel/assets/js/charts/flot/jquery.flot.pie.js' %}"></script>
+<script src="{% static 'adminpanel/assets/js/charts/flot/jquery.flot.resize.js' %}"></script>
+<script src="{% static 'adminpanel/assets/js/charts/flot/jquery.flot.spline.js' %}"></script>
+<script src="{% static 'adminpanel/assets/js/widgets/charts.init.js' %}"></script>
+
+<!--For Weather-->
+<script src="{% static 'adminpanel/assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'adminpanel/assets/js/widgets/weather.js' %}"></script>
+
+<!--For Calendar-->
+<script src="{% static 'adminpanel/assets/js/calendar/moment.js' %}"></script>
+<script src="{% static 'adminpanel/assets/js/calendar/fullcalendar.min.js' %}"></script>
+
+<script src="{% static 'adminpanel/assets/js/index/index-01.js' %}"></script>
+<script src="{% static 'adminpanel/assets/js/main.js' %}"></script>
+
+<script>
+    $(function () {
+        "use strict";
+
+        $('#calendar').fullCalendar();
+
+    });
+</script>
+
+</body>
+</html>

@@ -113,3 +113,12 @@ class Logo(models.Model):
     class Meta:
         verbose_name = 'Логотип'
         verbose_name_plural = 'Логотип'
+
+class Order(models.Model):
+    name = models.CharField(verbose_name="Имя", max_length=50, blank=True)
+    phone = models.CharField(verbose_name="Телефон", max_length=20, blank=True)
+    email = models.CharField(verbose_name="Электронная почта", max_length=100, blank=True)
+
+    class Meta:
+        verbose_name = 'Заявка'
+        verbose_name_plural = 'Заявки'

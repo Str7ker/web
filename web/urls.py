@@ -17,7 +17,7 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from web import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from index.views import *
 from movizor.views import *
 from partners.views import index_partners
@@ -34,6 +34,7 @@ urlpatterns = [
     path('team/', index_team, name="team"),
     path('company/', index_company, name="company"),
     path('contact/', index_contact, name="contact"),
+    path('', include('adminpanel.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
