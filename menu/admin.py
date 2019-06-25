@@ -4,7 +4,7 @@ from menu.models import Menu, MenuItem
 
 class MenuItemInline(admin.TabularInline):
     model = MenuItem
-    ordering = ('order',)
+    ordering = ('order', 'ico')
 
 
 class MenuAdmin(admin.ModelAdmin):

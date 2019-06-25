@@ -27,6 +27,7 @@ from contact.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', index, name="index"),
     path('create/', mailss),
     path('movizor/', index_movizor, name="movizor"),

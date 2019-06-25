@@ -1,6 +1,47 @@
 {% extends 'adminpanel/base.html' %}
 
 {% block content %}
-dashboard
+    {#    {% for rombs in romb %}#}
+    {#        {{ rombs.name_romb }}#}
+    {#        {{ rombs.ico }}#}
+    {#        {{ rombs.text }}#}
+    {#        {{ rombs.numbers }}#}
+    {#    {% endfor %}#}
+    {% load crispy_forms_tags %}
+    <form class="login100-form validate-form " method="post" action="{% url 'page_index' %}"
+          style="width: 60%;margin-left: auto; margin-right: auto;">
+        {% csrf_token %}
+        {{ romb_form|crispy }}
+        <div class="container-login100-form-btn m-t-17" style="text-align: center;">
+            {#            <input class="login100-form-btn" type="submit" value="Вход"/>#}
+            {#            <input type="hidden" name="next" value="{{ next }}"/>#}
+            <button type="submit" class="btn btn-outline-primary">Добавить</button>
+        </div>
+    </form>
+    <br>
+    <hr>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Номер телефона: </th>
+            <th scope="col">Электронная почта:</th>
+            <th scope="col">Наш адрес:</th>
+            <th scope="col">Группа ВКонтакте: </th>
+            <th scope="col">Инстаграм:  </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for address in contact %}
+            <tr>
+                <th scope="row">{{ address.phone }}</th>
+                <td>{{ address.email }}</td>
+                <td>{{ address.address_fact }}</td>
+                <td>{{ address.vk }}</td>
+                <td>{{ address.insta }} </td>
+                <td><a class="btn btn-outline-dangerbtn btn-outline-danger" href="{% url 'page_index_del' rombs.id %}">Удалить</a></td>
+{#                <td><a class="btn btn-outline-primary" href="{% url 'page_index_del' rombs.id %}">Удалить</a></td>#}
+{#            </tr>#}
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
-

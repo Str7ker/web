@@ -3,5 +3,6 @@ from adminpanel.views import *
 
 urlpatterns = [
     path('panel/', dashboard, name='dashboard'),
-    path('accounts/', include('django.contrib.auth.urls'))
+    path('panel/page_index/', page_index, name='page_index'),
+    path('panel/page_index/<pk>/', page_index_del, name='page_index_del'),
 ]

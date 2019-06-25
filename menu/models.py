@@ -18,7 +18,6 @@ class Menu(models.Model):
         blank=True,
         null=True
         )
-
     description = models.TextField(
         _(u'Description'),
         blank=True,
@@ -62,7 +61,12 @@ class MenuItem(models.Model):
         _(u'Order'),
         default=500
         )
-
+    ico = models.CharField(
+        verbose_name="Иконка меню",
+        max_length=100,
+        blank=True,
+        null=True
+    )
     link_url = models.CharField(
         _(u'Link URL'),
         max_length=100,
