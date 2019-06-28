@@ -67,11 +67,11 @@
 <script src="{% static 'adminpanel/assets/js/charts/sparkline/jquery.sparkline.min.js' %}"></script>
 
 <!--Flot Chart-->
-<script src="{% static 'adminpanel/assets/js/charts/flot/jquery.flot.js' %}"></script>
-<script src="{% static 'adminpanel/assets/js/charts/flot/jquery.flot.pie.js' %}"></script>
-<script src="{% static 'adminpanel/assets/js/charts/flot/jquery.flot.resize.js' %}"></script>
-<script src="{% static 'adminpanel/assets/js/charts/flot/jquery.flot.spline.js' %}"></script>
-<script src="{% static 'adminpanel/assets/js/widgets/charts.init.js' %}"></script>
+{#<script src="{% static 'adminpanel/assets/js/charts/flot/jquery.flot.js' %}"></script>#}
+{#<script src="{% static 'adminpanel/assets/js/charts/flot/jquery.flot.pie.js' %}"></script>#}
+{#<script src="{% static 'adminpanel/assets/js/charts/flot/jquery.flot.resize.js' %}"></script>#}
+{#<script src="{% static 'adminpanel/assets/js/charts/flot/jquery.flot.spline.js' %}"></script>#}
+{#<script src="{% static 'adminpanel/assets/js/widgets/charts.init.js' %}"></script>#}
 
 <!--For Weather-->
 <script src="{% static 'adminpanel/assets/js/owl.carousel.min.js' %}"></script>
@@ -81,8 +81,9 @@
 <script src="{% static 'adminpanel/assets/js/calendar/moment.js' %}"></script>
 <script src="{% static 'adminpanel/assets/js/calendar/fullcalendar.min.js' %}"></script>
 
-<script src="{% static 'adminpanel/assets/js/index/index-01.js' %}"></script>
+{#<script src="{% static 'adminpanel/assets/js/index/index-01.js' %}"></script>#}
 <script src="{% static 'adminpanel/assets/js/main.js' %}"></script>
+<script src="{% static 'js/mask.js' %}"></script>
 
 <script>
     $(function () {
@@ -92,6 +93,10 @@
 
     });
 </script>
+
+{% block script %}
+
+{% endblock script %}
 
 </body>
 </html>

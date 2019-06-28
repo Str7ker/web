@@ -70,7 +70,7 @@ class CompanyForm(forms.ModelForm):
         fields = ('__all__')
 
 class ContactsForm(forms.ModelForm):
-
+    phone = forms.CharField(label="Телефон", widget=forms.TextInput(attrs={"id": "phone-number"}))
     class Meta:
         model = Contacts
-        fields = ('__all__')
+        fields = ('phone','email','address_fact','vk','insta','inn','ogrn','kpp','img')
