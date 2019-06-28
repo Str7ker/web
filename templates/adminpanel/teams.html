@@ -1,0 +1,50 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="section-content">
+                <div class="content-details show">
+                    {% load crispy_forms_tags %}
+                    <form class="login100-form validate-form " method="post" action="{% url 'teams' %}"
+                          style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ teams_form|crispy }}
+                        <div class="container-login100-form-btn m-t-17" style="text-align: center;">
+                            <button type="submit" class="btn btn-outline-primary">Добавить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="section-content">
+                <div class="content-details show">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Имя и фамилия</th>
+                            <th scope="col">Телефон</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% load imgnames %}
+                        {% for team in teams %}
+                            <tr>
+                            <td>{{ team.name }}</td>
+                            <td>{{ team.phone }}</td>
+                            <td>
+                                <a class="btn btn-sm btn-outline-dangerbtn btn-outline-danger"
+                                   href="{% url 'teams_del' team.id %}"><i class="fa fa-times"></i></a>
+                                <a href="" class="btn btn-sm btn-outline-success"><i class="fa fa-eye"></i></a>
+                            </td>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+{% endblock %}

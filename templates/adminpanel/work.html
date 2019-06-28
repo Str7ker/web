@@ -1,0 +1,36 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block content %}
+    {% load crispy_forms_tags %}
+    <form class="login100-form validate-form " method="post" action="{% url 'team_index' %}"
+          style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ work_form|crispy }}
+        <div class="container-login100-form-btn m-t-17" style="text-align: center;">
+            <button type="submit" class="btn btn-outline-primary">Добавить</button>
+        </div>
+    </form>
+    <br>
+    <hr>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Наименование работы</th>
+            <th scope="col">Картинка</th>
+            <th scope="col">Наименование</th>
+            <th scope="col">Текст</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% load imgnames %}
+        {% for works in work %}
+            <tr>
+                <th scope="row">{{ works.name_work}}</th>
+                <td>{{ works.img|imgnames}}</td>
+                <td>{{ works.name}}</td>
+                <td>{{ works.text}}</td>
+                <td><a class="btn btn-outline-dangerbtn btn-outline-danger" href="{% url 'work_del' works.id %}">Удалить</a></td>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

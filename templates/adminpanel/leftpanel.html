@@ -22,7 +22,7 @@
                 <li {% if item.current %}class="nav-item active"{% endif %}>
                     <a class="nav-link" style=""{% if item.current == False %} href="{{ item.url }}" {% endif %}
                        title="{{ item.title|escape }}">
-                    <i class="fa fa-calendar-o"></i> <span class="menu-title">{{ item.title }}</span>
+                    <i class="{{ item.ico }}"></i> <span class="menu-title">{{ item.title }}</span>
                     </a>
                 </li>
             {% endfor %}

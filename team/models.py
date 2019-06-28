@@ -1,6 +1,6 @@
 from django.db import models
 
-class Team(models.Model):
+class Teams(models.Model):
     img = models.ImageField(verbose_name="Картинка", upload_to='img/team/', blank=True)
     name = models.CharField(verbose_name="Имя и фамилия", max_length=150, blank=True)
     position = models.CharField(verbose_name="Должность", max_length=50, blank=True)

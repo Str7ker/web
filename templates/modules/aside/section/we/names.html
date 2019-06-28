@@ -3,7 +3,7 @@
 <section class="row predost">
     {% for pred in preds %}
     <article class="col-md-4 col-12">
-        <img src="{% static pred.img %}" alt=""/>
+        <img src="{{ pred.img.url }}" alt=""/>
         <p>
             {{  pred.text }}
         </p>

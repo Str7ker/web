@@ -1,0 +1,50 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="section-content">
+                <div class="content-details show">
+                    {% load crispy_forms_tags %}
+                    <form class="login100-form validate-form " method="post" action="{% url 'partners' %}"
+                          style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ partners_form|crispy }}
+                        <div class="container-login100-form-btn m-t-17" style="text-align: center;">
+                            <button type="submit" class="btn btn-outline-primary">Добавить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="section-content">
+                <div class="content-details show">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Наименование партнёра</th>
+                            <th scope="col">Номер телефона</th>
+                            <th scope="col">Электронная почта</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% load imgnames %}
+                        {% for ap in partners %}
+                            <tr>
+                            <th scope="row">{{ ap.name_part }}</th>
+                            <td>{{ ap.number }}</td>
+                            <td>{{ ap.email }}</td>
+                            <td><a class="btn btn-outline-dangerbtn btn-outline-danger"
+                                   href="{% url 'partners_del' ap.id %}">Удалить</a>
+                            </td>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+
+{% endblock %}

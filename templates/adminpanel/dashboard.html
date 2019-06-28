@@ -8,10 +8,10 @@
     {#        {{ rombs.numbers }}#}
     {#    {% endfor %}#}
     {% load crispy_forms_tags %}
-    <form class="login100-form validate-form " method="post" action="{% url 'page_index' %}"
+    <form class="login100-form validate-form " method="post" action="{% url 'dashboard' %}"
           style="width: 60%;margin-left: auto; margin-right: auto;">
         {% csrf_token %}
-        {{ romb_form|crispy }}
+        {{ contact_form|crispy }}
         <div class="container-login100-form-btn m-t-17" style="text-align: center;">
             {#            <input class="login100-form-btn" type="submit" value="Вход"/>#}
             {#            <input type="hidden" name="next" value="{{ next }}"/>#}
@@ -38,7 +38,7 @@
                 <td>{{ address.address_fact }}</td>
                 <td>{{ address.vk }}</td>
                 <td>{{ address.insta }} </td>
-                <td><a class="btn btn-outline-dangerbtn btn-outline-danger" href="{% url 'page_index_del' rombs.id %}">Удалить</a></td>
+                <td><a class="btn btn-outline-dangerbtn btn-outline-danger" href="{% url 'dashboard_del' address.id %}">Удалить</a></td>
 {#                <td><a class="btn btn-outline-primary" href="{% url 'page_index_del' rombs.id %}">Удалить</a></td>#}
 {#            </tr>#}
         {% endfor %}

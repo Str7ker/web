@@ -1,0 +1,42 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block content %}
+    {#    {% for rombs in romb %}#}
+    {#        {{ rombs.name_romb }}#}
+    {#        {{ rombs.ico }}#}
+    {#        {{ rombs.text }}#}
+    {#        {{ rombs.numbers }}#}
+    {#    {% endfor %}#}
+    {% load crispy_forms_tags %}
+    <form class="login100-form validate-form " method="post" action="{% url 'logo' %}"
+          style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ logo_form|crispy }}
+        <div class="container-login100-form-btn m-t-17" style="text-align: center;">
+            {#            <input class="login100-form-btn" type="submit" value="Вход"/>#}
+            {#            <input type="hidden" name="next" value="{{ next }}"/>#}
+            <button type="submit" class="btn btn-outline-primary">Добавить</button>
+        </div>
+    </form>
+    <br>
+    <hr>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Логотип</th>
+            <th scope="col">Задняя картинка</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% load imgnames %}
+        {% for logos in logo %}
+            <tr>
+                <th scope="row">{{ logos.logo|imgnames}}</th>
+                <td>{{ logos.background|imgnames}}</td>
+                <td><a class="btn btn-outline-dangerbtn btn-outline-danger" href="{% url 'logo_del' logos.id %}">Удалить</a></td>
+{#                <td><a class="btn btn-outline-primary" href="{% url 'page_index_del' rombs.id %}">Удалить</a></td>#}
+{#            </tr>#}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

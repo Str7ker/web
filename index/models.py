@@ -27,7 +27,7 @@ class Romb(models.Model):
 
 class Car(models.Model):
     name_cars = models.CharField(verbose_name="Наименование грузоперевозки", max_length=150, blank=True)
-    img = models.CharField(verbose_name="Картинка", max_length=150, blank=True)
+    img = models.ImageField(verbose_name="Картинка", upload_to='img/', blank=True)
     name = models.CharField(verbose_name="Наименование", max_length=25, blank=True)
     text = models.CharField(verbose_name="Текст", max_length=250, blank=True)
 
@@ -37,7 +37,7 @@ class Car(models.Model):
 
 class Work(models.Model):
     name_work = models.CharField(verbose_name="Наименование работы", max_length=150, blank=True)
-    img = models.CharField(verbose_name="Картинка", max_length=150, blank=True)
+    img = models.ImageField(verbose_name="Картинка", upload_to='static/img/work/', blank=True)
     name = models.CharField(verbose_name="Наименование", max_length=25, blank=True)
     text = models.CharField(verbose_name="Текст", max_length=700, blank=True)
 
@@ -75,7 +75,7 @@ class Team(models.Model):
 
 class We_pred(models.Model):
     name_pred = models.CharField(verbose_name="Наименование", max_length=150, blank=True)
-    img = models.CharField(verbose_name="Картинка", max_length=150, blank=True)
+    img = models.ImageField(verbose_name="Картинка", upload_to='img/pred/', blank=True)
     text = models.CharField(verbose_name="Текст", max_length=150, blank=True)
 
     class Meta:

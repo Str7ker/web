@@ -7,5 +7,5 @@ class TeamAdmin(admin.ModelAdmin):
 class TextTeamAdmin(admin.ModelAdmin):
     list_display = ('id', 'text')
 
-admin.site.register(Team, TeamAdmin)
+admin.site.register(Teams, TeamAdmin)
 admin.site.register(TextTeam, TextTeamAdmin)
