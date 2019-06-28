@@ -10,7 +10,7 @@ class Contact_info(models.Model):
         verbose_name_plural = 'Контактные информации'
 
 
-class Contact(models.Model):
+class Contacts(models.Model):
     phone = models.CharField(verbose_name="Телефон", max_length=25, blank=True)
     email = models.CharField(verbose_name="Электронная почта", max_length=30, blank=True)
     address_fact = models.CharField(verbose_name="Адрес", max_length=250, blank=True)

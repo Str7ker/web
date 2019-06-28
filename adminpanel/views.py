@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from adminpanel.forms import *
 from index.models import *
 from team.models import *
+from company.models import *
+from contact.models import *
 from django.http import HttpResponseRedirect
 # @login_required
 # def dashboard(request):
@@ -198,4 +200,39 @@ def teams_del(request, pk):
     Teams.objects.get(pk=pk).delete()
     return HttpResponseRedirect('/panel/teams/')
 
-# --------------- Партнёры
+# --------------- Компания
+@login_required
+def company(request):
+    company = Company.objects.all()
+    if request.method == 'POST':
+        company_form = CompanyForm(request.POST, request.FILES)
+        if company_form.is_valid():
+            company_form.save()
+            return HttpResponseRedirect('/panel/company/')
+    else:
+        company_form = CompanyForm()
+    return render(request, 'adminpanel/company.html', {'company_form': company_form, 'company': company})
+
+@login_required
+def company_del(request, pk):
+    Company.objects.get(pk=pk).delete()
+    return HttpResponseRedirect('/panel/company/')
+
+# --------------- Контакты
+
+@login_required
+def contacts(request):
+    contacts = Contacts.objects.all()
+    if request.method == 'POST':
+        contacts_form = ContactsForm(request.POST, request.FILES)
+        if contacts_form.is_valid():
+            contacts_form.save()
+            return HttpResponseRedirect('/panel/contacts/')
+    else:
+        contacts_form = ContactsForm()
+    return render(request, 'adminpanel/contacts.html', {'contacts_form': contacts_form, 'contacts': contacts})
+
+@login_required
+def contacts_del(request, pk):
+    Contacts.objects.get(pk=pk).delete()
+    return HttpResponseRedirect('/panel/contacts/')

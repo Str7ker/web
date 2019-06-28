@@ -1,6 +1,8 @@
 from django import forms
 from index.models import *
 from team.models import *
+from company.models import *
+from contact.models import *
 class ContactForm(forms.ModelForm):
 
     class Meta:
@@ -59,4 +61,16 @@ class TeamsForm(forms.ModelForm):
 
     class Meta:
         model = Teams
+        fields = ('__all__')
+
+class CompanyForm(forms.ModelForm):
+
+    class Meta:
+        model = Company
+        fields = ('__all__')
+
+class ContactsForm(forms.ModelForm):
+
+    class Meta:
+        model = Contacts
         fields = ('__all__')

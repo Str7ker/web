@@ -22,5 +22,8 @@ urlpatterns = [
     path('panel/partners/<int:pk>/', partners_del, name='partners_del'),
     path('panel/teams/', teams, name='teams'),
     path('panel/teams/<int:pk>/', teams_del, name='teams_del'),
-
+    path('panel/company/', company, name='company'),
+    path('panel/company/<int:pk>/', company_del, name='company_del'),
+    path('panel/contacts/', contacts, name='contacts'),
+    path('panel/contacts/<int:pk>/', contacts_del, name='contacts_del'),
 ]

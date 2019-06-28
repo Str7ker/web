@@ -2,14 +2,14 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="section-content">
                 <div class="content-details show">
                     {% load crispy_forms_tags %}
-                    <form class="login100-form validate-form " method="post" action="{% url 'team_index' %}"
+                    <form class="login100-form validate-form " method="post" action="{% url 'contacts' %}"
                           style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {{ team_index_form|crispy }}
+                        {{ contacts_form|crispy }}
                         <div class="container-login100-form-btn m-t-17" style="text-align: center;">
                             <button type="submit" class="btn btn-outline-primary">Добавить</button>
                         </div>
@@ -17,25 +17,39 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="section-content">
                 <div class="content-details show">
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th scope="col">Имя и фамилия</th>
                             <th scope="col">Телефон</th>
+                            <th scope="col">Электронная почта</th>
+                            <th scope="col">Адрес</th>
+                            <th scope="col">ВК</th>
+                            <th scope="col">Инстаграм</th>
+                            <th scope="col">ИНН</th>
+                            <th scope="col">ОГРН</th>
+                            <th scope="col">КПП</th>
+                            <th scope="col">Картинка</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% load imgnames %}
-                        {% for team in team_index %}
+                        {% for con in contacts %}
                             <tr>
-                            <td>{{ team.name }}</td>
-                            <td>{{ team.phone }}</td>
+                            <td>{{ con.phone }}</td>
+                            <td>{{ con.email }}</td>
+                            <td>{{ con.address_fact }}</td>
+                            <td>{{ con.vk }}</td>
+                            <td>{{ con.insta }}</td>
+                            <td>{{ con.inn }}</td>
+                            <td>{{ con.ogrn }}</td>
+                            <td>{{ con.kpp }}</td>
+                            <td>{{ con.img|imgnames }}</td>
                             <td>
                                 <a class="btn btn-sm btn-outline-dangerbtn btn-outline-danger"
-                                   href="{% url 'team_index_del' team.id %}"><i class="fa fa-times"></i></a>
+                                   href="{% url 'contacts_del' con.id %}"><i class="fa fa-times"></i></a>
                                 <a href="" class="btn btn-sm btn-outline-success"><i class="fa fa-eye"></i></a>
                             </td>
                         {% endfor %}
