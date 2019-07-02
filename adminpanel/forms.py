@@ -71,6 +71,7 @@ class CompanyForm(forms.ModelForm):
 
 class ContactsForm(forms.ModelForm):
     phone = forms.CharField(label="Телефон", widget=forms.TextInput(attrs={"id": "phone-number"}))
+    email = forms.CharField(label="Электронная почта", widget=forms.TextInput(attrs={"id": "email"}))
     class Meta:
         model = Contacts
         fields = ('phone','email','address_fact','vk','insta','inn','ogrn','kpp','img')

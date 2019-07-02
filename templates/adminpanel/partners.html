@@ -1,50 +1,70 @@
 {% extends 'adminpanel/base.html' %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-4">
-            <div class="section-content">
-                <div class="content-details show">
-                    {% load crispy_forms_tags %}
-                    <form class="login100-form validate-form " method="post" action="{% url 'partners' %}"
-                          style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ partners_form|crispy }}
-                        <div class="container-login100-form-btn m-t-17" style="text-align: center;">
-                            <button type="submit" class="btn btn-outline-primary">Добавить</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    {#    <div class="row">#}
+    {#        <div class="col-md-4">#}
+    {#            <div class="section-content">#}
+    {#                <div class="content-details show">#}
+    {% load crispy_forms_tags %}
+    <form class="login100-form validate-form " method="post" action="{% url 'partners' %}"
+          style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ partners_form|crispy }}
+        <div class="container-login100-form-btn m-t-17" style="text-align: center;">
+            <button type="submit" class="btn btn-outline-primary">Добавить</button>
         </div>
-        <div class="col-md-8">
-            <div class="section-content">
-                <div class="content-details show">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th scope="col">Наименование партнёра</th>
-                            <th scope="col">Номер телефона</th>
-                            <th scope="col">Электронная почта</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% load imgnames %}
-                        {% for ap in partners %}
+    </form>
+    <br>
+    <hr>
+    <div class="background-modal">
+        <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal"
+                data-target="#primary">
+            Сотрудники на главной
+        </button>
+
+        <div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="primaryLabel"
+             aria-hidden="true" style="display: none;">
+            <div class="modal-dialog" role="document" style="min-width: 100%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="primaryLabel">Сотрудники на главной</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped">
+                            <thead>
                             <tr>
-                            <th scope="row">{{ ap.name_part }}</th>
-                            <td>{{ ap.number }}</td>
-                            <td>{{ ap.email }}</td>
-                            <td><a class="btn btn-outline-dangerbtn btn-outline-danger"
-                                   href="{% url 'partners_del' ap.id %}">Удалить</a>
-                            </td>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                                <th scope="col">Наименование партнёра</th>
+                                <th scope="col">Номер телефона</th>
+                                <th scope="col">Электронная почта</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% load imgnames %}
+                            {% for ap in partners %}
+                                <tr>
+                                <th scope="row">{{ ap.name_part }}</th>
+                                <td>{{ ap.number }}</td>
+                                <td>{{ ap.email }}</td>
+                                <td><a class="btn btn-outline-dangerbtn btn-outline-danger"
+                                       href="{% url 'partners_del' ap.id %}">Удалить</a>
+                                </td>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-        <br>
-        <hr>
+    </div>
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
 
 {% endblock %}

@@ -11,42 +11,16 @@
                         {% csrf_token %}
                         {{ company_form|crispy }}
                         <div class="container-login100-form-btn m-t-17" style="text-align: center;">
-                            <button type="submit" class="btn btn-outline-primary">Добавить</button>
+                            <button type="submit" class="btn btn-outline-primary">Изменить</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="section-content">
-                <div class="content-details show">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th scope="col">Описание страницы</th>
-                            <th scope="col">Маленький текст</th>
-                            <th scope="col">Большой текст</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% load imgnames %}
-                        {% for comp in company %}
-                            <tr>
-                            <td>{{ comp.title }}</td>
-                            <td>{{ comp.small_text }}</td>
-                            <td>{{ comp.big_text }}</td>
-                            <td>
-                                <a class="btn btn-sm btn-outline-dangerbtn btn-outline-danger"
-                                   href="{% url 'company_del' comp.id %}"><i class="fa fa-times"></i></a>
-                                <a href="" class="btn btn-sm btn-outline-success"><i class="fa fa-eye"></i></a>
-                            </td>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <hr>
 {% endblock %}
+
+{% block script %}
+    <script>
+
+    </script>
+{% endblock script %}

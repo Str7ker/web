@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-12">
             <div class="section-content">
                 <div class="content-details show">
                     {% load crispy_forms_tags %}
@@ -11,59 +11,16 @@
                         {% csrf_token %}
                         {{ contacts_form|crispy }}
                         <div class="container-login100-form-btn m-t-17" style="text-align: center;">
-                            <button type="submit" class="btn btn-outline-primary">Добавить</button>
+                            <button type="submit" class="btn btn-outline-primary">Изменить</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
-            <div class="section-content">
-                <div class="content-details show">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th scope="col">Телефон</th>
-                            <th scope="col">Электронная почта</th>
-                            <th scope="col">Адрес</th>
-                            <th scope="col">ИНН</th>
-                            <th scope="col">ОГРН</th>
-                            <th scope="col">КПП</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% load imgnames %}
-                        {% for con in contacts %}
-                            <tr>
-                            <td>{{ con.phone }}</td>
-                            <td>{{ con.email }}</td>
-                            <td>{{ con.address_fact }}</td>
-                            <td>{{ con.inn }}</td>
-                            <td>{{ con.ogrn }}</td>
-                            <td>{{ con.kpp }}</td>
-                            <td>
-                                <a class="btn btn-sm btn-outline-dangerbtn btn-outline-danger"
-                                   href="{% url 'contacts_del' con.id %}"><i class="fa fa-times"></i></a>
-                                <a href="" class="btn btn-sm btn-outline-success"><i class="fa fa-eye"></i></a>
-                            </td>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <hr>
 {% endblock %}
 
 {% block script %}
     <script>
-        jQuery(function ($) {
 
-            $("#phone-number").mask("(999) 999-9999");
-
-
-        });
     </script>
 {% endblock script %}

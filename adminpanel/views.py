@@ -14,14 +14,14 @@ from django.http import HttpResponseRedirect
 
 @login_required
 def dashboard(request):
-    contact = Contact.objects.all()
+    contact = Contact.objects.get(pk=2)
     if request.method == 'POST':
-        contact_form = ContactForm(request.POST)
+        contact_form = ContactForm(request.POST, request.FILES, instance=contact)
         if contact_form.is_valid():
             contact_form.save()
             return HttpResponseRedirect('/panel/')
     else:
-        contact_form = ContactForm()
+        contact_form = ContactForm(instance=contact)
     return render(request, 'adminpanel/dashboard.html', {'contact_form': contact_form, 'contact': contact})
 
 @login_required
@@ -187,12 +187,12 @@ def partners_del(request, pk):
 def teams(request):
     teams = Teams.objects.all()
     if request.method == 'POST':
-        teams_form = AllPartnerForm(request.POST, request.FILES)
+        teams_form = TeamsForm(request.POST, request.FILES)
         if teams_form.is_valid():
             teams_form.save()
             return HttpResponseRedirect('/panel/teams/')
     else:
-        teams_form = AllPartnerForm()
+        teams_form = TeamsForm()
     return render(request, 'adminpanel/teams.html', {'teams_form': teams_form, 'teams': teams})
 
 @login_required
@@ -203,14 +203,14 @@ def teams_del(request, pk):
 # --------------- Компания
 @login_required
 def company(request):
-    company = Company.objects.all()
+    company = Company.objects.get(pk=1)
     if request.method == 'POST':
-        company_form = CompanyForm(request.POST, request.FILES)
+        company_form = CompanyForm(request.POST, request.FILES, instance=company)
         if company_form.is_valid():
             company_form.save()
             return HttpResponseRedirect('/panel/company/')
     else:
-        company_form = CompanyForm()
+        company_form = CompanyForm(instance=company)
     return render(request, 'adminpanel/company.html', {'company_form': company_form, 'company': company})
 
 @login_required
@@ -222,14 +222,14 @@ def company_del(request, pk):
 
 @login_required
 def contacts(request):
-    contacts = Contacts.objects.all()
+    contacts = Contacts.objects.get(pk=1)
     if request.method == 'POST':
-        contacts_form = ContactsForm(request.POST, request.FILES)
+        contacts_form = ContactsForm(request.POST, request.FILES, instance=contacts)
         if contacts_form.is_valid():
             contacts_form.save()
             return HttpResponseRedirect('/panel/contacts/')
     else:
-        contacts_form = ContactsForm()
+        contacts_form = ContactsForm(instance=contacts)
     return render(request, 'adminpanel/contacts.html', {'contacts_form': contacts_form, 'contacts': contacts})
 
 @login_required
