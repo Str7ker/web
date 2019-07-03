@@ -1,11 +1,9 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> {% load static %}
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Hi5Dash - HTML5 Admin Template By Jewel Theme</title>
+    <title></title>
     <meta name="description" content="Hi5Dash - HTML5 Admin Template By Jewel Theme">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -37,7 +35,8 @@
     <link rel="stylesheet" href="{% static 'adminpanel/assets/css/index-01.css' %}">
     <link rel="stylesheet" href="{% static 'adminpanel/assets/css/responsive.css' %}">
 
-
+    {% block style %}
+    {% endblock style %}
 </head>
 
 

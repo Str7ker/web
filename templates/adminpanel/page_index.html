@@ -1,45 +1,144 @@
 {% extends 'adminpanel/base.html' %}
-
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/datatable.css' %}">
+{% endblock style %}
+{% load i18n %}
 {% block content %}
-    {#    {% for rombs in romb %}#}
-    {#        {{ rombs.name_romb }}#}
-    {#        {{ rombs.ico }}#}
-    {#        {{ rombs.text }}#}
-    {#        {{ rombs.numbers }}#}
-    {#    {% endfor %}#}
-    {% load crispy_forms_tags %}
-    <form class="login100-form validate-form " method="post" action="{% url 'page_index' %}"
-          style="width: 60%;margin-left: auto; margin-right: auto;">
-        {% csrf_token %}
-        {{ romb_form|crispy }}
-        <div class="container-login100-form-btn m-t-17" style="text-align: center;">
-            {#            <input class="login100-form-btn" type="submit" value="Вход"/>#}
-            {#            <input type="hidden" name="next" value="{{ next }}"/>#}
-            <button type="submit" class="btn btn-outline-primary">Добавить</button>
+    <div class="contents-inner">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-content">
+                    <div class="content-head">
+                        <h4 class="content-title"> {% trans 'Управление ромбами на главной' %}</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
-    <br>
-    <hr>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">Наименование ромба</th>
-            <th scope="col">Иконка</th>
-            <th scope="col">Текст</th>
-            <th scope="col">Цифры</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for rombs in romb %}
-            <tr>
-                <th scope="row">{{ rombs.name_romb }}</th>
-                <td>{{ rombs.ico }}</td>
-                <td>{{ rombs.text }}</td>
-                <td>{{ rombs.numbers }}</td>
-                <td><a class="btn btn-outline-dangerbtn btn-outline-danger" href="{% url 'page_index_del' rombs.id %}">Удалить</a></td>
-{#                <td><a class="btn btn-outline-primary" href="{% url 'page_index_del' rombs.id %}">Удалить</a></td>#}
-{#            </tr>#}
-        {% endfor %}
-        </tbody>
-    </table>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section-content">
+                    <div class="content-head">
+                        <h4 class="content-title"> {% trans 'Ромбы на главной' %}</h4>
+                        <div class="content-details show">
+                            <table id="page_index" class="display compact" style="width:100%">
+                                <thead>
+                                <tr>
+                                    <th>Наименование ромба</th>
+                                    <th>Иконка</th>
+                                    <th>Текст</th>
+                                    <th>Цифры</th>
+                                    <th>Действие</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% load imgnames %}
+                                {% for rombs in romb %}
+                                    <tr>
+                                        <th scope="row">{{ rombs.name_romb }}</th>
+                                        <td>{{ rombs.ico }}</td>
+                                        <td>{{ rombs.text }}</td>
+                                        <td>{{ rombs.numbers }}</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-outline-dangerbtn btn-outline-danger"
+                                               href="{% url 'page_index_del' rombs.id %}"><i
+                                                    class="fa fa-times"></i></a>
+                                            <a href="{% url 'page_index_edit' rombs.id %}"
+                                               class="btn btn-sm btn-outline-success"><i class="fa fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Наименование ромба</th>
+                                    <th>Иконка</th>
+                                    <th>Текст</th>
+                                    <th>Цифры</th>
+                                    <th>Действие</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="section-content">
+                    <div class="content-head">
+                        <h4 class="content-title"> {% trans 'Управление' %}</h4>
+                        <div class="content-details show">
+                            <button type="button" class="btn btn-block btn-primary" data-toggle="modal"
+                                    data-target="#primary">
+                                Добавить ромб
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% load crispy_forms_tags %}
+    <div class="background-modal">
+
+
+        <div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="primaryLabel"
+             aria-hidden="true" style="display: none;">
+            <div class="modal-dialog" role="document" style="min-width: 60%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="primaryLabel">Ромбы</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="login100-form validate-form " method="post" action="{% url 'page_index' %}"
+                              style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ romb_form|crispy }}
+                            <div class="container-login100-form-btn m-t-17" style="text-align: center;">
+                                <button type="submit" class="btn btn-outline-primary">Добавить</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
 {% endblock %}
+
+{% block script %}
+    <script>
+
+    </script>
+    <script src="{% static 'adminpanel/assets/js/datatable.js' %}"></script>
+    <script>
+        jQuery(function ($) {
+            $('#page_index').DataTable({
+                "aLengthMenu": [
+                    [5, 10, 15, -1],
+                    [5, 10, 15, "Все"]
+                ],
+                "iDisplayLength": 10,
+                "language": {
+                    url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Russian.json"
+                },
+                "paging": true,
+                {#dom: 'Bfrtip',#}
+                "responsive": true,
+                {#autoWidth: false,#}
+                {#buttons: [#}
+                {# 'excel', 'pdf', 'print'#}
+                {#],#}
+            });
+        });
+    </script>
+{% endblock script %}

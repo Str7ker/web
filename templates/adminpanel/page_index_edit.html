@@ -1,0 +1,18 @@
+{% extends 'adminpanel/base.html' %}
+
+{% block content %}
+    {% load crispy_forms_tags %}
+    <form class="login100-form validate-form " method="post" action="{% url 'page_index_edit' rombs.id %}"
+          style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ romb_forms|crispy }}
+        <div class="container-login100-form-btn m-t-17" style="text-align: center;">
+            <button type="submit" class="btn btn-outline-primary">Изменить</button>
+        </div>
+    </form>
+{% endblock content %}
+
+{% block script %}
+    <script>
+    </script>
+{% endblock script %}

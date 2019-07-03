@@ -1,62 +1,65 @@
 {% extends 'adminpanel/base.html' %}
 
 {% block content %}
-    {% load crispy_forms_tags %}
-    <form class="login100-form validate-form " method="post" action="{% url 'team_index' %}"
-          style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ work_form|crispy }}
-        <div class="container-login100-form-btn m-t-17" style="text-align: center;">
-            <button type="submit" class="btn btn-outline-primary">Добавить</button>
-        </div>
-    </form>
-        <br>
-    <hr>
-     <div class="background-modal">
-            <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal" data-target="#primary">
-                Как мы работаем
-            </button>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Наименование работы</th>
+            <th scope="col">Картинка</th>
+            <th scope="col">Наименование</th>
+            <th scope="col">Текст</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% load imgnames %}
+        {% for work in works %}
+            <tr>
+            <th scope="row">{{ work.name_work }}</th>
+            <td>{{ work.img|imgnames }}</td>
+            <td>{{ work.name }}</td>
+            <td>{{ work.text }}</td>
+            <td>
+                <a class="btn btn-sm btn-outline-dangerbtn btn-outline-danger"
+                   href="{% url 'work_del' work.id %}"><i class="fa fa-times"></i></a>
+                <a href="{% url 'work_edits' work.id %}" class="btn btn-sm btn-outline-success"><i class="fa fa-edit"></i></a>
+            </td>
+        {% endfor %}
+        </tbody>
+    </table>
 
-            <div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="primaryLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog" role="document" style="min-width: 100%">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="primaryLabel">Как мы работаем</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th scope="col">Наименование работы</th>
-                                    <th scope="col">Картинка</th>
-                                    <th scope="col">Наименование</th>
-                                    <th scope="col">Текст</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% load imgnames %}
-                                {% for works in work %}
-                                    <tr>
-                                    <th scope="row">{{ works.name_work }}</th>
-                                    <td>{{ works.img|imgnames }}</td>
-                                    <td>{{ works.name }}</td>
-                                    <td>{{ works.text }}</td>
-                                    <td><a class="btn btn-outline-dangerbtn btn-outline-danger"
-                                           href="{% url 'work_del' works.id %}">Удалить</a>
-                                    </td>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
-                        </div>
+    <br>
+    <hr>
+    <div class="background-modal">
+        <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal" data-target="#primary">
+            Добавить "Как мы работаем"
+        </button>
+
+        <div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="primaryLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document" style="min-width: 60%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="primaryLabel">Как мы работаем</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {% load crispy_forms_tags %}
+                        <form class="login100-form validate-form " method="post" action="{% url 'work' %}"
+                              style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ work_form|crispy }}
+                            <div class="container-login100-form-btn m-t-17" style="text-align: center;">
+                                <button type="submit" class="btn btn-outline-primary">Добавить</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 {% endblock %}

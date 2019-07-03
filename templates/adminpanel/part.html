@@ -1,6 +1,28 @@
 {% extends 'adminpanel/base.html' %}
 
 {% block content %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Название партнёра</th>
+            <th scope="col">Картинка</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% load imgnames %}
+        {% for part in parts %}
+            <tr>
+            <th scope="row">{{ part.name_part }}</th>
+            <td>{{ part.img|imgnames }}</td>
+            <td><a class="btn btn-sm btn-outline-dangerbtn btn-outline-danger"
+                   href="{% url 'part_del' part.id %}"><i class="fa fa-times"></i></a>
+                <a href="{% url 'part_edit' part.id %}" class="btn btn-sm btn-outline-success"><i class="fa fa-edit"></i></a>
+            </td>
+            {#                <td><a class="btn btn-outline-primary" href="{% url 'page_index_del' rombs.id %}">Удалить</a></td>#}
+            {#            </tr>#}
+        {% endfor %}
+        </tbody>
+    </table>
     {#    {% for rombs in romb %}#}
     {#        {{ rombs.name_romb }}#}
     {#        {{ rombs.ico }}#}
@@ -8,26 +30,15 @@
     {#        {{ rombs.numbers }}#}
     {#    {% endfor %}#}
     {% load crispy_forms_tags %}
-    <form class="login100-form validate-form " method="post" action="{% url 'part' %}"
-          style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ part_form|crispy }}
-        <div class="container-login100-form-btn m-t-17" style="text-align: center;">
-            {#            <input class="login100-form-btn" type="submit" value="Вход"/>#}
-            {#            <input type="hidden" name="next" value="{{ next }}"/>#}
-            <button type="submit" class="btn btn-outline-primary">Добавить</button>
-        </div>
-    </form>
-    <br>
-    <hr>
+
     <div class="background-modal">
         <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal" data-target="#primary">
-            Партнёры
+            Добавить партнёра
         </button>
 
         <div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="primaryLabel"
              aria-hidden="true" style="display: none;">
-            <div class="modal-dialog" role="document" style="min-width: 100%">
+            <div class="modal-dialog" role="document" style="min-width: 60%">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="primaryLabel">Партнёры</h5>
@@ -36,26 +47,16 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th scope="col">Название партнёра</th>
-                                <th scope="col">Картинка</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% load imgnames %}
-                            {% for part in parts %}
-                                <tr>
-                                <th scope="row">{{ part.name_part }}</th>
-                                <td>{{ part.img|imgnames }}</td>
-                                <td><a class="btn btn-outline-dangerbtn btn-outline-danger"
-                                       href="{% url 'part_del' part.id %}">Удалить</a></td>
-                                {#                <td><a class="btn btn-outline-primary" href="{% url 'page_index_del' rombs.id %}">Удалить</a></td>#}
-                                {#            </tr>#}
-                            {% endfor %}
-                            </tbody>
-                        </table>
+                        <form class="login100-form validate-form " method="post" action="{% url 'part' %}"
+                              style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ part_form|crispy }}
+                            <div class="container-login100-form-btn m-t-17" style="text-align: center;">
+                                {#            <input class="login100-form-btn" type="submit" value="Вход"/>#}
+                                {#            <input type="hidden" name="next" value="{{ next }}"/>#}
+                                <button type="submit" class="btn btn-outline-primary">Добавить</button>
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>

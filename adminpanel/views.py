@@ -47,6 +47,18 @@ def page_index(request):
         romb_form = IndexPageForm()
     return render(request, 'adminpanel/page_index.html', {'romb_form': romb_form, 'romb': romb})
 
+@login_required
+def page_index_edit(request, pk):
+    rombs = Romb.objects.get(pk=pk)
+    if request.method == 'POST':
+        romb_forms = IndexPageForm(request.POST, request.FILES, instance=rombs)
+        if romb_forms.is_valid():
+            romb_forms.save()
+            return HttpResponseRedirect('/panel/page_index/')
+    else:
+        romb_forms = IndexPageForm(instance=rombs)
+    return render(request, 'adminpanel/page_index_edit.html', {'romb_forms': romb_forms, 'rombs': rombs})
+
 
 @login_required
 def page_index_del(request, pk):
@@ -111,7 +123,7 @@ def gruz_del(request, pk):
 
 @login_required
 def work(request):
-    work = Work.objects.all()
+    works= Work.objects.all()
     if request.method == 'POST':
         work_form = WorkForm(request.POST, request.FILES)
         if work_form.is_valid():
@@ -119,8 +131,19 @@ def work(request):
             return HttpResponseRedirect('/panel/work/')
     else:
         work_form = WorkForm()
-    return render(request, 'adminpanel/work.html', {'work_form': work_form, 'work': work})
+    return render(request, 'adminpanel/work.html', {'work_form': work_form, 'works': works})
 
+@login_required
+def work_edit(request, pk):
+    work = Work.objects.get(pk=pk)
+    if request.method == 'POST':
+        work_forms = WorkForm(request.POST, request.FILES, instance=work)
+        if work_forms.is_valid():
+            work_forms.save()
+            return HttpResponseRedirect('/panel/work/')
+    else:
+        work_forms = WorkForm(instance=work)
+    return render(request, 'adminpanel/work_edit.html', {'work_forms': work_forms, 'work': work})
 
 @login_required
 def work_del(request, pk):
@@ -142,6 +165,17 @@ def part(request):
         part_form = PartForm()
     return render(request, 'adminpanel/part.html', {'part_form': part_form, 'parts': parts})
 
+@login_required
+def part_edit(request, pk):
+    part = Partner.objects.get(pk=pk)
+    if request.method == 'POST':
+        parts_form = PartForm(request.POST, request.FILES, instance=part)
+        if parts_form.is_valid():
+            parts_form.save()
+            return HttpResponseRedirect('/panel/part/')
+    else:
+        parts_form = PartForm(instance=part)
+    return render(request, 'adminpanel/part_edit.html', {'parts_form': parts_form, 'part': part})
 
 @login_required
 def part_del(request, pk):
@@ -163,6 +197,17 @@ def pred(request):
         pred_form = PredForm()
     return render(request, 'adminpanel/pred.html', {'pred_form': pred_form, 'preds': preds})
 
+@login_required
+def pred_edit(request, pk):
+    pred = We_pred.objects.get(pk=pk)
+    if request.method == 'POST':
+        pred_form = PredForm(request.POST, request.FILES, instance=pred)
+        if pred_form.is_valid():
+            pred_form.save()
+            return HttpResponseRedirect('/panel/pred/')
+    else:
+        pred_form = PredForm(instance=pred)
+    return render(request, 'adminpanel/pred_edit.html', {'pred_form': pred_form, 'pred': pred})
 
 @login_required
 def pred_del(request, pk):
@@ -217,6 +262,17 @@ def partners(request):
         partners_form = AllPartnerForm()
     return render(request, 'adminpanel/partners.html', {'partners_form': partners_form, 'partners': partners})
 
+@login_required
+def partners_edit(request, pk):
+    partner = AllPartner.objects.get(pk=pk)
+    if request.method == 'POST':
+        partner_form = AllPartnerForm(request.POST, request.FILES, instance=partner)
+        if partner_form.is_valid():
+            partner_form.save()
+            return HttpResponseRedirect('/panel/partners/')
+    else:
+        partner_form = AllPartnerForm(instance=partner)
+    return render(request, 'adminpanel/partners_edit.html', {'partner_form': partner_form, 'partner': partner})
 
 @login_required
 def partners_del(request, pk):
@@ -225,6 +281,7 @@ def partners_del(request, pk):
 
 
 # --------------- Сотрудники
+
 
 @login_required
 def teams(request):
@@ -238,6 +295,17 @@ def teams(request):
         teams_form = TeamsForm()
     return render(request, 'adminpanel/teams.html', {'teams_form': teams_form, 'teams': teams})
 
+@login_required
+def teams_edit(request, pk):
+    team = Teams.objects.get(pk=pk)
+    if request.method == 'POST':
+        team_form = TeamsForm(request.POST, request.FILES, instance=team)
+        if team_form.is_valid():
+            team_form.save()
+            return HttpResponseRedirect('/panel/teams/')
+    else:
+        team_form = TeamsForm(instance=team)
+    return render(request, 'adminpanel/teams_edit.html', {'team_form': team_form, 'team': team})
 
 @login_required
 def teams_del(request, pk):

@@ -4,7 +4,7 @@ from team.models import *
 from company.models import *
 from contact.models import *
 class ContactForm(forms.ModelForm):
-
+    phone = forms.CharField(label="Телефон", widget=forms.TextInput(attrs={"id": "phone-number"}))
     class Meta:
         model = Contact
         fields = ('__all__')
@@ -58,7 +58,7 @@ class AllPartnerForm(forms.ModelForm):
         fields = ('__all__')
 
 class TeamsForm(forms.ModelForm):
-
+    phone = forms.CharField(label="Телефон", widget=forms.TextInput(attrs={"id": "phone-number"}))
     class Meta:
         model = Teams
         fields = ('__all__')
