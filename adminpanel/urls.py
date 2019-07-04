@@ -2,8 +2,9 @@ from django.urls import path, include
 from adminpanel.views import *
 
 urlpatterns = [
-    path('panel/', dashboard, name='dashboard'),
-    path('panel/<int:pk>/', dashboard_del, name='dashboard_del'),
+    path('panel/', board, name='board'),
+    path('panel/contact/', dashboard, name='dashboard'),
+    path('panel/contact/<int:pk>/', dashboard_del, name='dashboard_del'),
     path('panel/page_index/', page_index, name='page_index'),
     path('panel/page_index/<int:pk>/', page_index_del, name='page_index_del'),
     path('panel/page_index/edit/<int:pk>/', page_index_edit, name='page_index_edit'),

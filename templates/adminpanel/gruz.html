@@ -1,39 +1,98 @@
 {% extends 'adminpanel/base.html' %}
-
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/datatable.css' %}">
+{% endblock style %}
+{% load i18n %}
 {% block content %}
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">Наименование грузоперевозки:</th>
-            <th scope="col">Картинка:</th>
-            <th scope="col">Наименование:</th>
-            <th scope="col">Текст:</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% load imgnames %}
-        {% for car in cars %}
-            <tr>
-            <th scope="row">{{ car.name_cars }}</th>
-            <td>{{ car.img|imgnames }}</td>
-            <td>{{ car.name }}</td>
-            <td>{{ car.text }}</td>
-            <td>
-                <a class="btn btn-sm btn-outline-dangerbtn btn-outline-danger"
-                   href="{% url 'gruz_del' car.id %}"><i class="fa fa-times"></i></a>
-                <a href="{% url 'gruz_edit' car.id %}" class="btn btn-sm btn-outline-success"><i class="fa fa-edit"></i></a>
-            </td>
-        {% endfor %}
-        </tbody>
-    </table>
-    {% load crispy_forms_tags %}
+    <div class="contents-inner">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-content">
+                    <div class="content-head">
+                        <h4 class="content-title"> {% trans 'Управление грузоперевозками' %}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section-content">
+                    <div class="content-head">
+                        <h4 class="content-title"> {% trans 'Грузоперевозки' %}</h4>
+                        <div class="content-details show">
+                            <div class="list-group">
+                                {% for car in cars %}
+                                    <a href="{% url 'gruz_edit' car.id %}">
+                                        <button class="list-group-item list-group-item-action">
+                                            {{ car.name_cars }}</button>
+                                    </a>
+                                {% endfor %}
+                            </div>
+{#                            <table id="gruz" class="display compact" style="width:100%">#}
+{#                                <thead>#}
+{#                                <tr>#}
+{#                                    <th>Наименование грузоперевозки:</th>#}
+{#                                    <th>Картинка:</th>#}
+{#                                    <th>Наименование:</th>#}
+{#                                    <th>Текст:</th>#}
+{#                                    <th>Действие</th>#}
+{#                                </tr>#}
+{#                                </thead>#}
+{#                                <tbody>#}
+{#                                {% load imgnames %}#}
+{#                                {% for car in cars %}#}
+{#                                    <tr>#}
+{#                                        <td>{{ car.name_cars }}</td>#}
+{#                                        <td>{{ car.img|imgnames }}</td>#}
+{#                                        <td>{{ car.name }}</td>#}
+{#                                        <td>{{ car.text }}</td>#}
+{#                                        <td>#}
+{#                                            <a class="btn btn-sm btn-outline-dangerbtn btn-outline-danger"#}
+{#                                               href="{% url 'gruz_del' car.id %}"><i class="fa fa-times"></i></a>#}
+{#                                            <a href="{% url 'gruz_edit' car.id %}"#}
+{#                                               class="btn btn-sm btn-outline-success"><i class="fa fa-edit"></i></a>#}
+{#                                        </td>#}
+{#                                    </tr>#}
+{#                                {% endfor %}#}
+{#                                </tbody>#}
+{#                                <tfoot>#}
+{#                                <tr>#}
+{#                                    <th>Наименование грузоперевозки:</th>#}
+{#                                    <th>Картинка:</th>#}
+{#                                    <th>Наименование:</th>#}
+{#                                    <th>Текст:</th>#}
+{#                                    <th>Действие</th>#}
+{#                                </tr>#}
+{#                                </tfoot>#}
+{#                            </table>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="section-content">
+                    <div class="content-head">
+                        <h4 class="content-title"> {% trans 'Управление' %}</h4>
+                        <div class="content-details show">
+                            <button type="button" class="btn btn-block btn-primary" data-toggle="modal"
+                                    data-target="#primary">
+                                Добавить грузоперевозку
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <br>
-    <hr>
+    {#    <div class="row">#}
+    {#        <div class="col-md-6">#}
+    {#            <div class="section-content">#}
+    {#                <div class="content-details show">#}
+    {% load crispy_forms_tags %}
     <div class="background-modal">
-        <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal" data-target="#primary">
-            Добавить грузоперевозку
-        </button>
+
 
         <div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="primaryLabel"
              aria-hidden="true" style="display: none;">
@@ -51,18 +110,49 @@
                             {% csrf_token %}
                             {{ gruz_form|crispy }}
                             <div class="container-login100-form-btn m-t-17" style="text-align: center;">
-                                {#            <input class="login100-form-btn" type="submit" value="Вход"/>#}
-                                {#            <input type="hidden" name="next" value="{{ next }}"/>#}
                                 <button type="submit" class="btn btn-outline-primary">Добавить</button>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
 {% endblock %}
+
+{% block script %}
+    <script>
+        jQuery(function ($) {
+            $("#phone-number").mask("+ 7 (999) 999-9999");
+        });
+    </script>
+    <script src="{% static 'adminpanel/assets/js/datatable.js' %}"></script>
+    <script>
+        jQuery(function ($) {
+            $('#gruz').DataTable({
+                "aLengthMenu": [
+                    [5, 10, 15, -1],
+                    [5, 10, 15, "Все"]
+                ],
+                "iDisplayLength": 10,
+                "language": {
+                    url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Russian.json"
+                },
+                "paging": true,
+                {#dom: 'Bfrtip',#}
+                "responsive": true,
+                {#autoWidth: false,#}
+                {#buttons: [#}
+                {# 'excel', 'pdf', 'print'#}
+                {#],#}
+            });
+        });
+    </script>
+{% endblock script %}

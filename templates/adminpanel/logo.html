@@ -1,42 +1,103 @@
-{% extends 'adminpanel/base.html' %}
-
-{% block content %}
+{#{% extends 'adminpanel/base.html' %}#}
+{##}
+{#{% block content %}#}
     {#    {% for rombs in romb %}#}
     {#        {{ rombs.name_romb }}#}
     {#        {{ rombs.ico }}#}
     {#        {{ rombs.text }}#}
     {#        {{ rombs.numbers }}#}
     {#    {% endfor %}#}
-    {% load crispy_forms_tags %}
-    <form class="login100-form validate-form " method="post" action="{% url 'logo' %}"
-          style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ logo_form|crispy }}
-        <div class="container-login100-form-btn m-t-17" style="text-align: center;">
+{#    {% load crispy_forms_tags %}#}
+{#    <form class="login100-form validate-form " method="post" action="{% url 'logo' %}"#}
+{#          style="width: 60%;margin-left: auto; margin-right: auto;" enctype="multipart/form-data">#}
+{#        {% csrf_token %}#}
+{#        {{ logo_form|crispy }}#}
+{#        <div class="container-login100-form-btn m-t-17" style="text-align: center;">#}
             {#            <input class="login100-form-btn" type="submit" value="Вход"/>#}
             {#            <input type="hidden" name="next" value="{{ next }}"/>#}
-            <button type="submit" class="btn btn-outline-primary">Добавить</button>
-        </div>
-    </form>
-    <br>
-    <hr>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">Логотип</th>
-            <th scope="col">Задняя картинка</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% load imgnames %}
-        {% for logos in logo %}
-            <tr>
-                <th scope="row">{{ logos.logo|imgnames}}</th>
-                <td>{{ logos.background|imgnames}}</td>
-                <td><a class="btn btn-outline-dangerbtn btn-outline-danger" href="{% url 'logo_del' logos.id %}">Удалить</a></td>
+{#            <button type="submit" class="btn btn-outline-primary">Добавить</button>#}
+{#        </div>#}
+{#    </form>#}
+{#    <br>#}
+{#    <hr>#}
+{#    <table class="table table-striped">#}
+{#        <thead>#}
+{#        <tr>#}
+{#            <th scope="col">Логотип</th>#}
+{#            <th scope="col">Задняя картинка</th>#}
+{#        </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#        {% load imgnames %}#}
+{#        {% for logos in logo %}#}
+{#            <tr>#}
+{#                <th scope="row">{{ logos.logo|imgnames}}</th>#}
+{#                <td>{{ logos.background|imgnames}}</td>#}
+{#                <td><a class="btn btn-outline-dangerbtn btn-outline-danger" href="{% url 'logo_del' logos.id %}">Удалить</a></td>#}
 {#                <td><a class="btn btn-outline-primary" href="{% url 'page_index_del' rombs.id %}">Удалить</a></td>#}
 {#            </tr>#}
-        {% endfor %}
-        </tbody>
-    </table>
+{#        {% endfor %}#}
+{#        </tbody>#}
+{#    </table>#}
+{#{% endblock %}#}
+
+{% extends 'adminpanel/base.html' %}
+{% load static %}
+{% block style %}
+
+{% endblock style %}
+{% load i18n %}
+{% block content %}
+    <div class="contents-inner">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-content">
+                    <div class="content-head">
+                        <h4 class="content-title"> {% trans 'Управление логотипом' %}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section-content">
+                    <div class="content-head">
+                        <h4 class="content-title"> {% trans 'Логотип' %}</h4>
+                        <div class="content-details show">
+                            {% load crispy_forms_tags %}
+                            <form class="login100-form validate-form " method="post" action="{% url 'logo' %}"
+                                  style="width: 60%;margin-left: auto; margin-right: auto;"
+                                  enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ logo_form|crispy }}
+                                <div class="container-login100-form-btn m-t-17" style="text-align: center;">
+                                    <button type="submit" class="btn btn-outline-primary">Изменить</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{#            <div class="col-lg-4">#}
+{#                <div class="section-content">#}
+{#                    <div class="content-head">#}
+{#                        <h4 class="content-title"> {% trans 'Управление' %}</h4>#}
+{#                        <div class="content-details show">#}
+{#                            <button type="button" class="btn btn-block btn-primary" data-toggle="modal"#}
+{#                                    data-target="#primary">#}
+{#                                Добавить сотрудника#}
+{#                            </button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+        </div>
 {% endblock %}
+
+{% block script %}
+    <script>
+        jQuery(function ($) {
+            $("#phone-number").mask("+ 7 (999) 999-9999");
+        });
+    </script>
+{% endblock script %}

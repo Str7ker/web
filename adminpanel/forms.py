@@ -22,13 +22,13 @@ class LogoForm(forms.ModelForm):
         fields = ('__all__')
 
 class CarForm(forms.ModelForm):
-
+    text = forms.CharField(label="Текст", widget=forms.Textarea(attrs={"id": "summernote"}))
     class Meta:
         model = Car
         fields = ('__all__')
 
 class WorkForm(forms.ModelForm):
-
+    text = forms.CharField(label="Текст", widget=forms.Textarea(attrs={"id": "summernote"}))
     class Meta:
         model = Work
         fields = ('__all__')
@@ -52,7 +52,7 @@ class TeamIndexForm(forms.ModelForm):
         fields = ('__all__')
 
 class AllPartnerForm(forms.ModelForm):
-
+    number = forms.CharField(label="Телефон", widget=forms.TextInput(attrs={"id": "phone-number"}))
     class Meta:
         model = AllPartner
         fields = ('__all__')

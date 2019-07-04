@@ -12,6 +12,20 @@ from django.http import HttpResponseRedirect
 # def dashboard(request):
 #     order = Order.objects.all()
 #     return render(request, 'adminpanel/dashboard.html', {'order': order, })
+
+# --------------- Главная
+
+@login_required
+def board(request):
+    teams = Teams.objects.all().count()
+    part = Partner.objects.all().count()
+    pred = We_pred.objects.all().count()
+    return render(request, 'adminpanel/board.html',
+                  {
+                      "teams": teams, "part": part, "pred": pred
+                  })
+
+
 # --------------- Контакты
 
 @login_required
@@ -21,7 +35,7 @@ def dashboard(request):
         contact_form = ContactForm(request.POST, request.FILES, instance=contact)
         if contact_form.is_valid():
             contact_form.save()
-            return HttpResponseRedirect('/panel/')
+            return HttpResponseRedirect('/panel/contact/')
     else:
         contact_form = ContactForm(instance=contact)
     return render(request, 'adminpanel/dashboard.html', {'contact_form': contact_form, 'contact': contact})
@@ -30,7 +44,7 @@ def dashboard(request):
 @login_required
 def dashboard_del(request, pk):
     Contact.objects.get(pk=pk).delete()
-    return HttpResponseRedirect('/panel/')
+    return HttpResponseRedirect('/panel/contact/')
 
 
 # --------------- Ромбы
@@ -46,6 +60,7 @@ def page_index(request):
     else:
         romb_form = IndexPageForm()
     return render(request, 'adminpanel/page_index.html', {'romb_form': romb_form, 'romb': romb})
+
 
 @login_required
 def page_index_edit(request, pk):
@@ -101,6 +116,7 @@ def gruz(request):
         gruz_form = CarForm()
     return render(request, 'adminpanel/gruz.html', {'gruz_form': gruz_form, 'cars': cars})
 
+
 @login_required
 def gruz_edit(request, pk):
     cars = Car.objects.get(pk=pk)
@@ -113,6 +129,7 @@ def gruz_edit(request, pk):
         gruz_form = CarForm(instance=cars)
     return render(request, 'adminpanel/gruz_edit.html', {'gruz_form': gruz_form, 'cars': cars})
 
+
 @login_required
 def gruz_del(request, pk):
     Car.objects.get(pk=pk).delete()
@@ -123,7 +140,7 @@ def gruz_del(request, pk):
 
 @login_required
 def work(request):
-    works= Work.objects.all()
+    works = Work.objects.all()
     if request.method == 'POST':
         work_form = WorkForm(request.POST, request.FILES)
         if work_form.is_valid():
@@ -132,6 +149,7 @@ def work(request):
     else:
         work_form = WorkForm()
     return render(request, 'adminpanel/work.html', {'work_form': work_form, 'works': works})
+
 
 @login_required
 def work_edit(request, pk):
@@ -144,6 +162,7 @@ def work_edit(request, pk):
     else:
         work_forms = WorkForm(instance=work)
     return render(request, 'adminpanel/work_edit.html', {'work_forms': work_forms, 'work': work})
+
 
 @login_required
 def work_del(request, pk):
@@ -165,6 +184,7 @@ def part(request):
         part_form = PartForm()
     return render(request, 'adminpanel/part.html', {'part_form': part_form, 'parts': parts})
 
+
 @login_required
 def part_edit(request, pk):
     part = Partner.objects.get(pk=pk)
@@ -176,6 +196,7 @@ def part_edit(request, pk):
     else:
         parts_form = PartForm(instance=part)
     return render(request, 'adminpanel/part_edit.html', {'parts_form': parts_form, 'part': part})
+
 
 @login_required
 def part_del(request, pk):
@@ -197,6 +218,7 @@ def pred(request):
         pred_form = PredForm()
     return render(request, 'adminpanel/pred.html', {'pred_form': pred_form, 'preds': preds})
 
+
 @login_required
 def pred_edit(request, pk):
     pred = We_pred.objects.get(pk=pk)
@@ -208,6 +230,7 @@ def pred_edit(request, pk):
     else:
         pred_form = PredForm(instance=pred)
     return render(request, 'adminpanel/pred_edit.html', {'pred_form': pred_form, 'pred': pred})
+
 
 @login_required
 def pred_del(request, pk):
@@ -240,7 +263,9 @@ def team_index_edit(request, pk):
             return HttpResponseRedirect('/panel/team_index/')
     else:
         team_index_form = TeamIndexForm(instance=team_index)
-    return render(request, 'adminpanel/team_index_edit.html', {'team_index_form': team_index_form, 'team_index': team_index})
+    return render(request, 'adminpanel/team_index_edit.html',
+                  {'team_index_form': team_index_form, 'team_index': team_index})
+
 
 @login_required
 def team_index_del(request, pk):
@@ -262,6 +287,7 @@ def partners(request):
         partners_form = AllPartnerForm()
     return render(request, 'adminpanel/partners.html', {'partners_form': partners_form, 'partners': partners})
 
+
 @login_required
 def partners_edit(request, pk):
     partner = AllPartner.objects.get(pk=pk)
@@ -273,6 +299,7 @@ def partners_edit(request, pk):
     else:
         partner_form = AllPartnerForm(instance=partner)
     return render(request, 'adminpanel/partners_edit.html', {'partner_form': partner_form, 'partner': partner})
+
 
 @login_required
 def partners_del(request, pk):
@@ -295,6 +322,7 @@ def teams(request):
         teams_form = TeamsForm()
     return render(request, 'adminpanel/teams.html', {'teams_form': teams_form, 'teams': teams})
 
+
 @login_required
 def teams_edit(request, pk):
     team = Teams.objects.get(pk=pk)
@@ -306,6 +334,7 @@ def teams_edit(request, pk):
     else:
         team_form = TeamsForm(instance=team)
     return render(request, 'adminpanel/teams_edit.html', {'team_form': team_form, 'team': team})
+
 
 @login_required
 def teams_del(request, pk):

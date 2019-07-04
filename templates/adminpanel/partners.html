@@ -1,47 +1,94 @@
 {% extends 'adminpanel/base.html' %}
-
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'adminpanel/assets/css/datatable.css' %}">
+{% endblock style %}
+{% load i18n %}
 {% block content %}
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">Наименование партнёра</th>
-            <th scope="col">Номер телефона</th>
-            <th scope="col">Электронная почта</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% load imgnames %}
-        {% for ap in partners %}
-            <tr>
-            <th scope="row">{{ ap.name_part }}</th>
-            <td>{{ ap.number }}</td>
-            <td>{{ ap.email }}</td>
-            <td>
-                <a class="btn btn-sm btn-outline-dangerbtn btn-outline-danger"
-                   href="{% url 'partners_del' ap.id %}"><i class="fa fa-times"></i></a>
-                <a href="{% url 'partner_edit' ap.id %}" class="btn btn-sm btn-outline-success"><i
-                        class="fa fa-edit"></i></a>
-            </td>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="contents-inner">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-content">
+                    <div class="content-head">
+                        <h4 class="content-title"> {% trans 'Управление партнёрами' %}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section-content">
+                    <div class="content-head">
+                        <h4 class="content-title"> {% trans 'Партнёры' %}</h4>
+                        <div class="content-details show">
+                            <table id="partners" class="display compact" style="width:100%">
+                                <thead>
+                                <tr>
+                                    <th>Наименование партнёра:</th>
+                                    <th>Номер телефона:</th>
+                                    <th>Электронная почта:</th>
+                                    <th>Действие</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% load imgnames %}
+                                {% for part in partners %}
+                                    <tr>
+                                        <td>{{ part.name_part }}</td>
+                                        <td>{{ part.number }}</td>
+                                        <td>{{ part.email }}</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-outline-dangerbtn btn-outline-danger"
+                                               href="{% url 'partners_del' part.id %}"><i class="fa fa-times"></i></a>
+                                            <a href="{% url 'partner_edit' part.id %}"
+                                               class="btn btn-sm btn-outline-success"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Наименование партнёра:</th>
+                                    <th>Номер телефона:</th>
+                                    <th>Электронная почта:</th>
+                                    <th>Действие</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="section-content">
+                    <div class="content-head">
+                        <h4 class="content-title"> {% trans 'Управление' %}</h4>
+                        <div class="content-details show">
+                            <button type="button" class="btn btn-block btn-primary" data-toggle="modal"
+                                    data-target="#primary">
+                                Добавить партнёра
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {#    <div class="row">#}
-    {#        <div class="col-md-4">#}
+    {#        <div class="col-md-6">#}
     {#            <div class="section-content">#}
     {#                <div class="content-details show">#}
     {% load crispy_forms_tags %}
     <div class="background-modal">
-        <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal"
-                data-target="#primary">
-            Добавить партнёра
-        </button>
+
 
         <div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="primaryLabel"
              aria-hidden="true" style="display: none;">
-            <div class="modal-dialog" role="document" style="min-width: 100%">
+            <div class="modal-dialog" role="document" style="min-width: 60%">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="primaryLabel">Сотрудники на главной</h5>
+                        <h5 class="modal-title" id="primaryLabel">Партнёры</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
@@ -67,5 +114,34 @@
     {#                </div>#}
     {#            </div>#}
     {#        </div>#}
-
 {% endblock %}
+
+{% block script %}
+    <script src="{% static 'adminpanel/assets/js/datatable.js' %}"></script>
+    <script>
+        jQuery(function ($) {
+            $("#phone-number").mask("+ 7 (999) 999-9999");
+        });
+    </script>
+    <script>
+        jQuery(function ($) {
+            $('#partners').DataTable({
+                "aLengthMenu": [
+                    [5, 10, 15, -1],
+                    [5, 10, 15, "Все"]
+                ],
+                "iDisplayLength": 10,
+                "language": {
+                    url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Russian.json"
+                },
+                "paging": true,
+                {#dom: 'Bfrtip',#}
+                "responsive": true,
+                {#autoWidth: false,#}
+                {#buttons: [#}
+                {# 'excel', 'pdf', 'print'#}
+                {#],#}
+            });
+        });
+    </script>
+{% endblock script %}
