@@ -3,6 +3,8 @@ from adminpanel.views import *
 
 urlpatterns = [
     path('panel/', board, name='board'),
+    path('panel/<int:pk>/', board_del, name='board_del'),
+    path('panel/edit/<int:pk>/', board_edit, name='board_edit'),
     path('panel/contact/', dashboard, name='dashboard'),
     path('panel/contact/<int:pk>/', dashboard_del, name='dashboard_del'),
     path('panel/page_index/', page_index, name='page_index'),

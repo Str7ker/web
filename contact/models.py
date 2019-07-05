@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 class Contact_info(models.Model):
     title = models.CharField(verbose_name="Описание страницы", max_length=70, blank=True)
@@ -20,6 +21,9 @@ class Contacts(models.Model):
     ogrn = models.CharField(verbose_name="ОГРН", max_length=50, blank=True, default="12345")
     kpp = models.CharField(verbose_name="КПП", max_length=50, blank=True, default="12345")
     img = models.ImageField(verbose_name="Картинка", upload_to='static/img/', blank=True, default="map-min.png")
+    date_add = models.DateField(verbose_name="Дата добавления", default=datetime.now(), blank=True)
+    date_edit = models.DateField(verbose_name="Дата редактирования", null=True, blank=True)
+
     class Meta:
         verbose_name = 'Контакт'
         verbose_name_plural = 'Контакты'

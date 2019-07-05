@@ -5,6 +5,8 @@ from index.models import *
 from team.models import *
 from company.models import *
 from contact.models import *
+from adminpanel.models import Admin_main
+from datetime import datetime
 from django.http import HttpResponseRedirect
 
 
@@ -20,12 +22,43 @@ def board(request):
     teams = Teams.objects.all().count()
     part = Partner.objects.all().count()
     pred = We_pred.objects.all().count()
+    am = Admin_main.objects.all()
+    if request.method == 'POST':
+        am_form = AmForm(request.POST)
+        if am_form.is_valid():
+            am_form.save()
+            return HttpResponseRedirect('/panel/')
+    else:
+        am_form = AmForm()
     return render(request, 'adminpanel/board.html',
                   {
-                      "teams": teams, "part": part, "pred": pred
+                      "teams": teams, "part": part, "pred": pred, "am_form": am_form, "am": am,
                   })
 
+@login_required
+def board_edit(request, pk):
+    teams = Teams.objects.all().count()
+    part = Partner.objects.all().count()
+    pred = We_pred.objects.all().count()
+    ams = Admin_main.objects.get(pk=pk)
+    if request.method == 'POST':
+        am_form = AmForm(request.POST, request.FILES, instance=ams)
+        if am_form.is_valid():
+            ams = am_form.save(commit=False)
+            ams.date_edit = datetime.now()
+            am_form.save()
+            return HttpResponseRedirect('/panel/')
+    else:
+        am_form = AmForm(instance=ams)
+    return render(request, 'adminpanel/board_edit.html',
+                  {
+                      "teams": teams, "part": part, "pred": pred, "am_form": am_form, "ams": ams,
+                  })
 
+@login_required
+def board_del(request, pk):
+    Admin_main.objects.get(pk=pk).delete()
+    return HttpResponseRedirect('/panel/')
 # --------------- Контакты
 
 @login_required
@@ -34,6 +67,8 @@ def dashboard(request):
     if request.method == 'POST':
         contact_form = ContactForm(request.POST, request.FILES, instance=contact)
         if contact_form.is_valid():
+            contact = contact_form.save(commit=False)
+            contact.date_edit = datetime.now()
             contact_form.save()
             return HttpResponseRedirect('/panel/contact/')
     else:
@@ -68,6 +103,8 @@ def page_index_edit(request, pk):
     if request.method == 'POST':
         romb_forms = IndexPageForm(request.POST, request.FILES, instance=rombs)
         if romb_forms.is_valid():
+            romb = romb_forms.save(commit=False)
+            romb.date_edit = datetime.now()
             romb_forms.save()
             return HttpResponseRedirect('/panel/page_index/')
     else:
@@ -89,6 +126,8 @@ def logo(request):
     if request.method == 'POST':
         logo_form = LogoForm(request.POST, request.FILES)
         if logo_form.is_valid():
+            logo = logo_form.save(commit=False)
+            logo.date_edit = datetime.now()
             logo_form.save()
             return HttpResponseRedirect('/panel/logo/')
     else:
@@ -123,6 +162,8 @@ def gruz_edit(request, pk):
     if request.method == 'POST':
         gruz_form = CarForm(request.POST, request.FILES, instance=cars)
         if gruz_form.is_valid():
+            gruz = gruz_form.save(commit=False)
+            gruz.date_edit = datetime.now()
             gruz_form.save()
             return HttpResponseRedirect('/panel/gruz/')
     else:
@@ -157,6 +198,8 @@ def work_edit(request, pk):
     if request.method == 'POST':
         work_forms = WorkForm(request.POST, request.FILES, instance=work)
         if work_forms.is_valid():
+            work = work_forms.save(commit=False)
+            work.date_edit = datetime.now()
             work_forms.save()
             return HttpResponseRedirect('/panel/work/')
     else:
@@ -191,6 +234,8 @@ def part_edit(request, pk):
     if request.method == 'POST':
         parts_form = PartForm(request.POST, request.FILES, instance=part)
         if parts_form.is_valid():
+            part = parts_form.save(commit=False)
+            part.date_edit = datetime.now()
             parts_form.save()
             return HttpResponseRedirect('/panel/part/')
     else:
@@ -225,6 +270,8 @@ def pred_edit(request, pk):
     if request.method == 'POST':
         pred_form = PredForm(request.POST, request.FILES, instance=pred)
         if pred_form.is_valid():
+            pred = pred_form.save(commit=False)
+            pred.date_edit = datetime.now()
             pred_form.save()
             return HttpResponseRedirect('/panel/pred/')
     else:
@@ -259,6 +306,8 @@ def team_index_edit(request, pk):
     if request.method == 'POST':
         team_index_form = TeamIndexForm(request.POST, request.FILES, instance=team_index)
         if team_index_form.is_valid():
+            team = team_index_form.save(commit=False)
+            team.date_edit = datetime.now()
             team_index_form.save()
             return HttpResponseRedirect('/panel/team_index/')
     else:
@@ -294,6 +343,8 @@ def partners_edit(request, pk):
     if request.method == 'POST':
         partner_form = AllPartnerForm(request.POST, request.FILES, instance=partner)
         if partner_form.is_valid():
+            part = partner_form.save(commit=False)
+            part.date_edit = datetime.now()
             partner_form.save()
             return HttpResponseRedirect('/panel/partners/')
     else:
@@ -329,6 +380,8 @@ def teams_edit(request, pk):
     if request.method == 'POST':
         team_form = TeamsForm(request.POST, request.FILES, instance=team)
         if team_form.is_valid():
+            team = team_form.save(commit=False)
+            team.date_edit = datetime.now()
             team_form.save()
             return HttpResponseRedirect('/panel/teams/')
     else:
@@ -349,6 +402,8 @@ def company(request):
     if request.method == 'POST':
         company_form = CompanyForm(request.POST, request.FILES, instance=company)
         if company_form.is_valid():
+            company = company_form.save(commit=False)
+            company.date_edit = datetime.now()
             company_form.save()
             return HttpResponseRedirect('/panel/company/')
     else:
@@ -370,6 +425,8 @@ def contacts(request):
     if request.method == 'POST':
         contacts_form = ContactsForm(request.POST, request.FILES, instance=contacts)
         if contacts_form.is_valid():
+            contact = contacts_form.save(commit=False)
+            contact.date_edit = datetime.now()
             contacts_form.save()
             return HttpResponseRedirect('/panel/contacts/')
     else:

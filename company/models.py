@@ -1,9 +1,12 @@
 from django.db import models
+from datetime import datetime
 
 class Company(models.Model):
     title = models.CharField(verbose_name="Описание страницы", max_length=270, blank=True)
     small_text = models.TextField(verbose_name="Маленький текст", max_length=500, blank=True)
     big_text = models.TextField(verbose_name="Текст", max_length=1500, blank=True)
+    date_add = models.DateField(verbose_name="Дата добавления", default=datetime.now(), blank=True)
+    date_edit = models.DateField(verbose_name="Дата редактирования", null=True, blank=True)
 
     class Meta:
         verbose_name = 'Компания'

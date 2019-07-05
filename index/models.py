@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime
 
 class Contact(models.Model):
     phone = models.CharField(verbose_name="Телефон", max_length=25, blank=True)
@@ -7,6 +7,8 @@ class Contact(models.Model):
     address_fact = models.CharField(verbose_name="Адрес", max_length=250, blank=True)
     vk = models.CharField(verbose_name="ВКонтакте", max_length=150, blank=True)
     insta = models.CharField(verbose_name="Инстаграм", max_length=150, blank=True)
+    date_add = models.DateField(verbose_name="Дата добавления", default=datetime.now(), blank=True)
+    date_edit = models.DateField(verbose_name="Дата редактирования", null=True, blank=True)
 
     class Meta:
         verbose_name = 'Контакты'
@@ -20,6 +22,8 @@ class Romb(models.Model):
     ico = models.CharField(verbose_name="Иконка", max_length=25, blank=True)
     text = models.CharField(verbose_name="Текст", max_length=50, blank=True)
     numbers = models.CharField(verbose_name="Цифры", max_length=10, blank=True)
+    date_add = models.DateField(verbose_name="Дата добавления", default=datetime.now(), blank=True)
+    date_edit = models.DateField(verbose_name="Дата редактирования", null=True, blank=True)
 
     class Meta:
         verbose_name = 'Ромб'
@@ -30,6 +34,8 @@ class Car(models.Model):
     img = models.ImageField(verbose_name="Картинка", upload_to='img/', blank=True)
     name = models.CharField(verbose_name="Наименование", max_length=25, blank=True)
     text = models.CharField(verbose_name="Текст", max_length=250, blank=True)
+    date_add = models.DateField(verbose_name="Дата добавления", default=datetime.now(), blank=True)
+    date_edit = models.DateField(verbose_name="Дата редактирования", null=True, blank=True)
 
     class Meta:
         verbose_name = 'Грузоперевозки'
@@ -40,6 +46,8 @@ class Work(models.Model):
     img = models.ImageField(verbose_name="Картинка", upload_to='static/img/work/', blank=True)
     name = models.CharField(verbose_name="Наименование", max_length=25, blank=True)
     text = models.CharField(verbose_name="Текст", max_length=700, blank=True)
+    date_add = models.DateField(verbose_name="Дата добавления", default=datetime.now(), blank=True)
+    date_edit = models.DateField(verbose_name="Дата редактирования", null=True, blank=True)
 
     class Meta:
         verbose_name = 'Как мы работаем'
@@ -48,6 +56,8 @@ class Work(models.Model):
 class Partner(models.Model):
     name_part = models.CharField(verbose_name="Наименование партнёра", max_length=150, blank=True)
     img = models.ImageField(verbose_name="Логотип", upload_to='static/img/partners/', blank=True)
+    date_add = models.DateField(verbose_name="Дата добавления", default=datetime.now(), blank=True)
+    date_edit = models.DateField(verbose_name="Дата редактирования", null=True, blank=True)
 
     class Meta:
         verbose_name = 'Партнёр'
@@ -59,16 +69,22 @@ class AllPartner(models.Model):
     text = models.CharField(verbose_name="Описание партнёра", max_length=650, blank=True)
     number = models.CharField(verbose_name="Номер телефона", max_length=50, blank=True)
     email = models.CharField(verbose_name="Электронная почта", max_length=50, blank=True)
+    date_add = models.DateField(verbose_name="Дата добавления", default=datetime.now(), blank=True)
+    date_edit = models.DateField(verbose_name="Дата редактирования", null=True, blank=True)
 
     class Meta:
         verbose_name = 'Все партнёры'
         verbose_name_plural = 'Все партнёры'
+
 class Team(models.Model):
     img = models.ImageField(verbose_name="Картинка", upload_to='static/img/team/', blank=True)
     name = models.CharField(verbose_name="Имя и фамилия", max_length=150, blank=True)
     position = models.CharField(verbose_name="Должность", max_length=50, blank=True)
     phone = models.CharField(verbose_name="Телефон", max_length=20, blank=True)
     mail = models.CharField(verbose_name="Электронная почта", max_length=50, blank=True)
+    date_add = models.DateField(verbose_name="Дата добавления", default=datetime.now(), blank=True)
+    date_edit = models.DateField(verbose_name="Дата редактирования", null=True, blank=True)
+
     class Meta:
         verbose_name = 'Команда'
         verbose_name_plural = 'Команды'
@@ -77,6 +93,8 @@ class We_pred(models.Model):
     name_pred = models.CharField(verbose_name="Наименование", max_length=150, blank=True)
     img = models.ImageField(verbose_name="Картинка", upload_to='img/pred/', blank=True)
     text = models.CharField(verbose_name="Текст", max_length=150, blank=True)
+    date_add = models.DateField(verbose_name="Дата добавления", default=datetime.now(), blank=True)
+    date_edit = models.DateField(verbose_name="Дата редактирования", null=True, blank=True)
 
     class Meta:
         verbose_name = 'Мы представляем'
@@ -109,6 +127,8 @@ class Logo(models.Model):
     small_logo = models.ImageField(verbose_name="Маленькое лого", upload_to='img/', blank=True)
     logo = models.ImageField(verbose_name="Большое лого", upload_to='img/', blank=True)
     background = models.ImageField(verbose_name="Задний фон картинка", upload_to='img/', blank=True)
+    date_add = models.DateField(verbose_name="Дата добавления", default=datetime.now(), blank=True)
+    date_edit = models.DateField(verbose_name="Дата редактирования", null=True, blank=True)
 
     class Meta:
         verbose_name = 'Логотип'

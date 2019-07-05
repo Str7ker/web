@@ -7,11 +7,19 @@
 {% block content %}
     <div class="contents-inner">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <div class="section-content">
                 <div class="content-head">
-                    <h4 class="content-title"> {% trans 'Управление контактами на главной' %}</h4>
+                    <h4 class="content-title"> {% trans 'Управление на главной' %}</h4>
                 </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="section-content">
+                <button style="padding: 12px;" type="button" class="btn btn-block btn-primary" data-toggle="modal"
+                        data-target="#primary">
+                    Добавить блок
+                </button>
             </div>
         </div>
     </div>
@@ -19,68 +27,121 @@
         <div class="col-12">
             <div class="section-content">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="statistic-box m-0">
-                            <h4 class="statistic-title float-left">{% trans 'Сотрудники' %}</h4><!-- /.statistic-title -->
-                            <div class="action-menu dropdown float-right">
-                                <button class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                    <i class="fa fa-ellipsis-v"></i>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{% url "teams" %}">{% trans 'Все сотрудники' %}</a>
-                                </div>
-                            </div><!-- /.action-menu -->
-                            <div class="statistic-details">
-                                <span class="count float-left">{{ teams }} </span><!-- /.count -->
-                                <span class="statistic-icon color-success float-right"><i
-                                        class="pe-7s-users"></i></span><!-- /.statistic-icon -->
-                            </div><!-- /.statistic-details -->
-                        </div><!-- /.statistic-box -->
+                    {% for admin in am %}
+                        <div class="col-lg-3 col-md-6">
+                            <div class="statistic-box m-0">
 
-                    </div>
-{#                    <div class="col-lg-3 col-md-6">#}
-{#                        <div class="statistic-box m-0">#}
-{#                            <h4 class="statistic-title float-left">{% trans 'Партнёры' %}</h4><!-- /.statistic-title -->#}
-{#                            <div class="action-menu dropdown float-right">#}
-{#                                <button class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"#}
-{#                                        aria-expanded="false">#}
-{#                                    <i class="fa fa-ellipsis-v"></i>#}
-{#                                </button>#}
-{#                                <div class="dropdown-menu">#}
-{#                                    <a class="dropdown-item" href="{% url "part" %}">{% trans 'Все партнёры' %}</a>#}
-{#                                </div>#}
-{#                            </div><!-- /.action-menu -->#}
-{#                            <div class="statistic-details">#}
-{#                                <span class="count float-left">{{ part }} </span><!-- /.count -->#}
-{#                                <span class="statistic-icon color-primary float-right"><i#}
-{#                                        class="pe-7s-user"></i></span><!-- /.statistic-icon -->#}
-{#                            </div><!-- /.statistic-details -->#}
-{#                        </div><!-- /.statistic-box -->#}
-{#                    </div>#}
-{#                    <div class="col-lg-3 col-md-6">#}
-{#                        <div class="statistic-box m-0">#}
-{#                            <h4 class="statistic-title float-left">{% trans 'Предоставляемых услуг' %}</h4><!-- /.statistic-title -->#}
-{#                            <div class="action-menu dropdown float-right">#}
-{#                                <button class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"#}
-{#                                        aria-expanded="false">#}
-{#                                    <i class="fa fa-ellipsis-v"></i>#}
-{#                                </button>#}
-{#                                <div class="dropdown-menu">#}
-{#                                    <a class="dropdown-item" href="{% url "pred" %}">{% trans 'Все услуги' %}</a>#}
-{#                                </div>#}
-{#                            </div><!-- /.action-menu -->#}
-{#                            <div class="statistic-details">#}
-{#                                <span class="count float-left">{{ pred }} </span><!-- /.count -->#}
-{#                                <span class="statistic-icon color-warning float-right"><i#}
-{#                                        class="pe-7s-box2"></i></span><!-- /.statistic-icon -->#}
-{#                            </div><!-- /.statistic-details -->#}
-{#                        </div><!-- /.statistic-box -->#}
-{#                    </div>#}
+                                <h4 class="statistic-title float-left">{% trans admin.title1 %}</h4>
+                                <!-- /.statistic-title -->
+                                <div class="action-menu dropdown float-right">
+                                    <button class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                        <i class="fa fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+
+                                        <a class="dropdown-item" href="{{ admin.url }}">{% trans admin.title2 %}</a>
+                                        <hr style="margin: 10px -4px;">
+                                        <a class="dropdown-item" style="color: orange;"
+                                           href="{% url 'board_edit' admin.id %}">{% trans "Редактировать" %}</a>
+                                        <a class="dropdown-item" style="color: red;"
+                                           href="{% url 'board_del' admin.id %}">{% trans "Удалить" %}</a>
+                                    </div>
+                                </div><!-- /.action-menu -->
+                                <div class="statistic-details">
+                                    {% if admin.id == 1 %}
+                                        <span class="count float-left">{{ teams }} </span>
+                                    {% endif %}
+                                    {% if admin.id == 2 %}
+                                        <span class="count float-left">{{ part }} </span>
+                                    {% endif %}
+                                    {% if admin.id == 3 %}
+                                        <span class="count float-left">{{ pred }} </span>
+                                    {% endif %}
+                                    {% if admin.id >= 4 %}
+                                        <span class="count float-left">{{ id }} </span>
+                                    {% endif %}
+                                    <!-- /.count -->
+                                    <span class="statistic-icon float-right" style="color: {{ admin.color }}"><i
+                                            class="{{ admin.ico }}"></i></span><!-- /.statistic-icon -->
+                                </div><!-- /.statistic-details -->
+                            </div><!-- /.statistic-box -->
+                        </div>
+                    {% endfor %}
+                    {#                    <div class="col-lg-3 col-md-6">#}
+                    {#                        <div class="statistic-box m-0">#}
+                    {#                            <h4 class="statistic-title float-left">{% trans 'Партнёры' %}</h4><!-- /.statistic-title -->#}
+                    {#                            <div class="action-menu dropdown float-right">#}
+                    {#                                <button class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"#}
+                    {#                                        aria-expanded="false">#}
+                    {#                                    <i class="fa fa-ellipsis-v"></i>#}
+                    {#                                </button>#}
+                    {#                                <div class="dropdown-menu">#}
+                    {#                                    <a class="dropdown-item" href="{% url "part" %}">{% trans 'Все партнёры' %}</a>#}
+                    {#                                </div>#}
+                    {#                            </div><!-- /.action-menu -->#}
+                    {#                            <div class="statistic-details">#}
+                    {#                                <span class="count float-left">{{ part }} </span><!-- /.count -->#}
+                    {#                                <span class="statistic-icon color-primary float-right"><i#}
+                    {#                                        class="pe-7s-user"></i></span><!-- /.statistic-icon -->#}
+                    {#                            </div><!-- /.statistic-details -->#}
+                    {#                        </div><!-- /.statistic-box -->#}
+                    {#                    </div>#}
+                    {#                    <div class="col-lg-3 col-md-6">#}
+                    {#                        <div class="statistic-box m-0">#}
+                    {#                            <h4 class="statistic-title float-left">{% trans 'Предоставляемых услуг' %}</h4><!-- /.statistic-title -->#}
+                    {#                            <div class="action-menu dropdown float-right">#}
+                    {#                                <button class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"#}
+                    {#                                        aria-expanded="false">#}
+                    {#                                    <i class="fa fa-ellipsis-v"></i>#}
+                    {#                                </button>#}
+                    {#                                <div class="dropdown-menu">#}
+                    {#                                    <a class="dropdown-item" href="{% url "pred" %}">{% trans 'Все услуги' %}</a>#}
+                    {#                                </div>#}
+                    {#                            </div><!-- /.action-menu -->#}
+                    {#                            <div class="statistic-details">#}
+                    {#                                <span class="count float-left">{{ pred }} </span><!-- /.count -->#}
+                    {#                                <span class="statistic-icon color-warning float-right"><i#}
+                    {#                                        class="pe-7s-box2"></i></span><!-- /.statistic-icon -->#}
+                    {#                            </div><!-- /.statistic-details -->#}
+                    {#                        </div><!-- /.statistic-box -->#}
+                    {#                    </div>#}
                 </div>
             </div><!-- /.section-content -->
         </div>
+        {% load crispy_forms_tags %}
+        <div class="background-modal">
 
+
+            <div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="primaryLabel"
+                 aria-hidden="true" style="display: none;">
+                <div class="modal-dialog" role="document" style="min-width: 60%">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="primaryLabel">Добавление блока</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="login100-form validate-form " method="post" action="{% url 'board' %}"
+                                  style="width: 60%;margin-left: auto; margin-right: auto;"
+                                  enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ am_form|crispy }}
+                                <div class="container-login100-form-btn m-t-17" style="text-align: center;">
+                                    <button type="submit" class="btn btn-outline-primary">Добавить</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
 
