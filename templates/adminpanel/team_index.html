@@ -5,6 +5,8 @@
 {% endblock style %}
 {% load i18n %}
 {% block content %}
+    {% load cache %}
+    {% cache 500 sidebar %}
     <div class="contents-inner">
         <div class="row">
             <div class="col-lg-12">
@@ -21,6 +23,7 @@
                     <div class="content-head">
                         <h4 class="content-title"> {% trans 'Сотрудники на главной' %}</h4>
                         <div class="content-details show">
+                        {% endcache %}
                             <table id="teams" class="display compact" style="width:100%">
                                 <thead>
                                 <tr>
@@ -58,6 +61,8 @@
                                 </tr>
                                 </tfoot>
                             </table>
+    {% load cache %}
+{% cache 500 sidebar %}
                         </div>
                     </div>
                 </div>
@@ -113,7 +118,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> {% endcache %}
     {#                </div>#}
     {#            </div>#}
     {#        </div>#}

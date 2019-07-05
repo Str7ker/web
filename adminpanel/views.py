@@ -8,8 +8,9 @@ from contact.models import *
 from adminpanel.models import Admin_main
 from datetime import datetime
 from django.http import HttpResponseRedirect
+from django.views.decorators.cache import cache_page
 
-
+# @cache_page(60 * 15)
 # @login_required
 # def dashboard(request):
 #     order = Order.objects.all()
@@ -17,6 +18,7 @@ from django.http import HttpResponseRedirect
 
 # --------------- Главная
 
+@cache_page(60 * 15)
 @login_required
 def board(request):
     teams = Teams.objects.all().count()
@@ -35,6 +37,7 @@ def board(request):
                       "teams": teams, "part": part, "pred": pred, "am_form": am_form, "am": am,
                   })
 
+@cache_page(60 * 15)
 @login_required
 def board_edit(request, pk):
     teams = Teams.objects.all().count()
@@ -55,12 +58,14 @@ def board_edit(request, pk):
                       "teams": teams, "part": part, "pred": pred, "am_form": am_form, "ams": ams,
                   })
 
+@cache_page(60 * 15)
 @login_required
 def board_del(request, pk):
     Admin_main.objects.get(pk=pk).delete()
     return HttpResponseRedirect('/panel/')
 # --------------- Контакты
 
+@cache_page(60 * 15)
 @login_required
 def dashboard(request):
     contact = Contact.objects.get(pk=2)
@@ -76,6 +81,7 @@ def dashboard(request):
     return render(request, 'adminpanel/dashboard.html', {'contact_form': contact_form, 'contact': contact})
 
 
+@cache_page(60 * 15)
 @login_required
 def dashboard_del(request, pk):
     Contact.objects.get(pk=pk).delete()
@@ -83,7 +89,8 @@ def dashboard_del(request, pk):
 
 
 # --------------- Ромбы
-
+@cache_page(60 * 15)
+@cache_page(60 * 15)
 @login_required
 def page_index(request):
     romb = Romb.objects.all()
@@ -97,6 +104,7 @@ def page_index(request):
     return render(request, 'adminpanel/page_index.html', {'romb_form': romb_form, 'romb': romb})
 
 
+@cache_page(60 * 15)
 @login_required
 def page_index_edit(request, pk):
     rombs = Romb.objects.get(pk=pk)
@@ -112,6 +120,7 @@ def page_index_edit(request, pk):
     return render(request, 'adminpanel/page_index_edit.html', {'romb_forms': romb_forms, 'rombs': rombs})
 
 
+@cache_page(60 * 15)
 @login_required
 def page_index_del(request, pk):
     Romb.objects.get(pk=pk).delete()
@@ -120,6 +129,7 @@ def page_index_del(request, pk):
 
 # --------------- Лого
 
+@cache_page(60 * 15)
 @login_required
 def logo(request):
     logo = Logo.objects.all()
@@ -135,6 +145,7 @@ def logo(request):
     return render(request, 'adminpanel/logo.html', {'logo_form': logo_form, 'logo': logo})
 
 
+@cache_page(60 * 15)
 @login_required
 def logo_del(request, pk):
     Logo.objects.get(pk=pk).delete()
@@ -143,6 +154,7 @@ def logo_del(request, pk):
 
 # --------------- Грузоперевозки
 
+@cache_page(60 * 15)
 @login_required
 def gruz(request):
     cars = Car.objects.all()
@@ -156,6 +168,7 @@ def gruz(request):
     return render(request, 'adminpanel/gruz.html', {'gruz_form': gruz_form, 'cars': cars})
 
 
+@cache_page(60 * 15)
 @login_required
 def gruz_edit(request, pk):
     cars = Car.objects.get(pk=pk)
@@ -171,6 +184,7 @@ def gruz_edit(request, pk):
     return render(request, 'adminpanel/gruz_edit.html', {'gruz_form': gruz_form, 'cars': cars})
 
 
+@cache_page(60 * 15)
 @login_required
 def gruz_del(request, pk):
     Car.objects.get(pk=pk).delete()
@@ -179,6 +193,7 @@ def gruz_del(request, pk):
 
 # --------------- Как мы работаем
 
+@cache_page(60 * 15)
 @login_required
 def work(request):
     works = Work.objects.all()
@@ -192,6 +207,7 @@ def work(request):
     return render(request, 'adminpanel/work.html', {'work_form': work_form, 'works': works})
 
 
+@cache_page(60 * 15)
 @login_required
 def work_edit(request, pk):
     work = Work.objects.get(pk=pk)
@@ -207,6 +223,7 @@ def work_edit(request, pk):
     return render(request, 'adminpanel/work_edit.html', {'work_forms': work_forms, 'work': work})
 
 
+@cache_page(60 * 15)
 @login_required
 def work_del(request, pk):
     Work.objects.get(pk=pk).delete()
@@ -215,6 +232,7 @@ def work_del(request, pk):
 
 # --------------- Партнёры на главной
 
+@cache_page(60 * 15)
 @login_required
 def part(request):
     parts = Partner.objects.all()
@@ -228,6 +246,7 @@ def part(request):
     return render(request, 'adminpanel/part.html', {'part_form': part_form, 'parts': parts})
 
 
+@cache_page(60 * 15)
 @login_required
 def part_edit(request, pk):
     part = Partner.objects.get(pk=pk)
@@ -243,6 +262,7 @@ def part_edit(request, pk):
     return render(request, 'adminpanel/part_edit.html', {'parts_form': parts_form, 'part': part})
 
 
+@cache_page(60 * 15)
 @login_required
 def part_del(request, pk):
     Partner.objects.get(pk=pk).delete()
@@ -251,6 +271,7 @@ def part_del(request, pk):
 
 # --------------- Мы предоставляем
 
+@cache_page(60 * 15)
 @login_required
 def pred(request):
     preds = We_pred.objects.all()
@@ -264,6 +285,7 @@ def pred(request):
     return render(request, 'adminpanel/pred.html', {'pred_form': pred_form, 'preds': preds})
 
 
+@cache_page(60 * 15)
 @login_required
 def pred_edit(request, pk):
     pred = We_pred.objects.get(pk=pk)
@@ -279,6 +301,7 @@ def pred_edit(request, pk):
     return render(request, 'adminpanel/pred_edit.html', {'pred_form': pred_form, 'pred': pred})
 
 
+@cache_page(60 * 15)
 @login_required
 def pred_del(request, pk):
     We_pred.objects.get(pk=pk).delete()
@@ -287,6 +310,7 @@ def pred_del(request, pk):
 
 # --------------- Сотрудники на главной
 
+# @cache_page(60 * 15)
 @login_required
 def team_index(request):
     team_index = Team.objects.all()
@@ -300,6 +324,7 @@ def team_index(request):
     return render(request, 'adminpanel/team_index.html', {'team_index_form': team_index_form, 'team_index': team_index})
 
 
+# @cache_page(60 * 15)
 @login_required
 def team_index_edit(request, pk):
     team_index = Team.objects.get(pk=pk)
@@ -316,6 +341,7 @@ def team_index_edit(request, pk):
                   {'team_index_form': team_index_form, 'team_index': team_index})
 
 
+@cache_page(60 * 15)
 @login_required
 def team_index_del(request, pk):
     Team.objects.get(pk=pk).delete()
@@ -324,6 +350,7 @@ def team_index_del(request, pk):
 
 # --------------- Партнёры
 
+@cache_page(60 * 15)
 @login_required
 def partners(request):
     partners = AllPartner.objects.all()
@@ -337,6 +364,7 @@ def partners(request):
     return render(request, 'adminpanel/partners.html', {'partners_form': partners_form, 'partners': partners})
 
 
+@cache_page(60 * 15)
 @login_required
 def partners_edit(request, pk):
     partner = AllPartner.objects.get(pk=pk)
@@ -352,6 +380,7 @@ def partners_edit(request, pk):
     return render(request, 'adminpanel/partners_edit.html', {'partner_form': partner_form, 'partner': partner})
 
 
+@cache_page(60 * 15)
 @login_required
 def partners_del(request, pk):
     AllPartner.objects.get(pk=pk).delete()
@@ -361,6 +390,7 @@ def partners_del(request, pk):
 # --------------- Сотрудники
 
 
+@cache_page(60 * 15)
 @login_required
 def teams(request):
     teams = Teams.objects.all()
@@ -374,6 +404,7 @@ def teams(request):
     return render(request, 'adminpanel/teams.html', {'teams_form': teams_form, 'teams': teams})
 
 
+@cache_page(60 * 15)
 @login_required
 def teams_edit(request, pk):
     team = Teams.objects.get(pk=pk)
@@ -389,6 +420,7 @@ def teams_edit(request, pk):
     return render(request, 'adminpanel/teams_edit.html', {'team_form': team_form, 'team': team})
 
 
+@cache_page(60 * 15)
 @login_required
 def teams_del(request, pk):
     Teams.objects.get(pk=pk).delete()
@@ -396,6 +428,7 @@ def teams_del(request, pk):
 
 
 # --------------- Компания
+@cache_page(60 * 15)
 @login_required
 def company(request):
     company = Company.objects.get(pk=1)
@@ -411,6 +444,7 @@ def company(request):
     return render(request, 'adminpanel/company.html', {'company_form': company_form, 'company': company})
 
 
+@cache_page(60 * 15)
 @login_required
 def company_del(request, pk):
     Company.objects.get(pk=pk).delete()
@@ -419,6 +453,7 @@ def company_del(request, pk):
 
 # --------------- Контакты
 
+@cache_page(60 * 15)
 @login_required
 def contacts(request):
     contacts = Contacts.objects.get(pk=1)
@@ -434,6 +469,7 @@ def contacts(request):
     return render(request, 'adminpanel/contacts.html', {'contacts_form': contacts_form, 'contacts': contacts})
 
 
+@cache_page(60 * 15)
 @login_required
 def contacts_del(request, pk):
     Contacts.objects.get(pk=pk).delete()
