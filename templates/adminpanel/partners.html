@@ -5,6 +5,8 @@
 {% endblock style %}
 {% load i18n %}
 {% block content %}
+    {% load cache %}
+    {% cache 500 part1 %}
     <div class="contents-inner">
         <div class="row">
             <div class="col-lg-12">
@@ -31,6 +33,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                {% endcache %}
                                 {% load imgnames %}
                                 {% for part in partners %}
                                     <tr>
@@ -45,6 +48,8 @@
                                         </td>
                                     </tr>
                                 {% endfor %}
+    {% load cache %}
+    {% cache 500 part2 %}
                                 </tbody>
                                 <tfoot>
                                 <tr>
@@ -113,7 +118,7 @@
     </div>
     {#                </div>#}
     {#            </div>#}
-    {#        </div>#}
+    {#        </div>#} {% endcache %}
 {% endblock %}
 
 {% block script %}

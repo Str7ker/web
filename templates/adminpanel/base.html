@@ -43,11 +43,14 @@
 
 
 <body class="index-01 open">
+{#{% load cache %}#}
+{#    {% cache 500 bases %}#}
 {% include 'adminpanel/header.html' %}
 <div class="content-wrapper container-fluid">
     {% include 'adminpanel/leftpanel.html' %}
 
     <div class="dashboard-contents">
+{#    {% endcache %}#}
         {% block content %}
 
         {% endblock %}

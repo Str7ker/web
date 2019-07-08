@@ -1,14 +1,20 @@
-from django.shortcuts import render
+
+import os
+import os.path
+from web.settings import BASE_DIR
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.views.decorators.cache import cache_page
+
 from adminpanel.forms import *
-from index.models import *
-from team.models import *
+from adminpanel.models import Admin_main
 from company.models import *
 from contact.models import *
-from adminpanel.models import Admin_main
-from datetime import datetime
-from django.http import HttpResponseRedirect
-from django.views.decorators.cache import cache_page
+from index.models import *
+from team.models import *
+from django.core.cache import cache
+from django.shortcuts import reverse
 
 # @cache_page(60 * 15)
 # @login_required
@@ -18,7 +24,7 @@ from django.views.decorators.cache import cache_page
 
 # --------------- Главная
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 @login_required
 def board(request):
     teams = Teams.objects.all().count()
@@ -65,7 +71,7 @@ def board_del(request, pk):
     return HttpResponseRedirect('/panel/')
 # --------------- Контакты
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 @login_required
 def dashboard(request):
     contact = Contact.objects.get(pk=2)
@@ -89,8 +95,7 @@ def dashboard_del(request, pk):
 
 
 # --------------- Ромбы
-@cache_page(60 * 15)
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 @login_required
 def page_index(request):
     romb = Romb.objects.all()
@@ -154,7 +159,7 @@ def logo_del(request, pk):
 
 # --------------- Грузоперевозки
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 @login_required
 def gruz(request):
     cars = Car.objects.all()
@@ -193,7 +198,7 @@ def gruz_del(request, pk):
 
 # --------------- Как мы работаем
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 @login_required
 def work(request):
     works = Work.objects.all()
@@ -232,7 +237,7 @@ def work_del(request, pk):
 
 # --------------- Партнёры на главной
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 @login_required
 def part(request):
     parts = Partner.objects.all()
@@ -271,7 +276,7 @@ def part_del(request, pk):
 
 # --------------- Мы предоставляем
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 @login_required
 def pred(request):
     preds = We_pred.objects.all()
@@ -324,7 +329,7 @@ def team_index(request):
     return render(request, 'adminpanel/team_index.html', {'team_index_form': team_index_form, 'team_index': team_index})
 
 
-# @cache_page(60 * 15)
+@cache_page(60 * 15)
 @login_required
 def team_index_edit(request, pk):
     team_index = Team.objects.get(pk=pk)
@@ -350,7 +355,7 @@ def team_index_del(request, pk):
 
 # --------------- Партнёры
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 @login_required
 def partners(request):
     partners = AllPartner.objects.all()
@@ -390,7 +395,7 @@ def partners_del(request, pk):
 # --------------- Сотрудники
 
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 @login_required
 def teams(request):
     teams = Teams.objects.all()
@@ -474,3 +479,14 @@ def contacts(request):
 def contacts_del(request, pk):
     Contacts.objects.get(pk=pk).delete()
     return HttpResponseRedirect('/panel/contacts/')
+
+
+# Управление
+
+@login_required
+def settings(request):
+    if request.method == 'POST':
+        cache.clear()
+        return HttpResponseRedirect(reverse('settings'))
+    else:
+        return render(request, 'adminpanel/settings.html')

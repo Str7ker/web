@@ -16,3 +16,4 @@ class Admin_main(models.Model):
 
     # def __str__(self):
     #     return "Контакт " + self.phone
+

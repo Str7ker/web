@@ -5,6 +5,8 @@
 {% endblock style %}
 {% load i18n %}
 {% block content %}
+    {% load cache %}
+    {% cache 500 pred1 %}
     <div class="contents-inner">
         <div class="row">
             <div class="col-lg-12">
@@ -21,41 +23,46 @@
                     <div class="content-head">
                         <h4 class="content-title"> {% trans 'Мы предоставляем' %}</h4>
                         <div class="content-details show">
-                            <table id="pred" class="display compact" style="width:100%">
-                                <thead>
-                                <tr>
-                                    <th>Наименование:</th>
-                                    <th>Картинка:</th>
-                                    <th>Текст:</th>
-                                    <th>Действие</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% load imgnames %}
-                                {% for pred in preds %}
-                                    <tr>
-                                        <td>{{ pred.name_pred }}</td>
-                                        <td>{{ pred.img|imgnames }}</td>
-                                        <td>{{ pred.text }}</td>
-                                        <td>
-                                            <a class="btn btn-sm btn-outline-dangerbtn btn-outline-danger"
-                                               href="{% url 'pred_del' pred.id %}"><i class="fa fa-times"></i></a>
-                                            <a href="{% url 'pred_edit' pred.id %}"
-                                               class="btn btn-sm btn-outline-success"><i class="fa fa-edit"></i></a>
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>Наименование:</th>
-                                    <th>Картинка:</th>
-                                    <th>Текст:</th>
-                                    <th>Действие</th>
-                                </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+
+        <table id="pred" class="display compact" style="width:100%">
+        <thead>
+        <tr>
+            <th>Наименование:</th>
+            <th>Картинка:</th>
+            <th>Текст:</th>
+            <th>Действие</th>
+        </tr>
+        </thead>
+        <tbody>
+    {% endcache %}
+{% load imgnames %}
+{% for pred in preds %}
+    <tr>
+        <td>{{ pred.name_pred }}</td>
+        <td>{{ pred.img|imgnames }}</td>
+        <td>{{ pred.text }}</td>
+        <td>
+            <a class="btn btn-sm btn-outline-dangerbtn btn-outline-danger"
+               href="{% url 'pred_del' pred.id %}"><i class="fa fa-times"></i></a>
+            <a href="{% url 'pred_edit' pred.id %}"
+               class="btn btn-sm btn-outline-success"><i class="fa fa-edit"></i></a>
+        </td>
+    </tr>
+{% endfor %}
+{% load cache %}
+{% cache 500 pred2 %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>Наименование:</th>
+        <th>Картинка:</th>
+        <th>Текст:</th>
+        <th>Действие</th>
+    </tr>
+    </tfoot>
+    </table>
+
+    </div>
                     </div>
                 </div>
             </div>
@@ -113,7 +120,7 @@
     </div>
     {#                </div>#}
     {#            </div>#}
-    {#        </div>#}
+    {#        </div>#} {% endcache %}
 {% endblock %}
 
 {% block script %}

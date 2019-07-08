@@ -37,4 +37,5 @@ urlpatterns = [
     path('panel/company/<int:pk>/', company_del, name='company_del'),
     path('panel/contacts/', contacts, name='contacts'),
     path('panel/contacts/<int:pk>/', contacts_del, name='contacts_del'),
+    path('panel/settings/', settings, name='settings'),
 ]

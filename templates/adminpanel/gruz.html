@@ -5,6 +5,8 @@
 {% endblock style %}
 {% load i18n %}
 {% block content %}
+    {% load cache %}
+    {% cache 500 gruz1 %}
     <div class="contents-inner">
         <div class="row">
             <div class="col-lg-12">
@@ -22,12 +24,15 @@
                         <h4 class="content-title"> {% trans 'Грузоперевозки' %}</h4>
                         <div class="content-details show">
                             <div class="list-group">
+                            {% endcache %}
                                 {% for car in cars %}
                                     <a href="{% url 'gruz_edit' car.id %}">
                                         <button class="list-group-item list-group-item-action">
                                             {{ car.name_cars }}</button>
                                     </a>
                                 {% endfor %}
+    {% load cache %}
+    {% cache 500 gruz2 %}
                             </div>
 {#                            <table id="gruz" class="display compact" style="width:100%">#}
 {#                                <thead>#}
@@ -124,7 +129,7 @@
     </div>
     {#                </div>#}
     {#            </div>#}
-    {#        </div>#}
+    {#        </div>#} {% endcache %}
 {% endblock %}
 
 {% block script %}

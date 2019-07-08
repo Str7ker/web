@@ -5,6 +5,8 @@
 {% endblock style %}
 {% load i18n %}
 {% block content %}
+    {% load cache %}
+    {% cache 500 board1 %}
     <div class="contents-inner">
     <div class="row">
         <div class="col-lg-6">
@@ -26,6 +28,7 @@
     <div class="row">
         <div class="col-12">
             <div class="section-content">
+    {% endcache %}
                 <div class="row">
                     {% for admin in am %}
                         <div class="col-lg-3 col-md-6">
@@ -68,6 +71,8 @@
                             </div><!-- /.statistic-box -->
                         </div>
                     {% endfor %}
+                    {% load cache %}
+                    {% cache 500 board2 %}
                     {#                    <div class="col-lg-3 col-md-6">#}
                     {#                        <div class="statistic-box m-0">#}
                     {#                            <h4 class="statistic-title float-left">{% trans 'Партнёры' %}</h4><!-- /.statistic-title -->#}
@@ -143,7 +148,7 @@
             </div>
         </div>
     </div>
-
+                    {% endcache %}
 {% endblock %}
 
 {% block script %}

@@ -5,7 +5,9 @@ from django.core.mail import send_mail
 from django.views.generic import View
 from django.core.mail import EmailMessage
 from index.forms import OrderForm
+from django.views.decorators.cache import cache_page
 
+@cache_page(60 * 15)
 def index(request):
 
     contact = Contact.objects.all()
@@ -26,6 +28,7 @@ def index(request):
         order_form = OrderForm()
     return render(request, "index.html", {"order_form": order_form, "contact": contact, "rombs": rombs, "cars": cars, "works": works, "parts": parts, "teams_index": teams_index, "preds": preds,
             "description": description, "allpartners": allpartners})
+
 
 def mailss(request):
     if request.method == "POST":
