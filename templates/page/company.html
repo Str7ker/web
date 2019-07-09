@@ -2,38 +2,80 @@
 
 {% block content %}
     {% load static %}
-    <aside class="section type-1 big_company splash_company">
-        <div class="splash-cover">
-        </div>
+    {#    <aside class="section type-1 big_company splash_company">#}
+    <aside class="com1">
+        {#        <div class="splash-cover">#}
+        {#        </div>#}
         {#    Главная секция#}
         <section class="container">
-            <div class="splash-block">
-                {% for company in companyes %}
-                    <div style="text-align: center"><h1 class="display-4">{{ company.title }}</h1></div>
-                    <div style="text-align: justify" class="resurs">
-                        <div class="row">
-                            <div class="col-md-4 col-12">
-                                {% if logose.logo %}
-                                    <img src="{{ logose.logo.url }}" height="60px" alt=""/>
+            <div class="row">
+                <div class="col-md-4 col-12">
+                    <div class=" card card-body">
+                        {% if logose.logo %}
+                            <img src="{{ logose.logo.url }}" height="200px" alt=""/>
 
-                                {% else %}
-                                    <img src="{% static 'img/resurs.png' %}" height="60px" alt=""/>
+                        {% else %}
+                            <img src="{% static 'img/resurs.png' %}" height="200px" alt=""/>
 
-                                {% endif %}
-                            </div>
-                            <div class="col-md-8 col-12">
-                                <h2>{{ company.small_text }}</h2>
-                            </div>
-                            <div class="col-md-12" style="border-top: 2px solid rgba(0, 0, 0, 0.2);">
-                                <h3 style="color: orange;">{{ company.big_text }}</h3>
-                            </div>
+                        {% endif %}
+                    </div>
+                    <hr style="border: 2px solid rgba(240, 171, 0, 0.9);
+    border-radius: 20px;">
+                    <div class="card">
+                        <div class="card-body com2" style="padding: 10px;">
+                            <ul style="    display: -webkit-box;
+    list-style: none;">
+                                <li><a href=""><i class="fas fa-phone"></i></a></li>
+                                <li><a href=""><i class="fas fa-envelope"></i></a></li>
+                                <li><a href=""><i class="fab fa-vk"></i></a></li>
+                                <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                            </ul>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+                {#            <div class="splash-block">#}
+                {% for company in companyes %}
+                    {#                    <div style="text-align: center"><h1 class="display-4">{{ company.title }}</h1></div>#}
+                    {#                    <div style="text-align: justify" class="resurs">#}
+                    {#                        <div class="row">#}
+                    {#                            <div class="col-md-4 col-12">#}
+                    {#                                {% if logose.logo %}#}
+                    {#                                    <img src="{{ logose.logo.url }}" height="60px" alt=""/>#}
+                    {##}
+                    {#                                {% else %}#}
+                    {#                                    <img src="{% static 'img/resurs.png' %}" height="60px" alt=""/>#}
+                    {##}
+                    {#                                {% endif %}#}
+                    {#                            </div>#}
+                    {#                            <div class="col-md-8 col-12">#}
+                    {#                                <h2>{{ company.small_text }}</h2>#}
+                    {#                            </div>#}
+                    {#                            <div class="col-md-12" style="border-top: 2px solid rgba(0, 0, 0, 0.2);">#}
+                    {#                                <h3 style="color: orange;">{{ company.big_text }}</h3>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
+                    <div class="card col-md-8 col-12" style="
+                            {#margin-left: auto;#}
+                            {#margin-right: auto;#}
+                            ">
+                        <div class="card-header">
+                            {{ company.title }}
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p>{{ company.big_text }}</p>
+                                <footer class="blockquote-footer">{{ company.small_text }}</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+
+                {% endfor %}</div>
+            {#            </div>#}
         </section>
     </aside>
-    <div class="section-headlines" style="padding-top: 30px">
+
+    <div class="section-headlines" style="padding-top: 30px;">
         {#    Название заголовка #}
         <h4>
             Мы на карте

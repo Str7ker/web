@@ -19,8 +19,8 @@
 }
 
 .row.rombs {
-    background: rgba(0, 0, 0, 0.3);
-    border-top: 10px solid rgba(0, 0, 0, 0.2);
+    /*background: rgba(0, 0, 0, 0.3);*/
+    /*border-top: 10px solid rgba(0, 0, 0, 0.2);*/
     padding: 25px;
 }
 
@@ -1137,11 +1137,32 @@ li.nav-item.active {
     display: table-cell;
 }
 
-footer {
+footer .page-footer.font-small.indigo {
     /*background-color: #f0f2f4;*/
     background: url("/static/img/road.png");
 }
+.main1 {
+    background: url("/static/img/header/cars2.jpg");
+    padding: 50px;
+    background-size: cover;
+}
+.line {
 
+}
+.com1 {
+    background: url("/static/img/header/company.jpg");
+        padding: 50px;
+    background-size: cover;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+body > aside.com1 > section > div > div.col-md-4.col-12 > div.card > div > ul > li > a {
+    margin: 0px 13px;
+    color: orange;
+    font-size: 40px;
+}
+body > aside.com1 > section > div > div.col-md-4.col-12 > div.card> div > ul > li > a:hover {
+    color: gray;
+}
 footer .col-md-3 {
     margin: 3px 0;
 }
@@ -1388,6 +1409,9 @@ footer a:hover {
     body > aside.back_green > div.container > div > div.col-md-8.col-12 > img {
         display: none;
     }
+    div.card-body.com2{
+        display: none;
+    }
 }
 
 @media (min-width: 351px) and (max-width: 767px) {
@@ -1452,6 +1476,9 @@ footer a:hover {
     }
 
     body > aside.back_green > div.container > div > div.col-md-8.col-12 > img {
+        display: none;
+    }
+     div.card-body.com2{
         display: none;
     }
 }

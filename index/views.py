@@ -7,7 +7,7 @@ from django.core.mail import EmailMessage
 from index.forms import OrderForm
 from django.views.decorators.cache import cache_page
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 def index(request):
 
     contact = Contact.objects.all()

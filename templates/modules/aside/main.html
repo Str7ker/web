@@ -1,23 +1,76 @@
 {% load static %}
 {#Секция и задний фон с машинами#}
-    <aside class="section type-1 big splash">
-
-<div class="splash-cover">
-</div>
+{#    <aside class="section type-1 big splash">#}
+{##}
+{#<div class="splash-cover">#}
+{#</div>#}
 {#    Главная секция#}
-<section class="container">
-    <div class="splash-block">
-        <div class="centered">
-            <div class="row" style="height: 33.33%">
+{#<section class="container">#}
+{#    <div class="splash-block">#}
+{#        <div class="centered">#}
+{#            <div class="row" style="height: 33.33%">#}
                 {#                        Логотип и информация о компании#}
-                {% include "modules/aside/section/main/logo.html" %}
-                {% include "modules/aside/section/main/address.html" %}
+{#                {% include "modules/aside/section/main/logo.html" %}#}
+{#                {% include "modules/aside/section/main/address.html" %}#}
+<aside class="main1">
+    {#        <div class="splash-cover">#}
+    {#        </div>#}
+    {#    Главная секция#}
+    <section class="container">
+        <div class="row">
+            <div class="col-md-8 col-12">
+                <div class="card">
+                    <div class="card-title">
+                        <div style="color: orange; font-family: 'Didact Gothic'; font-size: 20px;">Лучшее предложение
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div style="color: black; font-family: 'Didact Gothic'; margin-bottom: 20px;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: .9;">Москва <span style="    display: block;
+    padding-left: 100px;
+    font-size: 82px;">Владивосток</span></div>
+                    </div>
+                </div>
             </div>
+            <div class="col-md-4 col-12" style="margin-top: 10px;">
+                <div class="card card-title" style="    margin: 10px;">
+                    <h4 style="text-align: center;
+    color: orange;
+    font-size: 24px;
+    padding-top: 7px;">
+                        Оставить заявку
+                    </h4>
+                </div>
+                <div class=" card card-body">
+                    <div class="send2">
+                        {% load crispy_forms_tags %}
+                        <form action="{% url 'index' %}" method="POST">
+                            {% csrf_token %}
+                            {#        {{ order_form|crispy }}#}
+                            {{ order_form|crispy }}
+                            {#        <input name="name" id="applicationName" maxlength="20" placeholder="Введите ваше имя"#}
+                            {#               required/>#}
+                            {#        <input name="email" type="email" id="applicationEmail" maxlength="20"#}
+                            {#               placeholder="Введите ваш E-mail" required/>#}
+                            {#        <input name="telephone" type="Tel" id="applicationTelephone" maxlength="20"#}
+                            {#               placeholder="Введите ваш телефон" required/>#}
+                            {#        <input  type="submit"></input>#}
+                            <button type="submit" class="btn btn-warning">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+</aside>
+{#            </div>#}
             {#                Ромбочки с цифрами#}
             <div class="row rombs desktop" style="height: 33.33%">
                 {% include "modules/aside/section/main/romb_desktop.html" %}
             </div>
-        </div>
-    </div>
-</section>
-</aside>
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
+{#</aside>#}
