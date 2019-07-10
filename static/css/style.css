@@ -84,7 +84,7 @@
 div .contact {
     color: white;
     background: rgba(0, 0, 0, 0.1);
-    border-radius: 40px 10px;
+        border-radius: 0px 10px 40px 0px;
     padding: 10px;
     margin-top: 30px;
 }
@@ -92,7 +92,7 @@ div .contact {
 div .send {
     color: white;
     background: rgba(0, 0, 0, 0.1);
-    border-radius: 10px 40px;
+        border-radius: 40px 0px 0px 10px;
     padding: 10px;
     margin-top: 30px;
 }
@@ -930,7 +930,7 @@ li.nav-item.active {
 ---------------------------------------------------------------------------------------------- */
 
 .section {
-    padding: 100px 0;
+    padding: 20px 0;
 }
 
 .section.type-1 {
@@ -1147,7 +1147,8 @@ footer .page-footer.font-small.indigo {
     background-size: cover;
 }
 .line {
-
+    background: url("/static/img/mv.png");
+    box-shadow: 0 0 0 200px rgba(0, 0, 0, 0.5) inset;
 }
 .com1 {
     background: url("/static/img/header/company.jpg");
@@ -1163,6 +1164,10 @@ body > aside.com1 > section > div > div.col-md-4.col-12 > div.card > div > ul > 
 body > aside.com1 > section > div > div.col-md-4.col-12 > div.card> div > ul > li > a:hover {
     color: gray;
 }
+
+.textinput.textInput.form-control {
+    border: orange solid 2px;
+}
 footer .col-md-3 {
     margin: 3px 0;
 }
@@ -1176,11 +1181,13 @@ footer a {
 }
 
 footer a:hover {
-    color: #FFFFFF;
+    color: #a5b3bf;
+    text-decoration: none !important;
 }
 
 .page-footer {
     padding-bottom: 55px;
+    background: #f0f2f4;
 }
 
 .footer-copyright-index {
@@ -1228,12 +1235,16 @@ footer a:hover {
 }
 
 .our-team {
-    border: 4px solid #F19234;
+    border: 0px solid gray;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .our-team .team-image {
     position: relative;
     text-align: center;
+    border-top: 5px solid gray;
+    border-left: 5px solid gray;
+    border-right: 5px solid gray;
 }
 
 .our-team img {
@@ -1252,14 +1263,14 @@ footer a:hover {
     line-height: 30px;
     padding: 90px 15px;
     opacity: 0;
-    background-color: rgba(241, 146, 52, 0.9);
+    background-color: rgba(241, 146, 52, 0.6);
     transition: all 0.5s ease 0s;
 }
 
 .our-team:hover .description {
     opacity: 1;
     font-size: 20px;
-    text-align: left;
+    text-align: center;
 }
 
 .our-team .social {
@@ -1299,23 +1310,24 @@ footer a:hover {
 }
 
 .our-team .team-info {
-    padding: 20px;
+        padding: 20px;
+    background-color: #2a333b;
 }
 
 .our-team .title {
     font-size: 20px;
-    color: black;
     letter-spacing: 2px;
     margin: 0px 0 0px 0;
     transition: all 0.5s ease 0s;
     /* font-family: 'Didact Gothic', sans-serif; */
+    color: #a5b3bf;
 }
 
 .our-team .post {
     display: block;
     font-size: 14px;
-    color: black;
     text-transform: capitalize;
+    color: #a5b3bf;
 }
 
 .our-team .title:hover,

@@ -33,7 +33,7 @@ urlpatterns = [
     path('movizor/', index_movizor, name="movizor"),
     path('partners/', index_partners, name="partners"),
     path('team/', index_team, name="team"),
-    path('company/', index_company, name="company"),
+    path('company/', index_company, name="index_company"),
     path('contact/', Contact.as_view(), name="contact"),
     path('', include('adminpanel.urls')),
 ]

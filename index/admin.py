@@ -39,6 +39,9 @@ class LogoAdmin(admin.ModelAdmin):
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('name', 'phone', 'email')
 
+class EmailAdmin(admin.ModelAdmin):
+    list_display = ('id', 'email')
+
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Romb, RombAdmin)
 admin.site.register(Car, CarAdmin)
@@ -51,3 +54,4 @@ admin.site.register(Keywords, KeywordAdmin)
 admin.site.register(AllPartner, AllPartnerAdmin)
 admin.site.register(Logo, LogoAdmin)
 admin.site.register(Order, OrderAdmin)
+admin.site.register(Email, EmailAdmin)

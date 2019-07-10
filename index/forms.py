@@ -1,5 +1,5 @@
 from django import forms
-from index.models import Order
+from index.models import Order, Email
 
 
 class OrderForm(forms.ModelForm):
@@ -8,4 +8,11 @@ class OrderForm(forms.ModelForm):
     email = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder': 'Ваша электронная почта'}))
     class Meta:
         model = Order
+        fields = ('__all__')
+
+class EmailForm(forms.ModelForm):
+    email = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder': 'Ваша электронная почта'}))
+
+    class Meta:
+        model = Email
         fields = ('__all__')

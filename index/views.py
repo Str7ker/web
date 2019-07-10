@@ -4,7 +4,7 @@ from index.models import *
 from django.core.mail import send_mail
 from django.views.generic import View
 from django.core.mail import EmailMessage
-from index.forms import OrderForm
+from index.forms import OrderForm,EmailForm
 from django.views.decorators.cache import cache_page
 
 # @cache_page(60 * 15)
@@ -26,7 +26,15 @@ def index(request):
             return HttpResponseRedirect('/')
     else:
         order_form = OrderForm()
-    return render(request, "index.html", {"order_form": order_form, "contact": contact, "rombs": rombs, "cars": cars, "works": works, "parts": parts, "teams_index": teams_index, "preds": preds,
+    if request.method == 'POST':
+        email_form = EmailForm(request.POST)
+        if email_form.is_valid():
+            email_form.save()
+            return HttpResponseRedirect('/')
+    else:
+        email_form = EmailForm()
+
+    return render(request, "index.html", {"order_form": order_form, "email_form": email_form, "contact": contact, "rombs": rombs, "cars": cars, "works": works, "parts": parts, "teams_index": teams_index, "preds": preds,
             "description": description, "allpartners": allpartners})
 
 

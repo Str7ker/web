@@ -1,5 +1,5 @@
 from index.models import Logo
-from index.forms import OrderForm
+from index.forms import OrderForm, EmailForm
 
 def logos(request):
     return {"logose": Logo.objects.last()}
@@ -13,3 +13,13 @@ def form_order(request):
     else:
         order_form = OrderForm()
     return {"order": order_form}
+
+def form_email(request):
+    email_form = EmailForm()
+    if request.method == 'POST':
+        email_form = EmailForm(request.POST)
+        if email_form.is_valid():
+            email_form.save()
+    else:
+        email_form = EmailForm()
+    return {"email_form": email_form}

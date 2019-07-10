@@ -142,3 +142,10 @@ class Order(models.Model):
     class Meta:
         verbose_name = 'Заявка'
         verbose_name_plural = 'Заявки'
+
+class Email(models.Model):
+    email = models.CharField(verbose_name="Электронная почта", max_length=100, blank=True)
+
+    class Meta:
+        verbose_name = 'Рассылка'
+        verbose_name_plural = 'Рассылки'
